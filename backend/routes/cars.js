@@ -4,10 +4,9 @@ import * as controller from'../controllers/controller.js'
 
 const router = express.Router()
 
+// router.use(requireAuth)
 
 router.get('/', controller.getCars)
-
-// router.use(requireAuth)
 
 router.get('/:id', controller.getCar)
 
