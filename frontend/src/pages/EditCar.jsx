@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useLocation, useNavigate, useParams, Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 const EditCar = () => {
     const { id } = useParams();
@@ -56,9 +54,9 @@ const EditCar = () => {
 
     return (
         <div className="container">
-            <Navbar />
             <div className="edit-car">
                 <form onSubmit={handleSubmit} className={error ? "form-error" : ""}>
+                    <h3>Redaguoti automobilį</h3>
                     <label htmlFor="imgUrl">Paveikslėlio nuoroda: </label>
                     <input type="text" id="imgUrl" value={imageUrl} onChange={(e) => setimageUrl(e.target.value)} />
                     <label htmlFor="model">Markė: </label>
@@ -77,12 +75,13 @@ const EditCar = () => {
                     <input type="number" id="seats" min={2} value={seats} onChange={(e) => setSeats(e.target.value)} />
                     <label htmlFor="body">Kėbulo tipas: </label>
                     <input type="text" id="body" value={body} onChange={(e) => setBody(e.target.value)} />
-                    <button>Redaguoti</button>
+                    <div className="buttons">
+                        <button className="link-btn"><Link to={`/cars/${id}`}>Grįžti atgal</Link></button>
+                        <button>Redaguoti</button>
+                    </div>
                     {error && <div className="error">{error}</div>}
                 </form>
-                <Link to={`/cars/${id}`}>Grįžti atgal</Link>
             </div>
-            <Footer />
         </div>
     );
 };

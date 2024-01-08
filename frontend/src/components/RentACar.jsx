@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const RentACar = ({ carDetails }) => {
+    const { user } = useAuthContext();
     const [isChecked, setIsChecked] = useState(false);
     const [error, setError] = useState(null);
     const [currentDate, setCurrentDate] = useState();
@@ -34,13 +36,13 @@ const RentACar = ({ carDetails }) => {
         };
 
         const car = carDetails._id;
-        const user = '??????';
+        const id = user._id;
         const dateRented = new Date(fromDate);
         const dateReturned = new Date(toDate);
 
         const response = fetch('/api/reservations', {
             method: 'POST',
-            body: JSON.stringify({ car, user, dateRented, dateReturned }),
+            body: JSON.stringify({ car, user: id, dateRented, dateReturned }),
             headers: { 'Content-Type': 'application/json' }
         });
 

@@ -1,15 +1,14 @@
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import RentACar from '../components/RentACar';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 const CarDetails = () => {
     const { id } = useParams();
+    const { user } = useAuthContext();
     const [car, setCar] = useState();
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-    const user = false;
 
     useEffect(() => {
         const fetchCarDetails = async () => {
@@ -46,13 +45,12 @@ const CarDetails = () => {
 
     return (
         <div className='container'>
-            <Navbar />
             <div className="car-details">
                 {error && <div>{error}</div>}
                 {car &&
                     <>
                         <h2>{car.brand} {car.model} detali informacija</h2>
-                        {user &&
+                        {user.isAdmin &&
                             <div className='buttons'>
                                 <Link to={`/cars/edit/${id}`} state={car} >
                                     <button className='edit'>Redaguoti</button>
@@ -72,12 +70,11 @@ const CarDetails = () => {
                                 <h3>Nuomos kaina: <span className='rent-price'>{car.price}&euro; / d.</span></h3>
                                 <Link to='/cars'>Grįžti atgal</Link>
                             </div>
-                            {!user && <RentACar carDetails={car} />}
+                            {!user.isAdmin && <RentACar carDetails={car} />}
                         </div>
                     </>
                 }
             </div>
-            <Footer />
         </div>
     );
 };
