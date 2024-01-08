@@ -10,6 +10,7 @@ import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
 import AboutUs from './pages/AboutUs';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import RentPolicy from './pages/RentPolicy';
 import FAQ from './pages/FAQ';
 import Cars from './pages/Cars';
 import CarDetails from './pages/CarDetails';
@@ -30,6 +31,7 @@ function App() {
           <Route path='/signup' element={<SignUp />} />
           <Route path='/aboutus' element={<AboutUs />} />
           <Route path='/privacypolicy' element={<PrivacyPolicy />} />
+          <Route path='/rentpolicy' element={<RentPolicy />} />
           <Route path='/faq' element={<FAQ />} />
           <Route path='/cars' element={<Cars />} />
           <Route path='/cars/:id' element={<CarDetails />} />
