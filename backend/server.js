@@ -7,7 +7,7 @@ import userRouts from './routes/user.js'
 dotenv.config()
 
 //express app
- const app = express()
+const app = express()
 
 //middleware
 app.use(express.json())
@@ -31,9 +31,9 @@ app.use('/api/user', userRouts)
 
 //connect to DB
 mongoose.connect(process.env.URI)
- .then(() => {
-    app.listen(process.env.PORT, () => {
-        console.log('listening on port', process.env.PORT)
+    .then(() => {
+        app.listen(process.env.PORT, () => {
+            console.log('listening on port', process.env.PORT)
+        })
     })
- })
- .catch((err) => console.log(err))
+    .catch((err) => console.log(err))
