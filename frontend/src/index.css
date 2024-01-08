@@ -4,7 +4,9 @@
   --blue-3: #00B4D8;
   --blue-4: #0077B6;
   --blue-5: #03045E;
-  --background-color: #eeeeee;
+  --background-color: #fcfcfc;
+  --success: #03AC13;
+  --warning: #D30000;
 }
 
 body {
@@ -24,4 +26,133 @@ code {
   max-width: 1200px;
   margin: 20px auto;
   padding: 0 20px;
+}
+
+/* CAR DETAILS PAGE */
+.car-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.car-details img {
+  max-width: 300px;
+}
+
+.car-details .properties-rent-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.car-details .properties-price {
+  text-align: center;
+}
+
+.car-details .properties {
+  text-align: left;
+  background-color: var(--blue-4);
+  color: var(--background-color);
+  border-radius: 10px;
+  padding: 5px 20px;
+  margin-bottom: 20px;
+}
+
+.car-details .properties p {
+  margin: 10px 0;
+}
+
+.car-details span {
+  background-color: var(--blue-3);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--background-color);
+}
+
+.car-details a {
+  text-decoration: none;
+  color: #03045E;
+}
+
+/* RENT A CAR FORM */
+.car-details .rent-table form {
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30px;
+  background-color: var(--blue-1);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.car-details .rent-table form h3 {
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.car-details .rent-table label {
+  display: inline-block;
+  text-align: right;
+  width: 100%;
+}
+
+.car-details .rent-table input.date {
+  width: 255px;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.car-details .rent-table form label:last-of-type {
+  font-size: 14px;
+  display: inline;
+}
+
+.car-details .rent-table form #agreement {
+  margin-right: 5px;
+}
+
+.car-details .rent-table form input {
+  height: 20px;
+  font-family: 'Manrope', sans-serif;
+  background-color: var(--background-color);
+  border: 1px solid var(--blue-4);
+  border-radius: 5px;
+}
+
+.car-details .rent-table form button {
+  display: block;
+  background-color: var(--blue-4);
+  color: var(--background-color);
+  border: none;
+  font-size: 15px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 20px auto 0;
+}
+
+.error {
+  margin-top: 20px;
+  background-color: #e66565b1;
+  border: 1px solid var(--warning);
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  color: var(--background-color);
+}
+
+.car-details .buttons button.edit,
+.car-details .buttons button.delete {
+  color: var(--background-color);
+  border: none;
+  font-size: 15px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 20px 5px 0;
+}
+
+.car-details .buttons button.edit {
+  background-color: var(--success);
+}
+
+.car-details .buttons button.delete {
+  background-color: var(--warning);
 }
