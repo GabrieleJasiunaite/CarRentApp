@@ -4,7 +4,6 @@ import requireAuth from '../middleware/requireAuth.js';
 
 const router = express.Router()
 
-
 router.get('/', controller.getCars);
 
 // router.use(requireAuth);
