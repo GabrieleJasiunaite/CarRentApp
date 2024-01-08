@@ -1,21 +1,29 @@
-import express from 'express'
-import dotenv from 'dotenv'
-import carsRoutes from './routes/cars.js'
-import mongoose from 'mongoose'
-import userRouts from './routes/user.js'
+import express from 'express';
+import dotenv from 'dotenv';
+import carsRoutes from './routes/cars.js';
+import mongoose from 'mongoose';
+import userRoutes from './routes/user.js';
+import reservationsRoutes from './routes/reservations.js';
 
-dotenv.config()
+dotenv.config();
 
 //express app
-const app = express()
+const app = express();
 
 //middleware
-app.use(express.json())
+app.use(express.json());
 
 app.use((req, res, next) => {
-    console.log(req.path, req.method)
-    next()
-})
+    console.log(req.path, req.method);
+    next();
+});
+
+app.use((req, res, next) => {
+    res.append('Access-Control-Allow-Origin', ['*']);
+    res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.append('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 
 app.use((req, res, next) => {
     res.append('Access-Control-Allow-Origin', ['*']);
@@ -25,9 +33,9 @@ app.use((req, res, next) => {
 });
 
 //routes
-app.use('/api/cars', carsRoutes)
-
-app.use('/api/user', userRouts)
+app.use('/api/cars', carsRoutes);
+app.use('/api/user', userRoutes);
+app.use('/api/reservations', reservationsRoutes);
 
 //connect to DB
 mongoose.connect(process.env.URI)
@@ -36,4 +44,4 @@ mongoose.connect(process.env.URI)
             console.log('listening on port', process.env.PORT)
         })
     })
-    .catch((err) => console.log(err))
+    .catch((err) => console.log(err));
