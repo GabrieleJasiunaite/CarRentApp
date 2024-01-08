@@ -4,7 +4,7 @@
   --blue-3: #00B4D8;
   --blue-4: #0077B6;
   --blue-5: #03045E;
-  --background-color: #eeeeee;
+  --background-color: white;
 }
 
 body {
@@ -24,4 +24,32 @@ code {
   max-width: 1200px;
   margin: 20px auto;
   padding: 0 20px;
+}
+
+ul {
+  max-width: 1200px;
+  width: 100%;
+  margin: 30px auto;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+}
+
+span {
+  display: block;
+  margin: 10px 0;
+}
+
+button {
+  background-color: var(--blue-1);
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid black;
+  cursor: pointer;
+  text-transform: uppercase;
 }
