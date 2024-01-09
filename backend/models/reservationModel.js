@@ -3,7 +3,10 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema
 const reservationSchema = new Schema({
-    car: {
+    car_id: {
+        type: String
+    },
+    carTitle: {
         type: String
     },
     dateRented: {
@@ -12,7 +15,10 @@ const reservationSchema = new Schema({
     dateReturned: {
         type: Date
     },
-    user: {
+    user_id: {
+        type: String
+    },
+    email: {
         type: String
     },
     status: {

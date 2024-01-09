@@ -60,3 +60,18 @@ export const removeCar = async (req, res) => {
     }
     res.status(200).json(car)
 }
+
+export const getTypes = async (req, res) => {
+    try {
+        const types = await Car.aggregate([
+            { $unwind: "$body" },
+            { $group: { _id: "$body" } }
+        ]);
+
+        return res.status(200).json(types);
+
+    } catch (err) {
+        console.error(err);
+        return res.status(500).send("Server error");
+    };
+};

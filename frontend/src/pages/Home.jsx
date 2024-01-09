@@ -8,24 +8,22 @@ const Home = () => {
     const carIds = ['659807eacb3a6fcedfcf501b', "659807eacb3a6fcedfcf5028", "659807eacb3a6fcedfcf501f", "659807eacb3a6fcedfcf5020"]
 
     useEffect(() => {
-        const fetchCarsByIds = async () => {
+        const fetchRandomCars = async () => {
             try {
-                const promises = carIds.map(async id => {
-                    const response = await fetch(`http://localhost:8000/api/cars/${id}`)
-                    if (response.ok) {
-                        const data = await response.json()
-                        return data
-                    }
-                })
-
-                const cars = await Promise.all(promises)
-                setCarsData(cars.filter(Boolean))
+                const response = await fetch('http://localhost:8000/api/cars');
+                if (response.ok) {
+                    const data = await response.json()
+                    const randomCars = data.sort(() => Math.random() - 0.5).slice(0, 4);
+                    setCarsData(randomCars);
+                } else {
+                    throw new Error('Failed to fetch data');
+                }
             } catch (error) {
-                console.error('Error fetching data:', error)
-            }
-        }
+                console.error('Error fetching data:', error);
+            };
+        };
 
-        fetchCarsByIds()
+        fetchRandomCars();
     }, [])
 
     return (
@@ -55,7 +53,8 @@ const Home = () => {
                             </div>
                             <div className="car-button-box">
                                 <p>{car.price} Eur <span>/parai</span></p>
-                                <button>Daugiau <i class="bi bi-arrow-right"></i></button>
+                                <button>Daugiau <i className="bi bi-arrow-right"></i></button>
+                                {/* prideti funckionaluma paskiau */}
                             </div>
                         </div>
                     ))}

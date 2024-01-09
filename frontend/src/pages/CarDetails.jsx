@@ -27,7 +27,7 @@ const CarDetails = () => {
     }, []);
 
     const handleDelete = async () => {
-        const response = await fetch(`/api/cars/${id}`, {
+        const response = await fetch(`http://localhost:8000/api/cars/${id}`, {
             method: 'DELETE'
         });
 
@@ -67,7 +67,7 @@ const CarDetails = () => {
                                     <p><strong>Vietos: </strong>{car.seats}</p>
                                     <p><strong>Kėbulo tipas: </strong>{car.body}</p>
                                 </div>
-                                <h3>Nuomos kaina: <span className='rent-price'>{car.price}&euro; / d.</span></h3>
+                                <h3>Nuomos kaina: <span className='rent-price'>{car.price} Eur /parai; / d.</span></h3>
                                 <Link to='/cars'>Grįžti atgal</Link>
                             </div>
                             {!user.isAdmin && <RentACar carDetails={car} />}

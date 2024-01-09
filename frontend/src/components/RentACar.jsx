@@ -35,13 +35,14 @@ const RentACar = ({ carDetails }) => {
             return;
         };
 
-        const car = carDetails._id;
+        const car_id = carDetails._id;
+        const carTitle = `${carDetails.brand} ${carDetails.model}`
         const dateRented = new Date(fromDate);
         const dateReturned = new Date(toDate);
 
         const response = await fetch('http://localhost:8000/api/reservations', {
             method: 'POST',
-            body: JSON.stringify({ car, dateRented, dateReturned }),
+            body: JSON.stringify({ car_id, carTitle, dateRented, dateReturned }),
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${user.token}`
@@ -53,7 +54,6 @@ const RentACar = ({ carDetails }) => {
             return;
         };
 
-        console.log(response);
         const json = await response.json();
 
         if (!response.ok) {

@@ -4,6 +4,7 @@ import * as controller from '../controllers/controller.js';
 const router = express.Router()
 
 router.get('/', controller.getCars);
+router.get('/types', controller.getTypes);
 router.get('/:id', controller.getCar);
 router.put('/:id', controller.updateCar);
 router.post('/', controller.createCar);

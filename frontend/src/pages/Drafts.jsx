@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DraftCard from "../components/DraftCard";
 
 const Drafts = () => {
@@ -21,11 +21,16 @@ const Drafts = () => {
 
     return (
         <div className="container">
-            <h2 className="drafts-heading">Juodraščiai</h2>
-            <div className="drafts-grid">
-                {drafts.map((draft, i) => (
-                    <DraftCard key={i} draft={draft} handleClick={handleClick} />
-                ))}
+            <div className="drafts">
+                <div className="title">
+                    <h2 className="drafts-heading">Juodraščiai</h2>
+                    <Link to="/new">Atgal</Link>
+                </div>
+                <div className="drafts-grid">
+                    {drafts.map((draft, i) => (
+                        <DraftCard key={i} draft={draft} handleClick={handleClick} />
+                    ))}
+                </div>
             </div>
         </div>
     );
