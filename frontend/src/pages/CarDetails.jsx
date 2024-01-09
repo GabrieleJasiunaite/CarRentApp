@@ -46,7 +46,7 @@ const CarDetails = () => {
     return (
         <div className='container'>
             <div className="car-details">
-                {error && <div>{error}</div>}
+                {error && <div className='error'>{error}</div>}
                 {car &&
                     <>
                         <h2>{car.brand} {car.model} detali informacija</h2>

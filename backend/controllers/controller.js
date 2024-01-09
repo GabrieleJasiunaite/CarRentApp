@@ -9,12 +9,12 @@ export const getCar = async (req, res) => {
     const { id } = req.params
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: "Tokio automobilio nera" })
+        return res.status(404).json({ error: "Tokio automobilio nėra" })
     }
     const car = await Car.findById(id)
 
     if (!car) {
-        return res.status(404).json({ error: 'Tokio automobilio nera.' })
+        return res.status(404).json({ error: 'Tokio automobilio nėra.' })
 
     }
     res.status(200).json(car)
@@ -26,7 +26,7 @@ export const createCar = async (req, res) => {
     if (!imageUrl) { emptyFields.push('imageUrl') }
     if (!model) { emptyFields.push('model') }//cia reiks papildyti
     if (emptyFields.length > 0) {
-        return res.status(400).json({ error: 'Prasome uzpildyt visus laukelius', emptyFields })
+        return res.status(400).json({ error: 'Prašome užpildyti visus laukelius', emptyFields })
     }
     try {
         const car = await Car.create({ imageUrl, model, brand, price, year, fuelType, transmission, seats, body })
@@ -40,7 +40,7 @@ export const createCar = async (req, res) => {
 export const updateCar = async (req, res) => {
     const { id } = req.params
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: 'Tokio automobilio nera' })
+        return res.status(404).json({ error: 'Tokio automobilio nėra' })
     }
     const car = await Car.findByIdAndUpdate(id, req.body, { runValidators: true, new: true })
     if (!car) {
@@ -52,11 +52,11 @@ export const updateCar = async (req, res) => {
 export const removeCar = async (req, res) => {
     const { id } = req.params
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: 'Tokio automobilio nera' })
+        return res.status(404).json({ error: 'Tokio automobilio nėra' })
     }
     const car = await Car.findByIdAndDelete({ _id: id })
     if (!car) {
-        return res.status(404).json({ error: 'Tokio automobilio nera nera.' })
+        return res.status(404).json({ error: 'Tokio automobilio nėra.' })
     }
     res.status(200).json(car)
 }

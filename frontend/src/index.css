@@ -5,6 +5,8 @@
   --blue-4: #0077B6;
   --blue-5: #03045E;
   --background-color: #fcfcfc;
+  --success: #50C878;
+  --warning: #CA3433;
 }
 
 body {
@@ -37,13 +39,20 @@ input {
   font-family: 'Manrope', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
 /* NAVBAR */
 .navbar {
   width: 100vw;
 }
 
 .navbar a {
-  text-decoration: none;
   color: var(--blue-5);
 }
 
@@ -402,7 +411,6 @@ form.login-signup button {
 }
 
 .car-details a {
-  text-decoration: none;
   color: #03045E;
 }
 
@@ -457,6 +465,34 @@ form.login-signup button {
   font-size: 15px;
   padding: 5px 10px;
   margin: 20px auto 0;
+}
+
+.rent-table .success-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rent-table .success-bg .success {
+  background-color: var(--background-color);
+  border-radius: 10px;
+  width: 50%;
+  min-width: 300px;
+  padding: 30px;
+  text-align: center;
+}
+
+.rent-table .success-bg .success button {
+  background-color: var(--blue-5);
+  color: var(--background-color);
+  padding: 10px 20px;
+  margin: 0 5px;
 }
 
 .error {
@@ -522,11 +558,51 @@ form.login-signup button {
 }
 
 .edit-car form button a {
-  text-decoration: none;
   color: var(--background-color);
 }
 
 .edit-car form button.link-btn {
   width: 130px;
   margin-right: 10px;
+}
+
+/* DRAFT CARD */
+h2.drafts-heading {
+  margin: 40px 0;
+}
+
+.drafts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.drafts-grid a {
+  color: black;
+}
+
+.drafts-grid .draft-card {
+  background-color: var(--blue-1);
+  background: linear-gradient(180deg, var(--blue-1), var(--blue-2));
+  border-radius: 10px;
+  height: 30px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drafts-grid .draft-card .text strong {
+  margin-right: 50px;
+}
+
+.drafts-grid .draft-card button {
+  padding: 5px 10px;
+  background-color: var(--warning);
+  color: var(--background-color);
+}
+
+.drafts-grid .draft-card:hover {
+  cursor: pointer;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.303);
 }

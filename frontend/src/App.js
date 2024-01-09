@@ -20,6 +20,7 @@ import NewCar from './pages/NewCar';
 import Reservations from './pages/Reservations';
 import EditReservation from './pages/EditReservation';
 import Error404 from './pages/Error404';
+import Drafts from './pages/Drafts';
 
 function App() {
   const { user } = useAuthContext();
@@ -40,6 +41,7 @@ function App() {
           <Route path='/cars/:id' element={user ? <CarDetails /> : <Navigate to='/login' />} />
           <Route path='/cars/edit/:id' element={user ? <EditCar /> : <Navigate to='/login' />} />
           <Route path='/new' element={user ? <NewCar /> : <Navigate to='/login' />} />
+          <Route path='/new/drafts' element={user ? <Drafts /> : <Navigate to='/login' />} />
           <Route path='/reservations' element={user ? <Reservations /> : <Navigate to='/login' />} />
           <Route path='/reservations/edit/:id' element={user ? <EditReservation /> : <Navigate to='/login' />} />
           <Route path='*' element={<Error404 />} />

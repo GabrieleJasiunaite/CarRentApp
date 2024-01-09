@@ -36,14 +36,16 @@ const RentACar = ({ carDetails }) => {
         };
 
         const car = carDetails._id;
-        const id = user._id;
         const dateRented = new Date(fromDate);
         const dateReturned = new Date(toDate);
 
-        const response = fetch('/api/reservations', {
+        const response = await fetch('http://localhost:8000/api/reservations', {
             method: 'POST',
-            body: JSON.stringify({ car, user: id, dateRented, dateReturned }),
-            headers: { 'Content-Type': 'application/json' }
+            body: JSON.stringify({ car, dateRented, dateReturned }),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
+            }
         });
 
         if (response.status === 500) {
@@ -51,6 +53,7 @@ const RentACar = ({ carDetails }) => {
             return;
         };
 
+        console.log(response);
         const json = await response.json();
 
         if (!response.ok) {
@@ -77,10 +80,12 @@ const RentACar = ({ carDetails }) => {
                 <button>Rezervuoti</button>
             </form>
             {successMessage &&
-                <div className="success">
-                    <h3>{successMessage}</h3>
-                    <Link to='/cars'>Atgal į pradžią</Link>
-                    <Link to='/reservations'>Mano rezervacijos</Link>
+                <div className="success-bg">
+                    <div className="success">
+                        <h3>{successMessage}</h3>
+                        <Link to='/cars'><button>Atgal į pradžią</button></Link>
+                        <Link to='/reservations'><button>Mano rezervacijos</button></Link>
+                    </div>
                 </div>
             }
         </div>

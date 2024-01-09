@@ -24,6 +24,7 @@ const Cars = () => {
 
   return (
     <div className='cars'>
+      <Link to={'/new/drafts'}>New</Link>
       {data ? (
         <ul>
           {data.map((car, index) => (

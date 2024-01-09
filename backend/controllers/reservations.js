@@ -10,39 +10,42 @@ export const getReservation = async (req, res) => {
     const { id } = req.params
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: "Tokios rezervacijos nera nera" })
+        return res.status(404).json({ error: "Tokios rezervacijos nėra" })
     }
 
     const reservation = await Reservation.findById(id)
 
     if (!reservation) {
-        return res.status(404).json({ error: 'Tokios rezervacijos nera' })
+        return res.status(404).json({ error: 'Tokios rezervacijos nėra' })
     }
     res.status(200).json(reservation)
 }
 
 export const createReservation = async (req, res) => {
-    const { car, dateRented, dateReturned, user } = req.body
-    let emptyFields = []
-    if (!car) { emptyFields.push('car') }
-    // if(!dateRented){emptyFields.push('carRented')}
-    // if(!dateReturned){emptyFields.push('dateReturned')}
-    if (!user) { emptyFields.push('user') }// cia dar reiks apsneket baigus frontend
+    const { car, dateRented, dateReturned } = req.body;
+
+    let emptyFields = [];
+
+    if (!car) { emptyFields.push('pasirinkite automobilį') };
+    if (!dateRented) { emptyFields.push('pasirinkite nuomos datą') };
+    if (!dateReturned) { emptyFields.push('pasirinkite grąžinimo datą') };
     if (emptyFields.length > 0) {
-        return res.status(400).json({ error: 'Prasome uzpildyti visus laukelius', emptyFields })
-    }
+        return res.status(400).json({ error: 'Prašome užpildyti visus laukelius', emptyFields })
+    };
+
     try {
-        const reservation = await Reservation.create({ car, dateRented, dateReturned, user })
-        res.status(200).json(car)
+        const user = req.user._id;
+        const reservation = await Reservation.create({ car, dateRented, dateReturned, user, status: 'Laukiama' });
+        res.status(200).json(reservation)
     } catch (error) {
         res.status(400).json({ error: error.message })
-    }
-}
+    };
+};
 
 export const updateReservation = async (req, res) => {
     const { id } = req.params
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: 'Tokios rezervacijos nera' })
+        return res.status(404).json({ error: 'Tokios rezervacijos nėra' })
     }
     //papildyt po diskusiju ka norim naujint
     const reservation = await Reservation.findByIdAndUpdate(id, req.body, { runValidators: true, new: true })
@@ -55,11 +58,11 @@ export const updateReservation = async (req, res) => {
 export const removeReservation = async (req, res) => {
     const { id } = req.params
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: 'Tokios rezervacijos nera' })
+        return res.status(404).json({ error: 'Tokios rezervacijos nėra' })
     }
     const reservation = await Reservation.findByIdAndDelete({ _id: id })
     if (!reservation) {
-        return res.status(404).json({ error: 'Tokios rezervacijos nera.' })
+        return res.status(404).json({ error: 'Tokios rezervacijos nėra.' })
     }
     res.status(200).json(reservation)
 };

@@ -1,10 +1,10 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 
 const Schema = mongoose.Schema
-const reservationSchema = new Schema ({
+const reservationSchema = new Schema({
     car: {
-      type: String
+        type: String
     },
     dateRented: {
         type: Date
@@ -14,7 +14,10 @@ const reservationSchema = new Schema ({
     },
     user: {
         type: String
+    },
+    status: {
+        type: String
     }
-})
+});
 
-export default mongoose.model('Reservation', reservationSchema)
+export default mongoose.model('Reservation', reservationSchema);
