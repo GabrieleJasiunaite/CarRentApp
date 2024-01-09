@@ -69,6 +69,236 @@ input {
   padding: 5px 10px 6px;
 }
 
+/* HOME PAGE */
+
+/* first cont */
+
+.first-container {
+  background-color: rgba(0, 175, 245, 0.08);
+  padding: 75px 104px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 7px;
+}
+
+.first-container-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.first-container-text h1 {
+  width: 650px;
+  font-weight: 600;
+  font-size: 32px;
+  margin: 0;
+}
+
+.first-container-text span {
+  color: #00AFF5
+}
+
+.first-container-text p {
+  font-weight: 400;
+  font-size: 20px;
+  width: 466px;
+  margin: 0;
+  padding-top: 20px;
+}
+
+.first-container img {
+  width: 628px;
+  height: 387px;
+}
+
+/* second cont */
+
+.second-container {
+  background-color: white;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.second-container h2 {
+  font-weight: 600;
+  line-height: 40px;
+  font-size: 32px;
+  margin: 0;
+  padding-bottom: 50px;
+}
+
+.cars-display-container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.car-display-container {
+  border: 1px solid #EBEBEB;
+  border-radius: 12px;
+  height: 430px;
+  width: 320px;
+}
+
+.car-pic-box {
+  padding: 9px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.car-pic-box img {
+  background-color: #F7F7FB;
+  width: 300px;
+  height: 190px;
+  border-radius: 8px;
+}
+
+.car-pic-box h3 {
+  padding-top: 40px;
+  padding-left: 5px;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+}
+
+.car-info-box {
+  padding: 0px 17px 15px 17px;
+  display: grid;
+  grid-template-columns: 1fr 112px;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 400;
+  color: #929395;
+}
+
+.car-info-box p {
+  margin-bottom: 7px;
+}
+
+.car-info-box .iconify {
+  padding-right: 10px;
+  width: 17px;
+  height: 16px;
+}
+
+.car-button-box {
+  border-top: 1px solid #EBEBEB;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 19px 0px 19px;
+}
+
+.car-button-box p {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.car-button-box span {
+  font-weight: 800;
+  font-size: 12px;
+  color: #AAAAAA;
+}
+
+.car-button-box button {
+  color: #20BFB6;
+  font-weight: 400;
+  font-size: 14px;
+  background: none;
+  border: none;
+  width: 100px;
+}
+
+/* third cont */
+
+.third-container {
+  background-color: #00aff514;
+  height: 850px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.third-pic {
+  width: 580px;
+  height: 380px;
+}
+
+.third-container .block {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 10px 15px;
+  width: 366px;
+  height: 145px;
+  position: absolute;
+}
+
+.third-container .block h3 {
+  font-weight: 700;
+  font-size: 20px;
+  margin: 10px 0px;
+
+}
+
+.third-container .block p {
+  font-weight: 500px
+}
+
+.third-container .block img {
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  top: -32px;
+  left: 0px;
+}
+
+.third-container .num1 {
+  top: 100px;
+  left: 110px;
+}
+
+.third-container .num2 {
+  top: 65px;
+  right: 190px;
+}
+
+.third-container .num3 {
+  top: 480px;
+  left: 50px;
+}
+
+.third-container .num4 {
+  top: 380px;
+  right: 50px;
+}
+
+.third-container .num5 {
+  top: 650px;
+  right: 500px;
+}
+
+/* fourth cont */
+
+.fourth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 140px;
+}
+
+.fourth-container img {
+  width: 1120px;
+  height: 64px;
+}
+
 /* LOGIN, SIGNUP */
 .login-signup-div {
   display: flex;
