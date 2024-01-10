@@ -119,6 +119,7 @@ const EditReservation = () => {
                             <option value="laukiama">Laukiama</option>
                             <option value="patvirtinta">Patvirtinta</option>
                             <option value="atšaukta">Atšaukta</option>
+                            <option value="atšaukta">Įvykdyta</option>
                         </select>}
                     <div className="buttons">
                         <button className="link-btn"><Link to={`/reservations/`}>Grįžti atgal</Link></button>
@@ -127,6 +128,7 @@ const EditReservation = () => {
 
                     {error && <div className="error">{error}</div>}
                 </form>
+                {!user.isAdmin && <button className="delete">Atšauktki rezervaciją</button>}
                 {selectedCar && <div className="selected-car">
                     <img src={selectedCar.imageUrl} alt={selectedCar.brand + selectedCar.model} />
                     <div className="properties-price">
