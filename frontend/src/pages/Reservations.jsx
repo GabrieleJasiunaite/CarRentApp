@@ -8,12 +8,15 @@ const Reservations = () => {
     const [reservations, setReservations] = useState([]);
     // State for handling errors
     const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(true)
+
     // Accessing user information from the authentication context
     const { user } = useAuthContext();
 
 // Fetch reservations data when the component mounts
     useEffect(() => {
         const fetchReservations = async () => {
+            setIsLoading(true)
             try {
                 // Fetch reservations from the server using the user's token for authorization
                 const response = await fetch("http://localhost:8000/api/reservations", {
@@ -27,7 +30,9 @@ const Reservations = () => {
 
             } catch (err) {
                 setError(err);
-            };
+            } 
+
+            setIsLoading(false)
         };
 
         fetchReservations();
@@ -45,18 +50,26 @@ const Reservations = () => {
                     <div className="col">Rezervuota iki:</div>
                     <div className="col">Statusas:</div>
                 </div>
-                {reservations.map((reservation) => (
-                    <div className="row" key={reservation._id}>
-                        {user.isAdmin && <div className="col">{reservation.email}</div>}
-                        <div className="col">{reservation.carTitle}</div>
-                        <div className="col">{reservation.dateRented.slice(0, 10)}</div>
-                        <div className="col">{reservation.dateReturned.slice(0, 10)}</div>
-                        <div className="col">{reservation.status}</div>
-                        <Link to={`/reservations/edit/${reservation._id}`} state={reservation}>
-                            <button className="edit">Redaguoti</button>
-                        </Link>
+                {isLoading ? (
+                    <div className="loading-modal">
+                        <div className="loading-content">
+                            <p className="loading-text">Kraunasi...</p>
+                        </div>
                     </div>
-                ))}
+                ) : (
+                    reservations.map((reservation) => (
+                        <div className="row" key={reservation._id}>
+                            {user.isAdmin && <div className="col">{reservation.email}</div>}
+                            <div className="col">{reservation.carTitle}</div>
+                            <div className="col">{reservation.dateRented.slice(0, 10)}</div>
+                            <div className="col">{reservation.dateReturned.slice(0, 10)}</div>
+                            <div className="col">{reservation.status}</div>
+                            <Link to={`/reservations/edit/${reservation._id}`} state={reservation}>
+                                <button className="edit">Redaguoti</button>
+                            </Link>
+                        </div>
+                    ))
+                )}
             </div>
         </div>
     );

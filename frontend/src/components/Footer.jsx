@@ -7,7 +7,9 @@ const Footer = () => {
     return (
         <div className="container">
             <footer>
-                <img src={Logo} alt="logo" />
+                <Link to="/">
+                    <img src={Logo} alt="logo" />
+                </Link>
                 <div className="footer-link-list">
                     <div className="first link-list">
                         <Link to='/aboutus'>Apie mus</Link>
