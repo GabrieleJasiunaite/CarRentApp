@@ -130,7 +130,7 @@ const EditReservation = () => {
 
                     {error && <div className="error">{error}</div>}
                 </form>
-                {!user.isAdmin && <button className="delete">Atšauktki rezervaciją</button>}
+                {!user.isAdmin && <button className="delete">Atšaukti rezervaciją</button>}
                 {selectedCar && <div className="selected-car">
                     <img src={selectedCar.imageUrl} alt={selectedCar.brand + selectedCar.model} />
                     <div className="properties-price">
