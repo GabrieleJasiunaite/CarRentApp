@@ -14,22 +14,23 @@ const Cars = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('http://localhost:8000/api/cars')
+            try {
+                const response = await fetch('http://localhost:8000/api/cars')
+                if (response.status === 500) {
+                    setError('Užklausa buvo nesėkminga');
+                    return;
+                };
 
-            if (response.status === 500) {
-                setError('Užklausa buvo nesėkminga');
-                return;
-            }
-
-            const json = await response.json();
-            setData(json);
-
-            if (selectedCategory !== "all") {
-                setData(json.filter(car => car.body === selectedCategory));
-                setError(null);
-            } else {
-                setData(json);
-                setError(null);
+                const json = await response.json();
+                if (selectedCategory !== "all") {
+                    setData(json.filter(car => car.body === selectedCategory));
+                    setError(null);
+                } else {
+                    setData(json);
+                    setError(null);
+                };
+            } catch (err) {
+                setError(err);
             };
         };
 
@@ -50,6 +51,7 @@ const Cars = () => {
                         ))}
                     </select>
                 </div>
+                {error && <div className='error'>{error}</div>}
                 {data ? (
                     <ul>
                         {data.map((car, index) => (

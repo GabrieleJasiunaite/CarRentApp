@@ -14,11 +14,16 @@ const Reservations = () => {
                     headers: { 'Authorization': `Bearer ${user.token}` }
                 });
 
+                if (response.status === 500) {
+                    setError('Užklausa buvo nesėkminga');
+                    return;
+                };
+
                 const json = await response.json();
 
                 if (response.ok) {
                     setReservations(json);
-                    setError(null)
+                    setError(null);
                 };
 
             } catch (err) {
@@ -30,9 +35,15 @@ const Reservations = () => {
 
     }, [])
 
+    const handleDelete = () => {
+
+    };
+
     return (
         <div className="container">
             <h2>Visos rezervacijos</h2>
+            {error && <div className="error">{error}</div>}
+            {reservations.length === 0 && <div>Rezervacijų nėra</div>}
             <div className="reservations-table">
                 <div className="row">
                     {user.isAdmin && <div className="col">Vartotojas</div>}
@@ -47,10 +58,12 @@ const Reservations = () => {
                         <div className="col">{reservation.carTitle}</div>
                         <div className="col">{reservation.dateRented.slice(0, 10)}</div>
                         <div className="col">{reservation.dateReturned.slice(0, 10)}</div>
-                        <div className="col">{reservation.status}</div>
-                        <Link to={`/reservations/edit/${reservation._id}`} state={reservation}>
-                            <button className="edit">Redaguoti</button>
-                        </Link>
+                        <div className="col"><div className={reservation.status}>{reservation.status}</div></div>
+                        {reservation.status === "įvykdyta" ? (
+                            <button className="edit" onClick={handleDelete}>Ištrinti</button>
+                        ) : (
+                            <Link to={`/reservations/edit/${reservation._id}`} state={reservation}><button className="edit">Redaguoti</button></Link>
+                        )}
                     </div>
                 ))}
             </div>

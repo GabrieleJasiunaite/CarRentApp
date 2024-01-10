@@ -40,32 +40,34 @@ const EditReservation = () => {
         const dateRented = new Date(fromDate);
         const dateReturned = new Date(toDate);
         const status = reservation.status;
+        try {
+            const response = await fetch(`http://localhost:8000/api/reservations/${id}`, {
+                method: 'PUT',
+                body: JSON.stringify({ car_id, carTitle, user_id, email, dateRented, dateReturned, status }),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${user.token}`
+                }
+            });
 
-        const response = await fetch(`http://localhost:8000/api/reservations/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify({ car_id, carTitle, user_id, email, dateRented, dateReturned, status }),
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${user.token}`
-            }
-        });
+            if (response.status === 500) {
+                setError('Užklausa buvo nesėkminga');
+                return;
+            };
 
-        if (response.status === 500) {
-            setError('Can not connect to server');
-            return;
+            const json = await response.json();
+
+            if (!response.ok) {
+                setError(json.error);
+            };
+
+            if (response.ok) {
+                setError(null);
+                navigate('/reservations');
+            };
+        } catch (err) {
+            setError(err);
         };
-        console.log(response);
-        const json = await response.json();
-
-        if (!response.ok) {
-            setError(json.error);
-        };
-
-        if (response.ok) {
-            setError(null);
-            navigate('/reservations');
-        };
-
     };
 
     useEffect(() => {
@@ -79,15 +81,25 @@ const EditReservation = () => {
 
     useEffect(() => {
         const fetchCars = async () => {
-            const response = await fetch('http://localhost:8000/api/cars');
-            const json = await response.json();
+            try {
+                const response = await fetch('http://localhost:8000/api/cars');
+                const json = await response.json();
 
-            if (response.ok) {
-                setCars(json);
-            };
+                if (response.status === 500) {
+                    setError('Užklausa buvo nesėkminga');
+                    return;
+                };
 
-            if (!response.ok) {
-                setError('Negalejom uzkrauti duomenu');
+                if (response.ok) {
+                    setCars(json);
+                };
+
+                if (!response.ok) {
+                    setError('Negalejom uzkrauti duomenu');
+                };
+
+            } catch (err) {
+                setError(err);
             };
         };
 
@@ -119,7 +131,7 @@ const EditReservation = () => {
                             <option value="laukiama">Laukiama</option>
                             <option value="patvirtinta">Patvirtinta</option>
                             <option value="atšaukta">Atšaukta</option>
-                            <option value="atšaukta">Įvykdyta</option>
+                            <option value="įvykdyta">Įvykdyta</option>
                         </select>}
                     <div className="buttons">
                         <button className="link-btn"><Link to={`/reservations/`}>Grįžti atgal</Link></button>
