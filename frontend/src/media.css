@@ -1,0 +1,360 @@
+/* NAVBAR */
+@media all and (max-width: 750px) {
+    .navbar.admin .container a h2 {
+        content: url(../src/pictures/logo2-2.png);
+        width: 70px;
+    }
+
+    .navbar .container {
+        margin: 0 auto;
+    }
+
+    .navbar.admin .nav-links a {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+}
+
+@media all and (max-width: 590px) {
+    .navbar .container a h2 {
+        content: url(../src/pictures/logo2-2.png);
+        width: 70px;
+    }
+
+    .navbar .container {
+        margin: 0 auto;
+    }
+}
+
+/* HOME */
+@media all and (max-width:1500px) {
+    .third-container .block {
+        width: 280px;
+    }
+}
+
+@media all and (max-width:1400px) {
+    .cars-display-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media all and (max-width:1330px) {
+    .first-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .first-container .first-container-text {
+        padding-bottom: 20px;
+    }
+
+
+    .third-container .block {
+        width: 200px;
+    }
+
+    .third-container .block h3 {
+        font-size: 17px;
+    }
+
+    .third-container .block p {
+        font-size: 13px;
+    }
+}
+
+@media all and (max-width:1250px) {
+    footer .footer-link-list {
+        gap: 50px;
+    }
+}
+
+@media all and (max-width:1170px) {
+    .third-container .block {
+        width: 150px;
+    }
+
+    .third-container .block h3 {
+        font-size: 15px;
+    }
+
+    .third-container .block p {
+        font-size: 12px;
+    }
+}
+
+@media all and (max-width:1170px) {
+    .third-container {
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 0;
+    }
+
+    .third-pic {
+        width: 80%;
+        max-width: 400px;
+        height: auto;
+        margin-bottom: 30px;
+    }
+
+    .third-container .block {
+        width: 60%;
+        margin-bottom: 30px;
+        position: static;
+    }
+
+    .third-container .block img {
+        top: initial;
+        left: initial;
+        position: relative;
+        margin-bottom: 10px;
+    }
+
+    .third-container .num1,
+    .third-container .num2,
+    .third-container .num3,
+    .third-container .num4,
+    .third-container .num5 {
+        top: initial;
+        left: initial;
+        right: initial;
+    }
+
+    .fourth-container img {
+        margin: 0px 20px
+    }
+
+    .third-container .block h3 {
+        font-size: 1.063rem;
+        margin-top: 0px;
+    }
+
+    .third-container .block p {
+        font-size: 0.813rem;
+    }
+
+}
+
+@media all and (max-width:920px) {
+    .cookie-content h2 {
+        margin-top: 0px;
+        font-size: 20px;
+    }
+
+    .cookie-content p {
+        font-size: 14px;
+    }
+}
+
+@media all and (max-width:850px) {
+    .fourth-container img {
+        margin: 0px 10px
+    }
+
+    .first-container {
+        padding: 50px 20px;
+    }
+}
+
+
+@media all and (max-width:740px) {
+    footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    footer img {
+        display: none;
+    }
+
+    footer .social-links {
+        padding: 15px 0px;
+    }
+}
+
+
+@media all and (max-width:710px) {
+    .fourth-container {
+        padding: 40px 40px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        justify-items: center;
+        align-items: center
+    }
+
+    .third-container .block h3 {
+        font-size: 0.938rem;
+    }
+
+    .third-container .block p {
+        font-size: 0.75rem;
+    }
+
+    .first-container-text h1 {
+        font-size: 25px;
+    }
+
+    .first-container-text p {
+        font-size: 17px;
+    }
+
+    .first-container img {
+        width: 35.25rem;
+        height: 20.18rem;
+    }
+
+    .cars-display-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .cookie-modal {
+        width: 300px;
+    }
+
+    .cookie-buttons button {
+        padding: 5px 15px;
+    }
+}
+
+
+@media all and (max-width:590px) {
+    .first-container img {
+        width: 29.25rem;
+        height: 17.28rem;
+    }
+}
+
+@media all and (max-width:500px) {
+    .first-container img {
+        width: 22.25rem;
+        height: 14.08rem;
+    }
+
+    .first-container-text h1 {
+        font-size: 20px;
+    }
+
+    .first-container-text p {
+        font-size: 13px;
+    }
+
+    footer .footer-link-list {
+        gap: 20px;
+    }
+}
+
+@media all and (max-width:480px) {
+    .fourth-container {
+        gap: 5px;
+    }
+}
+
+@media all and (max-width:460px) {
+    .third-container .block img {
+        width: 35px;
+        height: 35px;
+        margin-bottom: 0px;
+    }
+
+    .third-container .block h3 {
+        font-size: 18px;
+    }
+
+    .second-container h2 {
+        text-align: center;
+    }
+}
+
+/* not found */
+@media all and (max-width: 1024px) {
+    .notfound h1 {
+        font-size: 15rem;
+    }
+}
+
+@media all and (max-width: 950px) {
+    .notfound h1 {
+        font-size: 13.25rem;
+    }
+}
+
+@media all and (max-width: 720px) {
+    .notfound h1 {
+        font-size: 11.25rem;
+    }
+}
+
+@media all and (max-width: 580px) {
+    .notfound h1 {
+        font-size: 8.25rem;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .notfound h1 {
+        font-size: 10vh;
+    }
+}
+
+/* CAR DETAILS */
+@media all and (max-width: 675px) {
+    .car-details .properties-rent-form {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* CARS */
+@media all and (max-width: 500px) {
+    .search {
+        flex-direction: column;
+    }
+
+    .search h3 {
+        margin-bottom: 10px;
+    }
+}
+
+/* RESERVATIONS */
+@media all and (max-width: 915px) {
+    .reservations .reservations-grid {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .reservations-grid .row,
+    .reservations-grid .row-admin {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .reservations-grid .row .status,
+    .reservations-grid .row-admin .status {
+        margin: 0 auto 10px;
+        padding-bottom: 2px;
+        width: 100px;
+    }
+}
+
+/* EDIT RESERVATION */
+@media all and (max-width: 750px) {
+    .edit-reservation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .edit-reservation .form-cancel {
+        margin: 0;
+    }
+}

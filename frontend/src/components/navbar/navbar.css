@@ -1,0 +1,95 @@
+.navbar {
+    margin: 0;
+    background-color: var(--background-color);
+    width: 100%;
+    position: sticky;
+    padding: 5px 0;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    color: black;
+}
+
+.navbar h1,
+.navbar h2 {
+    margin: 0;
+}
+
+.navbar nav .nav-links a {
+    margin-left: 15px;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.navbar nav .nav-links .logout-btn {
+    margin-left: 15px;
+    background-color: var(--blue-5);
+    color: var(--background-color);
+    padding: 5px 10px 6px;
+}
+
+.navbar nav .nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.page-logo {
+    width: 80px;
+    height: 80px;
+}
+
+.navbar nav .nav-links button {
+    background: none;
+    position: relative;
+}
+
+.navbar nav .nav-links .iconify {
+    color: black;
+    width: 25px;
+    height: 25px;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.navbar nav .nav-links.iconify:hover {
+    color: var(--blue-6);
+}
+
+.navbar nav .nav-links .myLinks {
+    display: none;
+}
+
+.navbar nav .nav-links .myLinks.showMenu {
+    background-color: white;
+    max-height: 200px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    overflow: hidden;
+    border: 1px solid #EBEBEB;
+    padding: 10px;
+}
+
+.navbar nav .nav-links .myLinks a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    text-align: right;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.navbar nav .nav-links .myLinks a:hover {
+    color: var(--blue-4);
+}

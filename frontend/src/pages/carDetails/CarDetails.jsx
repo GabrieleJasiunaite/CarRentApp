@@ -1,7 +1,8 @@
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import RentACar from '../components/RentACar';
-import { useAuthContext } from '../hooks/useAuthContext';
+import RentACar from '../../components/rentACar/RentACar';
+import { useAuthContext } from '../../hooks/useAuthContext';
+import './carDetails.css';
 
 // Component displaying detailed information about a specific car
 const CarDetails = () => {
@@ -15,7 +16,7 @@ const CarDetails = () => {
     useEffect(() => {
         const fetchCarDetails = async () => {
             try {
-                
+
                 const response = await fetch(`http://localhost:8000/api/cars/${id}`);
                 const json = await response.json();
                 setCar(json);
@@ -28,7 +29,7 @@ const CarDetails = () => {
         fetchCarDetails();
         setError(null);
     }, []);
-    
+
 
     const handleDelete = async () => {
         try {
@@ -78,7 +79,7 @@ const CarDetails = () => {
                                     <p><span className="iconify" data-icon="bi:fuel-pump"></span>{car.fuelType} </p>
                                     <p><span className="iconify" data-icon="game-icons:gear-stick-pattern"></span> {car.transmission}</p>
                                 </div>
-                                <p>{car.price} Eur <span>/parai</span></p>
+                                <p className='price'>{car.price} Eur <span>/parai</span></p>
                             </div>
                             {!user.isAdmin && <RentACar carDetails={car} />}
                         </div>

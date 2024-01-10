@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams, Link } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
+import './editReservation.css';
 
 // Component for editing reservation details
 const EditReservation = () => {
@@ -20,7 +21,7 @@ const EditReservation = () => {
     const [fromDate, setFromDate] = useState(reservation.dateRented.slice(0, 10));
     const [toDate, setToDate] = useState(reservation.dateReturned.slice(0, 10));
 
-// Handler for form submission
+    // Handler for form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
@@ -70,7 +71,7 @@ const EditReservation = () => {
             setError(err);
         };
     };
-// Setting the current date and maximum date allowed in the date inputs
+    // Setting the current date and maximum date allowed in the date inputs
     useEffect(() => {
         const today = new Date();
         const year = today.getFullYear();
@@ -79,7 +80,7 @@ const EditReservation = () => {
         setCurrentDate(year + "-" + month + "-" + day);
         setMaxDate((year + 1) + "-" + month + "-" + day);
     }, []);
-// Fetching the list of cars for the dropdown menu
+    // Fetching the list of cars for the dropdown menu
     useEffect(() => {
         const fetchCars = async () => {
             try {
@@ -115,47 +116,54 @@ const EditReservation = () => {
     return (
         <div className="container">
             <div className="edit-reservation">
-                <form onSubmit={handleSubmit} className={error ? "form-error" : ""}>
-                    <h3>Redaguoti rezervaciją</h3>
-                    <select name="cars" id="cars" defaultValue={""} onChange={(e) => setSelectedCar(cars.filter(el => el._id === e.target.value)[0])}>
-                        <option value={""} disabled>Pasirinkite automobilį</option>
-                        {cars.map((car) => (
-                            <option key={car._id} value={car._id}>{car.brand + " " + car.model}</option>
-                        ))
-                        }
-                    </select>
-                    <label htmlFor="from">Nuo:
-                        <input type="date" id="from" value={fromDate} min={currentDate} max={maxDate} className="date" onChange={(e) => setFromDate(e.target.value)} /></label>
-                    <label htmlFor="to">Iki:
-                        <input type="date" id="to" value={toDate} min={currentDate} max={maxDate} className="date" onChange={(e) => setToDate(e.target.value)} /></label>
-                    {user.isAdmin &&
-                        <select name="status" id="status" defaultValue={status} onChange={(e) => setStatus(e.target.value)} >
-                            <option value="laukiama">Laukiama</option>
-                            <option value="patvirtinta">Patvirtinta</option>
-                            <option value="atšaukta">Atšaukta</option>
-                            <option value="įvykdyta">Įvykdyta</option>
-                        </select>}
-                    <div className="buttons">
-                        <button className="link-btn"><Link to={`/reservations/`}>Grįžti atgal</Link></button>
-                        <button>Redaguoti</button>
-                    </div>
-
-                    {error && <div className="error">{error}</div>}
-                </form>
-                {!user.isAdmin && <button className="delete">Atšaukti rezervaciją</button>}
-                {selectedCar && <div className="selected-car">
-                    <img src={selectedCar.imageUrl} alt={selectedCar.brand + selectedCar.model} />
-                    <div className="properties-price">
-                        <div className="properties"><p><strong>Metai: </strong>{selectedCar.year}</p>
-                            <p><strong>Kuro tipas: </strong>{selectedCar.fuelType}</p>
-                            <p><strong>Pavarų dėžė: </strong>{selectedCar.transmission}</p>
-                            <p><strong>Vietos: </strong>{selectedCar.seats}</p>
-                            <p><strong>Kėbulo tipas: </strong>{selectedCar.body}</p>
+                <div className="form-cancel">
+                    <form onSubmit={handleSubmit} className={error ? "form-error" : ""}>
+                        <h3>Redaguoti rezervaciją</h3>
+                        <label htmlFor="from">Nuo:
+                            <input type="date" id="from" value={fromDate} min={currentDate} max={maxDate} className="date" onChange={(e) => setFromDate(e.target.value)} /></label>
+                        <label htmlFor="to">Iki:
+                            <input type="date" id="to" value={toDate} min={currentDate} max={maxDate} className="date" onChange={(e) => setToDate(e.target.value)} /></label>
+                        <select name="cars" id="cars" defaultValue={""} onChange={(e) => setSelectedCar(cars.filter(el => el._id === e.target.value)[0])}>
+                            <option value={""} disabled>Pasirinkite automobilį</option>
+                            {cars.map((car) => (
+                                <option key={car._id} value={car._id}>{car.brand + " " + car.model}</option>
+                            ))
+                            }
+                        </select>
+                        {user.isAdmin &&
+                            <select name="status" id="status" value={status} onChange={(e) => setStatus(e.target.value)} >
+                                <option value="laukiama">Laukiama</option>
+                                <option value="patvirtinta">Patvirtinta</option>
+                                <option value="atšaukta">Atšaukta</option>
+                                <option value="įvykdyta">Įvykdyta</option>
+                            </select>}
+                        <div className="buttons">
+                            <button className="link-btn"><Link to={`/reservations/`}>Grįžti atgal</Link></button>
+                            <button>Redaguoti</button>
                         </div>
-                    </div>
-                </div>}
+
+                        {error && <div className="error">{error}</div>}
+                    </form>
+                    {!user.isAdmin && <button className="delete">Atšaukti rezervaciją</button>}
+                </div>
+                <>
+                    {selectedCar &&
+                        <div className="car-display-container">
+                            <div className="car-pic-box">
+                                <img src={selectedCar.imageUrl} alt={`${selectedCar.brand} ${selectedCar.model}, ${selectedCar.year}`} />
+                                <h3>{selectedCar.brand} {selectedCar.model}, {selectedCar.year}</h3>
+                            </div>
+                            <div className="car-info-box">
+                                <p><span className="iconify" data-icon="f7:car-fill"></span> {selectedCar.body}</p>
+                                <p><span className="iconify" data-icon="game-icons:car-seat"></span> {selectedCar.seats} vietų</p>
+                                <p><span className="iconify" data-icon="bi:fuel-pump"></span>{selectedCar.fuelType} </p>
+                                <p><span className="iconify" data-icon="game-icons:gear-stick-pattern"></span> {selectedCar.transmission}</p>
+                            </div>
+                        </div>
+                    }
+                </>
             </div>
-        </div>
+        </div >
     );
 };
 

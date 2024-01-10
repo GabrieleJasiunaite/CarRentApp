@@ -1,0 +1,63 @@
+.reservations .row,
+.reservations .row-admin {
+    display: grid;
+    padding: 30px;
+    background-color: var(--blue-6);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    gap: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border: 1px solid #EBEBEB;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.reservations .row {
+    grid-template-columns: 1.5fr 1fr 1fr 120px 120px;
+}
+
+.reservations .row:hover,
+.reservations .row-admin:hover {
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.303);
+}
+
+.reservations .row-admin {
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 100px 100px;
+}
+
+button.edit {
+    padding: 5px 10px;
+    background-color: var(--blue-5);
+    color: white;
+}
+
+.col {
+    text-align: center;
+}
+
+.reservations .row .status,
+.reservations .row-admin .status {
+    color: var(--background-color);
+    padding-top: 2px;
+    border-radius: 20px;
+    max-width: 100px;
+}
+
+.reservations .row .laukiama,
+.reservations .row-admin .laukiama {
+    background-color: #c2c253;
+}
+
+.reservations .row .patvirtinta,
+.reservations .row-admin .patvirtinta {
+    background-color: var(--success);
+}
+
+.reservations .row .atšaukta,
+.reservations .row-admin .atšaukta {
+    background-color: var(--warning);
+}
+
+.reservations .row .įvykdyta,
+.reservations .row-admin .įvykdyta {
+    background-color: var(--blue-4);
+}

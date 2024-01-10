@@ -1,0 +1,58 @@
+.drafts .title {
+    margin: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.drafts .title a {
+    color: var(--blue-5);
+}
+
+h2.drafts-heading {
+    margin: 0;
+}
+
+.drafts-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.drafts-grid a {
+    color: black;
+}
+
+.drafts-grid .draft-card {
+    border: 1px solid #EBEBEB;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    height: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.drafts-grid .draft-card .clickable-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.drafts-grid .draft-card .text strong {
+    margin-right: 50px;
+}
+
+.drafts-grid .draft-card button {
+    padding: 5px 10px;
+    background-color: var(--warning);
+    color: var(--background-color);
+}
+
+.drafts-grid .draft-card:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.303);
+}

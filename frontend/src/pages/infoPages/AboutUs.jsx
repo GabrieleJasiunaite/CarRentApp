@@ -1,13 +1,14 @@
 import { useState } from "react";
-import CarRentPic3 from "../pictures/Car-rent-pic3.png"
+import CarRentPic3 from "../../pictures/Car-rent-pic3.png"
 import { Link } from "react-router-dom";
+import './infoPages.css';
 
 // Component providing information about the company and contact form
 const AboutUs = () => {
-// State to manage email and message input fields
+    // State to manage email and message input fields
     const [email, setEmail] = useState()
     const [message, setMessage] = useState()
-// Handler for submitting queries
+    // Handler for submitting queries
     const handleQuerySubmit = (e) => {
         e.preventDefault()
         setEmail("")
@@ -20,7 +21,7 @@ const AboutUs = () => {
                 <header>
                     <div>
                         <h1>VCF</h1>
-                        <h3>Automobilių nuoma</h3>
+                        <h2>Automobilių nuoma</h2>
                     </div>
                     <img src={CarRentPic3} alt="people and rented car" />
                 </header>

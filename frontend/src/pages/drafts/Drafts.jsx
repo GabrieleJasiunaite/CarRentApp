@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import DraftCard from "../components/DraftCard";
+import DraftCard from "../../components/draftCard/DraftCard";
+import './drafts.css';
 
 // Component for displaying a list of drafts
 const Drafts = () => {

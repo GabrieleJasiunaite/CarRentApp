@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate, useParams, Link } from "react-router-dom";
+import './editCar.css';
 
 // Component for editing car details
 const EditCar = () => {
@@ -9,7 +10,7 @@ const EditCar = () => {
     const location = useLocation();
     const car = location.state;
 
-// State variables to manage form input values
+    // State variables to manage form input values
     const [imageUrl, setimageUrl] = useState(car.imageUrl);
     const [model, setModel] = useState(car.model);
     const [brand, setBrand] = useState(car.brand);
@@ -20,7 +21,7 @@ const EditCar = () => {
     const [seats, setSeats] = useState(car.seats);
     const [body, setBody] = useState(car.body);
 
-// Handler for form submission
+    // Handler for form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);

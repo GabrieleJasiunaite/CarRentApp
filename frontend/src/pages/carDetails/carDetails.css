@@ -1,0 +1,68 @@
+.car-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.car-details img {
+    max-width: 300px;
+}
+
+.car-details .car-pic-box h3 {
+    padding: 0;
+    text-align: center;
+    margin: 20px;
+}
+
+.car-details .properties-rent-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.car-details .properties-price {
+    text-align: center;
+    border: 1px solid #EBEBEB;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.car-details .properties {
+    text-align: left;
+    background-color: var(--blue-4);
+    color: var(--background-color);
+    border-radius: 10px;
+    padding: 5px 20px;
+    margin-bottom: 20px;
+}
+
+.car-details .properties p {
+    margin: 10px 0;
+}
+
+.car-details .properties-price span {
+    font-weight: 800;
+    font-size: 0.75rem;
+    color: #AAAAAA;
+}
+
+.car-details a {
+    color: #03045E;
+    margin-top: 30px;
+}
+
+.car-details .buttons button.edit,
+.car-details .buttons button.delete {
+    color: var(--background-color);
+    font-size: 0.938rem;
+    padding: 5px 10px;
+    margin: 20px 5px 0;
+}
+
+.car-details .buttons button.edit {
+    background-color: var(--success);
+}
+
+.car-details .buttons button.delete {
+    background-color: var(--warning);
+}

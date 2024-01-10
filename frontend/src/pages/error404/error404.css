@@ -1,0 +1,25 @@
+.notfound {
+    text-align: center;
+}
+
+.notfound h1 {
+    font-size: 16.25rem;
+    background-image: url(../../../public/images/9CuLlD.webp);
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 50px;
+    margin-top: 0;
+}
+
+
+.notfound a {
+    text-decoration: none;
+    margin-left: 30px;
+}
+
+.notfound p {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

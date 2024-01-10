@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
-import CarRentPic6 from "../pictures/Car-rent-pic6.png"
+import CarRentPic6 from "../../pictures/Car-rent-pic6.png";
+import './infoPages.css';
 
 // RentPolicty component for displaying rent policy information
 const RentPolicy = () => {
     return (
         <div className="conditions container info-page">
             <header>
-             <h1>Nuomos sąlygos</h1> 
-             <img src={CarRentPic6} alt="people driving car" />  
+                <h1>Nuomos sąlygos</h1>
+                <img src={CarRentPic6} alt="people driving car" />
             </header>
             <div className="car-reservation">
                 <h2>Automobilio rezervacija</h2>

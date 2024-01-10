@@ -1,0 +1,33 @@
+/* LOGIN, SIGNUP */
+.login-signup-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vh;
+    height: 60vh;
+    margin: 0 auto;
+}
+
+form.login-signup {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+form.login-signup h3 {
+    text-align: center;
+    margin: 0 0 15px;
+}
+
+form.login-signup input {
+    height: 25px;
+    margin: 5px 0;
+}
+
+form.login-signup button {
+    width: 150px;
+    background-color: var(--blue-5);
+    color: var(--background-color);
+    margin: 20px auto 0;
+    padding: 10px 20px;
+}

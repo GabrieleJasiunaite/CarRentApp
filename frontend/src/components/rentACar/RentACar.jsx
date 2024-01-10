@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useAuthContext } from "../hooks/useAuthContext";
+import { useAuthContext } from "../../hooks/useAuthContext";
+import './rentACar.css';
 
 // Component for renting a car with date selection and agreement checkbox
 const RentACar = ({ carDetails }) => {
@@ -14,7 +15,7 @@ const RentACar = ({ carDetails }) => {
     const [successMessage, setSuccessMessage] = useState(null);
 
     useEffect(() => {
-    // Set current date and max date for date inputs
+        // Set current date and max date for date inputs
         const today = new Date();
         const year = today.getFullYear();
         const month = String(today.getMonth() + 1).padStart(2, '0');

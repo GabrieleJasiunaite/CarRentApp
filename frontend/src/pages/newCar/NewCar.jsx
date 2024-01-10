@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
-
+import './newCar.css';
 
 // NewCar component for adding a new car to the system
 const NewCar = () => {
-     // React Router hook for navigation
+    // React Router hook for navigation
     const navigate = useNavigate();
     const location = useLocation();
-    const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
     const [allDrafts, setAllDrafts] = useState([]);
 
@@ -52,7 +51,7 @@ const NewCar = () => {
 
     }, []);
 
-  // Handle form submission for adding a new car
+    // Handle form submission for adding a new car
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);

@@ -1,0 +1,51 @@
+.edit-car {
+    padding-top: 50px;
+}
+
+.edit-car form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+    background-color: var(--blue-6);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #EBEBEB;
+}
+
+.edit-car form h3,
+.new-car form h3 {
+    text-align: center;
+    margin: 0;
+}
+
+.edit-car form input,
+.new-car form input {
+    margin: 5px 0;
+    height: 20px;
+}
+
+.edit-car form .buttons,
+.new-car form .buttons {
+    margin: 10px auto 0;
+}
+
+.edit-car form button,
+.new-car form button {
+    width: 100px;
+    background-color: var(--blue-5);
+    color: var(--background-color);
+    padding: 10px 20px;
+}
+
+.edit-car form button a,
+.new-car form button a {
+    color: var(--background-color);
+}
+
+.edit-car form button.link-btn,
+.new-car form button.link-btn {
+    width: 130px;
+    margin-right: 10px;
+}

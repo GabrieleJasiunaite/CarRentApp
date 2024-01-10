@@ -1,0 +1,41 @@
+.cars {
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    margin: 30px auto;
+    justify-content: center;
+}
+
+.search h3 {
+    margin: 0;
+    color: black;
+}
+
+.search select {
+    height: 30px;
+    width: 200px;
+    margin-left: 10px;
+    background-color: var(--background-color);
+    border: 1px solid var(--blue-5);
+    border-radius: 5px;
+    padding: 0 10px;
+}
+
+.cars img {
+    max-width: 300px;
+}
+
+.cars .car-display-container {
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.cars .car-display-container:hover {
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.303);
+}

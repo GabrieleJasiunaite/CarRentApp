@@ -2,25 +2,25 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthContext } from './hooks/useAuthContext';
 
 //COMPONENTS
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
 
 //PAGES
-import Home from './pages/Home';
-import LogIn from './pages/LogIn';
-import SignUp from './pages/SignUp';
-import AboutUs from './pages/AboutUs';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import RentPolicy from './pages/RentPolicy';
-import FAQ from './pages/FAQ';
-import Cars from './pages/Cars';
-import CarDetails from './pages/CarDetails';
-import EditCar from './pages/EditCar';
-import NewCar from './pages/NewCar';
-import Reservations from './pages/Reservations';
-import EditReservation from './pages/EditReservation';
-import Error404 from './pages/Error404';
-import Drafts from './pages/Drafts';
+import Home from './pages/home/Home';
+import LogIn from './pages/login-signup/LogIn';
+import SignUp from './pages/login-signup/SignUp';
+import AboutUs from './pages/infoPages/AboutUs';
+import PrivacyPolicy from './pages/infoPages/PrivacyPolicy';
+import RentPolicy from './pages/infoPages/RentPolicy';
+import FAQ from './pages/infoPages/FAQ';
+import Cars from './pages/cars/Cars';
+import CarDetails from './pages/carDetails/CarDetails';
+import EditCar from './pages/editCar/EditCar';
+import NewCar from './pages/newCar/NewCar';
+import Reservations from './pages/reservations/Reservations';
+import EditReservation from './pages/editReservation/EditReservation';
+import Error404 from './pages/error404/Error404';
+import Drafts from './pages/drafts/Drafts';
 
 function App() {
   const { user } = useAuthContext();

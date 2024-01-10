@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import './error404.css';
 
 // Component for displaying a 404 error page
 const Error404 = () => {
