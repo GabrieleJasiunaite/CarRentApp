@@ -23,7 +23,7 @@ const Home = () => {
     useEffect(() => {
         const fetchRandomCars = async () => {
             try {
-                const response = await fetch('http://localhost:8000/api/cars');
+                const response = await fetch('/api/cars');
                 if (response.ok) {
                     const data = await response.json()
                     const randomCars = data.sort(() => Math.random() - 0.5).slice(0, 4);

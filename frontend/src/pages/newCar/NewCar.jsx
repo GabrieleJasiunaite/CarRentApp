@@ -59,7 +59,7 @@ const NewCar = () => {
             setError("Užpildykite visus laukus");
             return;
         };
-        const response = await fetch('http://localhost:8000/api/cars', {
+        const response = await fetch('/api/cars', {
             method: 'POST',
             body: JSON.stringify({ imageUrl, model, brand, price, year, fuelType, transmission, seats, body }),
             headers: { 'Content-Type': 'application/json' }

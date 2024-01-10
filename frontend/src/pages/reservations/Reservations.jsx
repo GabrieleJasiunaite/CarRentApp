@@ -20,7 +20,7 @@ const Reservations = () => {
             setIsLoading(true)
             try {
                 // Fetch reservations from the server using the user's token for authorization
-                const response = await fetch("http://localhost:8000/api/reservations", {
+                const response = await fetch("/api/reservations", {
                     headers: { 'Authorization': `Bearer ${user.token}` }
                 });
 

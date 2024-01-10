@@ -32,7 +32,7 @@ const EditCar = () => {
         };
 
         // Sending a PUT request to update car details
-        const response = await fetch(`http://localhost:8000/api/cars/${id}`, {
+        const response = await fetch(`/api/cars/${id}`, {
             method: 'PUT',
             body: JSON.stringify({ imageUrl, model, brand, price, year, fuelType, transmission, seats, body }),
             headers: { 'Content-Type': 'application/json' }

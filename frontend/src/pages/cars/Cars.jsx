@@ -23,7 +23,7 @@ const Cars = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:8000/api/cars')
+                const response = await fetch('/api/cars')
                 if (response.status === 500) {
                     setError('Užklausa buvo nesėkminga');
                     return;

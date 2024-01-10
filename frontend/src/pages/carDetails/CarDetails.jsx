@@ -17,7 +17,7 @@ const CarDetails = () => {
         const fetchCarDetails = async () => {
             try {
 
-                const response = await fetch(`http://localhost:8000/api/cars/${id}`);
+                const response = await fetch(`/api/cars/${id}`);
                 const json = await response.json();
                 setCar(json);
                 setError(null);
@@ -33,7 +33,7 @@ const CarDetails = () => {
 
     const handleDelete = async () => {
         try {
-            const response = await fetch(`http://localhost:8000/api/cars/${id}`, {
+            const response = await fetch(`/api/cars/${id}`, {
                 method: 'DELETE'
             });
 

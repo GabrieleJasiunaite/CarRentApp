@@ -43,7 +43,7 @@ const EditReservation = () => {
         const dateReturned = new Date(toDate);
         const status = reservation.status;
         try {
-            const response = await fetch(`http://localhost:8000/api/reservations/${id}`, {
+            const response = await fetch(`/api/reservations/${id}`, {
                 method: 'PUT',
                 body: JSON.stringify({ car_id, carTitle, user_id, email, dateRented, dateReturned, status }),
                 headers: {
@@ -84,7 +84,7 @@ const EditReservation = () => {
     useEffect(() => {
         const fetchCars = async () => {
             try {
-                const response = await fetch('http://localhost:8000/api/cars');
+                const response = await fetch('/api/cars');
                 const json = await response.json();
 
                 if (response.status === 500) {

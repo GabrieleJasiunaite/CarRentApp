@@ -9,7 +9,7 @@ export const BodyTypeContextProvider = ({ children }) => {
     const [error, setError] = useState(null);
 
     const fetchAllBodyTypes = async () => {
-        const response = await fetch('http://localhost:8000/api/cars/types');
+        const response = await fetch('/api/cars/types');
 
         if (response.status === 500) {
             setError('Can not connect to server');
