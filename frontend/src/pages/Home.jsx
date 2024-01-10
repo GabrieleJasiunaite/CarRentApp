@@ -2,10 +2,10 @@ import CarRentPic from "../pictures/Car-rent-pic.png"
 import CarRentPic2 from "../pictures/Car-rent-pic2.png"
 import Brands from "../pictures/Brands.png"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 const Home = () => {
     const [carsData, setCarsData] = useState([])
-    const carIds = ['659807eacb3a6fcedfcf501b', "659807eacb3a6fcedfcf5028", "659807eacb3a6fcedfcf501f", "659807eacb3a6fcedfcf5020"]
 
     useEffect(() => {
         const fetchRandomCars = async () => {
@@ -53,7 +53,7 @@ const Home = () => {
                             </div>
                             <div className="car-button-box">
                                 <p>{car.price} Eur <span>/parai</span></p>
-                                <button>Daugiau <i className="bi bi-arrow-right"></i></button>
+                               <Link to='/login'><button>Daugiau<i className="bi bi-arrow-right"></i></button></Link> 
                                 {/* prideti funckionaluma paskiau */}
                             </div>
                         </div>

@@ -33,27 +33,17 @@ const Reservations = () => {
     return (
         <div className="container">
             <h2>Visos rezervacijos</h2>
-            <div className="reservations-table">
-                <div className="row">
-                    {user.isAdmin && <div className="col">Vartotojas</div>}
-                    <div className="col">Automobilis</div>
-                    <div className="col">Rezervuota nuo:</div>
-                    <div className="col">Rezervuota iki:</div>
-                    <div className="col">Statusas:</div>
-                </div>
                 {reservations.map((reservation) => (
-                    <div className="row" key={reservation._id}>
-                        {user.isAdmin && <div className="col">{reservation.email}</div>}
-                        <div className="col">{reservation.carTitle}</div>
-                        <div className="col">{reservation.dateRented.slice(0, 10)}</div>
-                        <div className="col">{reservation.dateReturned.slice(0, 10)}</div>
-                        <div className="col">{reservation.status}</div>
-                        <Link to={`/reservations/edit/${reservation._id}`} state={reservation}>
-                            <button className="edit">Redaguoti</button>
-                        </Link>
+                    <div className="row2" key={reservation._id}>
+                        {user.isAdmin && <div className="col"><strong>Vartotojas: </strong>{reservation.email}</div>}
+                        <div className="col"><strong>Automobilis: </strong>{reservation.carTitle}</div>
+                        <div className="col"><strong>Nuo: </strong>{reservation.dateRented.slice(0, 10)}</div>
+                        <div className="col"><strong>Iki: </strong>{reservation.dateReturned.slice(0, 10)}</div>
+                        <div className="col"><strong></strong>{reservation.status}</div>
+                        <div className="col"><Link to={`/reservations/edit/${reservation._id}`} state={reservation}><button className="edit">Redaguoti</button></Link></div>
+                        
                     </div>
                 ))}
-            </div>
         </div>
     );
 };

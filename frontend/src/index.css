@@ -4,6 +4,7 @@
   --blue-3: #00B4D8;
   --blue-4: #0077B6;
   --blue-5: #03045E;
+  --blue-6: #00aff514;
   --background-color: #fcfcfc;
   --success: #50C878;
   --warning: #CA3433;
@@ -209,6 +210,7 @@ a {
   border-radius: 12px;
   height: 430px;
   width: 320px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .car-pic-box {
@@ -368,7 +370,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80vw;
+  width: 80vh;
   height: 60vh;
   margin: 0 auto;
 }
@@ -398,7 +400,7 @@ form.login-signup button {
 }
 
 /* CARS PAGE */
-.cars ul {
+.cars {
   max-width: 1200px;
   width: 100%;
   margin: 30px auto;
@@ -408,31 +410,14 @@ form.login-signup button {
   padding-left: 0;
 }
 
-.cars ul li {
-  list-style: none;
-}
-
-.cars ul li span {
-  display: block;
-  margin: 10px 0;
-}
-
-.cars ul li a button {
-  background-color: var(--blue-1);
-  padding: 5px 10px;
-  border: 1px solid black;
-  cursor: pointer;
-  text-transform: uppercase;
-}
-
-.cars .search {
+.search {
   display: flex;
   align-items: center;
   margin: 0 auto;
   justify-content: center;
 }
 
-.cars .search select {
+.search select {
   height: 30px;
   width: 200px;
   margin-left: 10px;
@@ -440,6 +425,10 @@ form.login-signup button {
   border: 1px solid var(--blue-5);
   border-radius: 5px;
   padding: 0 10px;
+}
+
+.cars img {
+  max-width: 300px;
 }
 
 /* CAR DETAILS PAGE */
@@ -593,6 +582,71 @@ form.login-signup button {
   background-color: var(--warning);
 }
 
+/* RESERVATION */
+
+.row2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  padding: 30px;
+  background-color: var(--blue-6);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  gap: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border: 1px solid #EBEBEB;
+}
+
+button.edit {
+  padding: 5px 10px;
+  background-color: var(--blue-5);
+  color: white;
+}
+
+.col {
+  text-align: center;
+}
+
+/* EDIT RESERVATION */
+
+select#cars {
+  height: 30px;
+  width: 200px;
+  background-color: var(--blue-6);
+  border: 1px solid var(--blue-5);
+  border-radius: 5px;
+  padding: 0 10px;
+  margin: 30px 50px 50px 0;
+}
+
+input#from.date, input#to.date {
+  height: 27px;
+  padding: 0 30px;
+  border-radius: 5px;
+  background-color: var(--blue-6);
+  border: 1px solid var(--blue-5);
+}
+
+.edit-reservation label {
+  margin-right: 50px;
+}
+
+.edit-reservation button {
+  display: block;
+  margin-left: 15px;
+  background-color: var(--blue-5);
+  color: var(--background-color);
+  padding: 5px 10px 6px;
+  margin-bottom: 5px;
+}
+
+.edit-reservation a {
+  color: white;
+}
+
+.edit-reservation img {
+  max-width: 300px;
+} 
+
 /* NEW CAR */
 .new-car a.drafts {
   margin: 0 auto;
@@ -611,9 +665,11 @@ form.login-signup button {
   flex-direction: column;
   width: 300px;
   margin: 0 auto;
-  background-color: #03055e53;
+  background-color: var(--blue-6);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 20px;
   border-radius: 10px;
+  border: 1px solid #EBEBEB;
 }
 
 .edit-car form h3,
