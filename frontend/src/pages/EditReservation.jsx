@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
+// Component for editing reservation details
 const EditReservation = () => {
     const { user } = useContext(AuthContext);
     const { id } = useParams();
@@ -9,6 +10,7 @@ const EditReservation = () => {
     const location = useLocation();
     const reservation = location.state;
 
+    // State variables for managing form inputs and data
     const [error, setError] = useState(null);
     const [cars, setCars] = useState([]);
     const [status, setStatus] = useState(reservation.state)
@@ -18,11 +20,10 @@ const EditReservation = () => {
     const [fromDate, setFromDate] = useState(reservation.dateRented.slice(0, 10));
     const [toDate, setToDate] = useState(reservation.dateReturned.slice(0, 10));
 
-
+// Handler for form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
-
         if (!fromDate || !toDate) {
             setError("Pasirinkite nuomos datą");
             return;
@@ -67,7 +68,7 @@ const EditReservation = () => {
         };
 
     };
-
+// Setting the current date and maximum date allowed in the date inputs
     useEffect(() => {
         const today = new Date();
         const year = today.getFullYear();
@@ -76,7 +77,7 @@ const EditReservation = () => {
         setCurrentDate(year + "-" + month + "-" + day);
         setMaxDate((year + 1) + "-" + month + "-" + day);
     }, []);
-
+// Fetching the list of cars for the dropdown menu
     useEffect(() => {
         const fetchCars = async () => {
             const response = await fetch('http://localhost:8000/api/cars');
@@ -94,6 +95,7 @@ const EditReservation = () => {
         fetchCars();
     }, []);
 
+    // Logging the selected car when it changes
     useEffect(() => {
         console.log(selectedCar)
     }, [selectedCar])

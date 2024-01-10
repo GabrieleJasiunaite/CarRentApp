@@ -2,6 +2,8 @@ import mongoose from 'mongoose'
 
 
 const Schema = mongoose.Schema
+
+// Defining the car schema
 const carSchema = new Schema({
     imageUrl:{
         type: String,

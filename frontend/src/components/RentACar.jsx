@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 
+// Component for renting a car with date selection and agreement checkbox
 const RentACar = ({ carDetails }) => {
     const { user } = useAuthContext();
     const [isChecked, setIsChecked] = useState(false);
@@ -13,6 +14,7 @@ const RentACar = ({ carDetails }) => {
     const [successMessage, setSuccessMessage] = useState(null);
 
     useEffect(() => {
+    // Set current date and max date for date inputs
         const today = new Date();
         const year = today.getFullYear();
         const month = String(today.getMonth() + 1).padStart(2, '0');
@@ -24,12 +26,10 @@ const RentACar = ({ carDetails }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
-
         if (!fromDate || !toDate) {
             setError("Pasirinkite nuomos datą");
             return;
         };
-
         if (!isChecked) {
             setError("Turite sutikti su privatumo ir nuomos politika");
             return;

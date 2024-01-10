@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
 
+// SignUp component for user registration
 const SignUp = () => {
+    // State for storing user input (email and password)
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    // Custom hook for handling user registration logic
     const { signup, error, isLoading } = useSignup();
 
+    // Function to handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         await signup(email, password);

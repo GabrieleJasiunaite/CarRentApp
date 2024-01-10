@@ -3,32 +3,42 @@ import { Link } from 'react-router-dom'
 import { useAuthContext } from '../hooks/useAuthContext';
 import {BodyTypeContext} from '../context/BodyTypeContext'
 
+// Component displaying a list of cars with filtering options
 const Cars = () => {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-  const {user} = useAuthContext()
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const { bodyType, fetchAllBodyTypes } = useContext(BodyTypeContext);
 
-  useEffect(() => {
-      fetchAllBodyTypes();
-  }, []);
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState('all');
+    const [isLoading, setIsLoading] = useState(true)
+    const { bodyType, fetchAllBodyTypes } = useContext(BodyTypeContext);
+    const {user} = useAuthContext()
 
-  useEffect(() => {
-    const fetchData = async () => {
+// Fetching all body types when the component mounts
+    useEffect(() => {
+        fetchAllBodyTypes();
+    }, []);
+
+// Fetching car data based on selected body type category
+    useEffect(() => {
+        const fetchData = async () => {
+            setIsLoading(true)
         try {
             const response = await fetch('http://localhost:8000/api/cars')
             if (response.status === 500) {
                 setError('Užklausa buvo nesėkminga');
+                setIsLoading(false)
                 return;
             }
 
             const json = await response.json();
+
             if (selectedCategory !== "all") {
                 setData(json.filter(car => car.body === selectedCategory));
-                setError(null);
+              setIsLoading(false);  
+              setError(null);
             } else {
                 setData(json);
+              setIsLoading(false);
                 setError(null);
             };
         } catch (err) {
@@ -39,26 +49,6 @@ const Cars = () => {
     fetchData();
 }, [selectedCategory]);
   
-  
- 
-
-  useEffect(() => {
-
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:8000/api/cars')
-        if (!response.ok) {
-          throw new Error('Užklausa buvo nesėkminga')
-        }
-        const jsonData = await response.json();
-        setData(jsonData);
-      } catch (error) {
-        console.error('Klaida gaunant duomenis:', error.message);
-      }
-    }
-
-    fetchData();
-  }, [])
   return (
     <>
     <div className='search'>
