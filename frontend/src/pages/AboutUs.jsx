@@ -16,7 +16,7 @@ const AboutUs = () => {
 
     return (
         <>
-            <div className="container about-us">
+            <div className="container about-us info-page">
                 <header>
                     <div>
                         <h1>VCF</h1>
@@ -24,7 +24,7 @@ const AboutUs = () => {
                     </div>
                     <img src={CarRentPic3} alt="people and rented car" />
                 </header>
-                <p><strong>UAB "VCF-automobilių nuoma"</strong> - per ilgą penkiolikos parų laikotarpį didelę patirtį sukaupusi įmonė, savo klientams siūlanti pačių įvairiausių kategorijų ir modelių automobilių nuomą.</p>
+                <p className="top-text"><strong>UAB "VCF-automobilių nuoma"</strong> - per ilgą penkiolikos parų laikotarpį didelę patirtį sukaupusi įmonė, savo klientams siūlanti pačių įvairiausių kategorijų ir modelių automobilių nuomą.</p>
                 <p>Savo klientams mes norime pasiūlyti tik pačius saugiausius, patogiausius bei naujus automobilius už Jums palankiausią kainą. Daugiau nei 15 transporto priemonių iš viso turinti mūsų įmonė leidžia savo klientams rinktis.</p>
                 <h3>Siūlomi mašinų nuomos tipai:</h3>
                 <ul>
