@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react"
 
 // pictures import
@@ -35,7 +36,7 @@ const Home = () => {
         };
 
         fetchRandomCars();
-    }, [])
+    }, []);
 
     //Sets a timer to display the modal after 3 seconds
     useEffect(() => {

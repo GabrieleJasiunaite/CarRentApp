@@ -19,6 +19,7 @@ const CarDetails = () => {
                 const response = await fetch(`http://localhost:8000/api/cars/${id}`);
                 const json = await response.json();
                 setCar(json);
+                setError(null);
 
             } catch (err) {
                 setError(err);
@@ -30,19 +31,23 @@ const CarDetails = () => {
     
 
     const handleDelete = async () => {
-        const response = await fetch(`http://localhost:8000/api/cars/${id}`, {
-            method: 'DELETE'
-        });
+        try {
+            const response = await fetch(`http://localhost:8000/api/cars/${id}`, {
+                method: 'DELETE'
+            });
 
-        const json = await response.json();
+            const json = await response.json();
 
-        if (!response.ok) {
-            setError(json.error);
-        };
+            if (!response.ok) {
+                setError(json.error);
+            };
 
-        if (response.ok) {
-            setError(null);
-            return navigate('/cars');
+            if (response.ok) {
+                setError(null);
+                return navigate('/cars');
+            };
+        } catch (err) {
+            setError(err);
         };
     };
 
@@ -61,20 +66,23 @@ const CarDetails = () => {
                                 <button className='delete' onClick={handleDelete}>Ištrinti</button>
                             </div>
                         }
-                        <img src={car.imageUrl} alt={car.brand + car.model} />
+                        <div className="car-pic-box">
+                            <img src={car.imageUrl} alt={`${car.brand} ${car.model}`} />
+                            <h3>{car.brand} {car.model}, {car.year}</h3>
+                        </div>
                         <div className="properties-rent-form">
                             <div className="properties-price">
-                                <div className="properties"><p><strong>Metai: </strong>{car.year}</p>
-                                    <p><strong>Kuro tipas: </strong>{car.fuelType}</p>
-                                    <p><strong>Pavarų dėžė: </strong>{car.transmission}</p>
-                                    <p><strong>Vietos: </strong>{car.seats}</p>
-                                    <p><strong>Kėbulo tipas: </strong>{car.body}</p>
+                                <div className="car-info-box">
+                                    <p><span className="iconify" data-icon="f7:car-fill"></span> {car.body}</p>
+                                    <p><span className="iconify" data-icon="game-icons:car-seat"></span> {car.seats} vietų</p>
+                                    <p><span className="iconify" data-icon="bi:fuel-pump"></span>{car.fuelType} </p>
+                                    <p><span className="iconify" data-icon="game-icons:gear-stick-pattern"></span> {car.transmission}</p>
                                 </div>
-                                <h3>Nuomos kaina: <span className='rent-price'>{car.price} Eur /parai</span></h3>
-                                <Link to='/cars'>Grįžti atgal</Link>
+                                <p>{car.price} Eur <span>/parai</span></p>
                             </div>
                             {!user.isAdmin && <RentACar carDetails={car} />}
                         </div>
+                        <Link to='/cars'>Grįžti atgal</Link>
                     </>
                 }
             </div>

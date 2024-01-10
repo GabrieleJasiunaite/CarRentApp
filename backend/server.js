@@ -18,8 +18,6 @@ app.use((req, res, next) => {
     next();
 });
 
-
-
 // Middleware for handling CORS headers
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', ['*']);

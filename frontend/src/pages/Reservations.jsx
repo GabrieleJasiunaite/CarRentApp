@@ -22,10 +22,16 @@ const Reservations = () => {
                 const response = await fetch("http://localhost:8000/api/reservations", {
                     headers: { 'Authorization': `Bearer ${user.token}` }
                 });
+
+                if (response.status === 500) {
+                    setError('Užklausa buvo nesėkminga');
+                    return;
+                };
+
                 const json = await response.json();
                 if (response.ok) {
                     setReservations(json);
-                    setError(null)
+                    setError(null);
                 };
 
             } catch (err) {
@@ -39,9 +45,15 @@ const Reservations = () => {
 
     }, [])
 
+    const handleDelete = () => {
+
+    };
+
     return (
         <div className="container">
             <h2>Visos rezervacijos</h2>
+      {error && <div className="error">{error}</div>}
+      {reservations.length === 0 && <div>Rezervacijų nėra</div>}
       {isLoading ? (
                     <div className="loading-modal">
                         <div className="loading-content">

@@ -21,31 +21,27 @@ const Cars = () => {
 // Fetching car data based on selected body type category
     useEffect(() => {
         const fetchData = async () => {
-            setIsLoading(true)
-        try {
-            const response = await fetch('http://localhost:8000/api/cars')
-            if (response.status === 500) {
-                setError('Užklausa buvo nesėkminga');
-                setIsLoading(false)
-                return;
-            }
+            try {
+                const response = await fetch('http://localhost:8000/api/cars')
+                if (response.status === 500) {
+                    setError('Užklausa buvo nesėkminga');
+                    return;
+                };
 
-            const json = await response.json();
-
-            if (selectedCategory !== "all") {
-                setData(json.filter(car => car.body === selectedCategory));
-              setIsLoading(false);  
-              setError(null);
-            } else {
-                setData(json);
-              setIsLoading(false);
-                setError(null);
-            };
-        } catch (err) {
-            setError(err);
-        };
+                const json = await response.json();
+                if (selectedCategory !== "all") {
+                    setData(json.filter(car => car.body === selectedCategory));
+                  setIsLoading(false);  
+                    setError(null);
+                } else {
+                    setData(json);
+                  setIsLoading(false);
+                    setError(null);
+                };
+            } catch (err) {
+                setError(err);
     };
-
+          
     fetchData();
 }, [selectedCategory]);
   

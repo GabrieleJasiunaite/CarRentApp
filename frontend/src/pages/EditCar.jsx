@@ -38,7 +38,7 @@ const EditCar = () => {
         });
 
         if (response.status === 500) {
-            setError('Can not connect to server');
+            setError('Užklausa buvo nesėkminga');
             return;
         };
 

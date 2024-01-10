@@ -1,10 +1,16 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, Link, useLocation } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
+
 
 // NewCar component for adding a new car to the system
 const NewCar = () => {
      // React Router hook for navigation
     const navigate = useNavigate();
+    const location = useLocation();
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(null);
+    const [allDrafts, setAllDrafts] = useState([]);
 
     // State variables for form fields and error handling
     const [error, setError] = useState(null);
@@ -18,7 +24,35 @@ const NewCar = () => {
     const [seats, setSeats] = useState();
     const [body, setBody] = useState('');
 
-    // Handle form submission for adding a new car
+    useEffect(() => {
+        if (location.state) {
+            const state = location.state;
+            setimageUrl(state.imageUrl);
+            setModel(state.model);
+            setBrand(state.brand);
+            setPrice(state.price);
+            setYear(state.year);
+            setFuelType(state.fuelType);
+            setTransmission(state.transmission);
+            setSeats(state.seats);
+            setBody(state.body);
+        };
+    }, [])
+
+    useEffect(() => {
+        const json = localStorage.getItem("drafts");
+        if (!json) {
+            return;
+        };
+
+        const drafts = JSON.parse(json);
+        if (drafts) {
+            setAllDrafts(drafts);
+        };
+
+    }, []);
+
+  // Handle form submission for adding a new car
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
@@ -32,7 +66,7 @@ const NewCar = () => {
             headers: { 'Content-Type': 'application/json' }
         });
         if (response.status === 500) {
-            setError('Can not connect to server');
+            setError('Užklausa buvo nesėkminga');
             return;
         };
 
@@ -44,6 +78,19 @@ const NewCar = () => {
             setError(null);
             return navigate('/cars')
         };
+    };
+
+    const saveDraft = () => {
+        const today = new Date();
+        const dateYear = today.getFullYear();
+        const dateMonth = String(today.getMonth() + 1).padStart(2, '0');
+        const dateDay = String(today.getDate()).padStart(2, '0');
+        const date = dateYear + "-" + dateMonth + "-" + dateDay;
+        const id = uuidv4();
+
+        const drafts = [...allDrafts, { id, imageUrl, model, brand, price, year, fuelType, transmission, seats, body, date }];
+        localStorage.setItem('drafts', JSON.stringify(drafts));
+        setSuccess("Juodraštis išsaugotas");
     };
 
     return (
@@ -76,6 +123,8 @@ const NewCar = () => {
                     </div>
                     {error && <div className="error">{error}</div>}
                 </form>
+                <button className="save-draft" onClick={saveDraft}>Išsaugoti juodraštį</button>
+                {success && <div className="success">{success}</div>}
             </div>
         </div>
     );
