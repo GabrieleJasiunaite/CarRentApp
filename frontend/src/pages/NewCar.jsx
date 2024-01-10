@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
+// NewCar component for adding a new car to the system
 const NewCar = () => {
+     // React Router hook for navigation
     const navigate = useNavigate();
-    const [error, setError] = useState(null);
 
+    // State variables for form fields and error handling
+    const [error, setError] = useState(null);
     const [imageUrl, setimageUrl] = useState('');
     const [model, setModel] = useState('');
     const [brand, setBrand] = useState('');
@@ -15,32 +18,28 @@ const NewCar = () => {
     const [seats, setSeats] = useState();
     const [body, setBody] = useState('');
 
+    // Handle form submission for adding a new car
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
-
         if (imageUrl === "" || model === "" || brand === "" || !price || !year || fuelType === "" || transmission === "" || !seats || body === "") {
             setError("Užpildykite visus laukus");
             return;
         };
-
         const response = await fetch('http://localhost:8000/api/cars', {
             method: 'POST',
             body: JSON.stringify({ imageUrl, model, brand, price, year, fuelType, transmission, seats, body }),
             headers: { 'Content-Type': 'application/json' }
         });
-
         if (response.status === 500) {
             setError('Can not connect to server');
             return;
         };
 
         const json = await response.json();
-
         if (!response.ok) {
             setError(json.error);
         };
-
         if (response.ok) {
             setError(null);
             return navigate('/cars')

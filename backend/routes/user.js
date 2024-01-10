@@ -3,10 +3,11 @@ import { loginUser, signupUser } from '../controllers/userController.js';
 
 const router = express.Router();
 
-//login route
+// Route for user login
 router.post('/login', loginUser);
 
-//signup route
+// Route for user signup
 router.post('/signup', signupUser);
+
 
 export default router;

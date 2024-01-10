@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 
 
 const Schema = mongoose.Schema
+// Defining the reservation schema
 const reservationSchema = new Schema({
     car_id: {
         type: String

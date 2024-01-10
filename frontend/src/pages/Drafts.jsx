@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import DraftCard from "../components/DraftCard";
 
+// Component for displaying a list of drafts
 const Drafts = () => {
     const navigate = useNavigate();
     const [drafts, setDrafts] = useState([]);
@@ -10,7 +11,7 @@ const Drafts = () => {
         // setDrafts(localStorage.getItem('drafts'));
         setDrafts([{ brand: "Volvo", year: 2014, date: "2024-01-10" }, { brand: "Audi", model: "A8", date: "2024-01-09" }])
     }, []);
-
+// Handler for clicking on a draft card
     const handleClick = (draft) => {
         //     return navigate('/cars/new', { state: { draft } });
         //     // new page padaryt patikrinimą ar propsuose atkeliauja kažkas, jei ne

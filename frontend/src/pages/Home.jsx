@@ -3,10 +3,13 @@ import CarRentPic2 from "../pictures/Car-rent-pic2.png"
 import Brands from "../pictures/Brands.png"
 import { useEffect, useState } from "react"
 
+// Home component containing sections like featured cars, registration steps, and brand logos
 const Home = () => {
     const [carsData, setCarsData] = useState([])
+    // IDs of specific cars to fetch
     const carIds = ['659807eacb3a6fcedfcf501b', "659807eacb3a6fcedfcf5028", "659807eacb3a6fcedfcf501f", "659807eacb3a6fcedfcf5020"]
 
+    // Fetch random cars on component mount
     useEffect(() => {
         const fetchRandomCars = async () => {
             try {

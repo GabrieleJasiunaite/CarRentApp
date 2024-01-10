@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { useLocation, useNavigate, useParams, Link } from "react-router-dom";
 
+// Component for editing car details
 const EditCar = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [error, setError] = useState(null);
-
-    // Pasiima params iš Link CarDetails puslapyje
     const location = useLocation();
     const car = location.state;
 
+// State variables to manage form input values
     const [imageUrl, setimageUrl] = useState(car.imageUrl);
     const [model, setModel] = useState(car.model);
     const [brand, setBrand] = useState(car.brand);
@@ -20,6 +20,7 @@ const EditCar = () => {
     const [seats, setSeats] = useState(car.seats);
     const [body, setBody] = useState(car.body);
 
+// Handler for form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
@@ -28,7 +29,7 @@ const EditCar = () => {
             setError("Užpildykite visus laukus");
             return;
         };
-
+// Sending a PUT request to update car details
         const response = await fetch(`/api/cars/${id}`, {
             method: 'PUT',
             body: JSON.stringify({ imageUrl, model, brand, price, year, fuelType, transmission, seats, body }),
