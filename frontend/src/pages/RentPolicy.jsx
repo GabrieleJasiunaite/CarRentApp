@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
+import CarRentPic6 from "../pictures/Car-rent-pic6.png"
 
 const RentPolicy = () => {
     return (
-        <div className="conditions container">
-            <h1>Nuomos sąlygos</h1>
+        <div className="conditions container info-page">
+            <header>
+             <h1>Nuomos sąlygos</h1> 
+             <img src={CarRentPic6} alt="people driving car" />  
+            </header>
             <div className="car-reservation">
                 <h2>Automobilio rezervacija</h2>
                 <p>Visus nuomojamus automobilius galite rezervuoti www.renteuropa.lt svetainėje pasirenkant automobilį ir užpildant rezervacijos laukus, elektroniniu paštu  <strong className="email">info@rfcrent.lt</strong> arba telefonu <strong className="email">+370 670 69699</strong></p>
@@ -17,8 +21,10 @@ const RentPolicy = () => {
             </div>
             <div className="documents-needed">
                 <h2>Reikalingi dokumentai</h2>
-                <li>Galiojantis vairuotojo pažymėjimas.</li>
-                <li>Galiojantis pasas arba asmens tapatybės kortelė iki nuomos termino pabaigos.</li>
+                <ul>
+                    <li>Galiojantis vairuotojo pažymėjimas.</li>
+                    <li>Galiojantis pasas arba asmens tapatybės kortelė iki nuomos termino pabaigos.</li>
+                </ul>
                 <p>Visi dokumentai turi būti išduoti nuomininko vardu</p>
             </div>
             <div className="payment">

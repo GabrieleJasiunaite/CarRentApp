@@ -703,33 +703,36 @@ h2.drafts-heading {
   cursor: pointer;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.303);
 }
-
-/* ABOUT US */
-
-.about-us header {
+/*info-page class*/
+.info-page header {
   background-color: var(--blue-2);
   padding: 30px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border-radius: 6px;
 }
-
-.about-us header img {
-  max-width: 25vw;
-  max-height: 25vh;
+.info-page  h2, h3, h4{
+  color: var(--blue-5);
+  margin-left: 30px;
+  margin-top: 50px;
 }
-
-.about-us h1,
-h3,
-strong {
-  color: var(--blue-5)
+.info-page strong{
+  color: var(--blue-5);
 }
-
-.about-us ul li {
-  list-style: none;
+.info-page .top-text{
+  margin-top: 50px;
 }
-
-.about-us ul li::before {
+.info-page li{
+  margin-left: 30px;
+  max-width: 1200px;
+  padding: 0 30px 0 30px;
+  color: rgb(121, 119, 119);
+}
+.info-page ul li{
+  list-style: none; 
+}
+.info-page ul li::before {
   content: "\2022";
   color: var(--blue-4);
   font-weight: bold;
@@ -737,12 +740,32 @@ strong {
   width: 1em;
   margin-left: -1em;
 }
+.info-page a{
+  text-decoration: none;
+  color: var(--blue-4);
+  display: inline-block;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.info-page p {
+  margin-left: 30px;
+  max-width: 1200px;
+  color: rgb(121, 119, 119);
+  font-size: 15px;
+}
+/* ABOUT US */
+
+.about-us header img {
+  max-width: 25vw;
+  max-height: 25vh;
+}
 
 .about-us form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  margin-left: 30px;
 }
 
 .about-us input {
@@ -765,95 +788,48 @@ strong {
   width: 100px;
   height: 40px;
   padding: 8px, 4px;
-  border-radius: 48px;
+  border-radius: 6px;
   color: var(--background-color);
   background-color: var(--blue-3);
   border: none;
   font-size: 1.2em;
 }
 
-.about-us a {
-  text-decoration: none;
-  color: var(--blue-4);
-  display: inline-block;
-  margin-top: 30px;
-}
-
 /* FAQ */
-
-.faq header {
-  background-color: var(--blue-2);
-  padding: 30px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
 
 .faq header img {
   max-width: 20vw;
   max-height: 20vh;
 }
-
-.faq h2,
-h3,
-h4 {
-  color: var(--blue-5)
+.accord-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 60vw;
 }
-
-.faq a {
-  text-decoration: none;
-  color: var(--blue-4);
-  display: inline-block;
-  margin-top: 30px;
+.accord-title .sign{
+  color: var(--blue-5);
+  font-weight: 800;
+}
+.accord-content{
+  background-color: var(--blue-2);
 }
 
 /*PRIVACY POLICY*/
 
-.privacy-policy header {
-  background-color: var(--blue-2);
-  padding: 30px;
+.privacy-policy header img{
+  max-width: 20vw;
+  max-height: 20vh;
 }
-
-.privacy-policy h2,
-h3,
-h4,
-ol li {
-  color: var(--blue-5)
-}
-
-.privacy-policy ol>li {
-  font-weight: 700;
-}
-
-.privacy-policy ul li {
-  list-style: none;
-}
-
-.privacy-policy ul li::before {
-  content: "\2022";
-  color: var(--blue-4);
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
-}
-
-.privacy-policy a {
-  text-decoration: none;
-  color: var(--blue-4);
-  display: inline-block;
-  margin-top: 30px;
+.privacy-policy ol li {
+  color: var(--blue-5);
 }
 
 /* RENT POLICY  */
 
-.conditions h1 {
-  margin-left: 30px;
-}
-
-.conditions h2 {
-  margin-left: 30px;
-  margin-top: 50px;
+.conditions header img{
+  max-width: 20vw;
+  max-height: 20vh;
 }
 
 .conditions .email {
@@ -865,24 +841,6 @@ ol li {
   max-width: 1200px;
   color: rgb(121, 119, 119);
   font-size: 15px;
-}
-
-.conditions li {
-  margin-left: 30px;
-  max-width: 1200px;
-  padding: 0 30px 0 30px;
-  color: rgb(121, 119, 119);
-}
-
-.conditions .backtohome {
-  text-decoration: none;
-  margin-left: 30px;
-  margin-top: 100px;
-}
-
-.conditions a {
-  text-decoration: none;
-  margin-left: 30px;
 }
 
 /* ERROR PAGE */
