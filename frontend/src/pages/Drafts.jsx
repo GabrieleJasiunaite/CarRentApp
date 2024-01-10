@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import DraftCard from "../components/DraftCard";
 
+// Component for displaying a list of drafts
 const Drafts = () => {
     const [drafts, setDrafts] = useState([]);
 

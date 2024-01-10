@@ -1,10 +1,11 @@
 import User from '../models/userModel.js';
 import jwt from 'jsonwebtoken';
 
+// Function to create a JSON Web Token (JWT) with user ID as payload
 const createToken = (_id) => {
     return jwt.sign({ _id }, process.env.SECRET, { expiresIn: '3d' });
 }
-//login user
+// Controller function for logging in a user
 export const loginUser = async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {
@@ -20,7 +21,8 @@ export const loginUser = async (req, res) => {
     };
 };
 
-// signup user
+
+// Controller function for signing up a new user
 export const signupUser = async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {

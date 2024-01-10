@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 const DraftCard = ({ allDrafts, draft }) => {
     const navigate = useNavigate();
 
+// Component for displaying a draft card
+const DraftCard = ({ draft, handleClick }) => {
+     // Toggle visibility of delete button on mouse enter/leave
     const handleMouseEnter = (e) => {
         e.target.children[0].children[1].classList.toggle("hidden");
         e.currentTarget.lastChild.classList.toggle("hidden");

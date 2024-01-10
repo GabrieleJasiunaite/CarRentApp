@@ -1,6 +1,7 @@
 import Car from '../models/carModel.js';
 import mongoose from 'mongoose';
 
+// Controller function to get all cars
 export const getCars = async (req, res) => {
     try {
         const cars = await Car.find({});
@@ -10,9 +11,11 @@ export const getCars = async (req, res) => {
     };
 };
 
+// Controller function to get a single car by ID
 export const getCar = async (req, res) => {
     const { id } = req.params;
 
+  // Check if the provided ID is a valid mongoose ObjectId
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({ error: "Tokio automobilio nėra" })
     };
@@ -28,6 +31,7 @@ export const getCar = async (req, res) => {
     };
 };
 
+// Controller function to create a new car
 export const createCar = async (req, res) => {
     const { imageUrl, model, brand, price, year, fuelType, transmission, seats, body } = req.body;
     let emptyFields = [];
@@ -52,6 +56,7 @@ export const createCar = async (req, res) => {
     };
 };
 
+// Controller function to update an existing car
 export const updateCar = async (req, res) => {
     const { id } = req.params;
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -85,6 +90,7 @@ export const updateCar = async (req, res) => {
     };
 };
 
+// Controller function to remove a car by ID
 export const removeCar = async (req, res) => {
     const { id } = req.params;
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -102,6 +108,7 @@ export const removeCar = async (req, res) => {
     };
 };
 
+// Controller function to get unique car body types
 export const getTypes = async (req, res) => {
     try {
         const types = await Car.aggregate([

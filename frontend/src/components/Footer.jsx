@@ -2,11 +2,14 @@ import { Link } from 'react-router-dom';
 import Logo from "../pictures/logo2-2.png";
 
 const Footer = () => {
+    // Footer component with links and social icons
     const currentYear = new Date().getFullYear();
     return (
         <div className="container">
             <footer>
-                <img src={Logo} alt="logo" />
+                <Link to="/">
+                    <img src={Logo} alt="logo" />
+                </Link>
                 <div className="footer-link-list">
                     <div className="first link-list">
                         <Link to='/aboutus'>Apie mus</Link>

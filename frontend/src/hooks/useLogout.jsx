@@ -1,18 +1,18 @@
 import { useAuthContext } from "./useAuthContext";
 // import { useWorkoutContext } from "./useWorkoutContext";
 
+
+// Custom hook for handling logout functionality
 export const useLogout = () => {
   const { dispatch } = useAuthContext()
   // const { dispatch: pratimoDispatch } = useWorkoutContext()
 
   const logout = () => {
-    //saliname user is localstorage
     localStorage.removeItem('user');
 
-    //naikiname JWT
+    
     dispatch({ type: 'LOGOUT' });
 
-    // pratimoDispatch({ type: 'SET_WORKOUTS', payload: null });
   };
 
   return { logout };

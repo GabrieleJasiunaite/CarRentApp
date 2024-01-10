@@ -7,10 +7,10 @@ import reservationsRoutes from './routes/reservations.js';
 
 dotenv.config();
 
-//express app
+// Creating an instance of the express app
 const app = express();
 
-//middleware
+// Middleware for parsing JSON requests
 app.use(express.json());
 
 app.use((req, res, next) => {
@@ -18,6 +18,7 @@ app.use((req, res, next) => {
     next();
 });
 
+// Middleware for handling CORS headers
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', ['*']);
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
@@ -31,12 +32,12 @@ app.use((req, res, next) => {
     }
 });
 
-//routes
+// Setting up routes for different parts of the application
 app.use('/api/cars', carsRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/reservations', reservationsRoutes);
 
-//connect to DB
+// Connecting to the MongoDB database
 mongoose.connect(process.env.URI)
     .then(() => {
         app.listen(process.env.PORT, () => {

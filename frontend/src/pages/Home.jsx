@@ -1,11 +1,24 @@
-import CarRentPic from "../pictures/Car-rent-pic.png";
-import CarRentPic2 from "../pictures/Car-rent-pic2.png";
-import Brands from "../pictures/Brands.png";
-import { useEffect, useState } from "react";
 
+import { useEffect, useState } from "react"
+
+// pictures import
+import CarRentPic from "../pictures/Car-rent-pic.png"
+import CarRentPic2 from "../pictures/Car-rent-pic2.png"
+import audi from "../pictures/audi.png"
+import bmw from "../pictures/bmw.png"
+import ford from "../pictures/ford.png"
+import mazda from "../pictures/mazda.png"
+import mercedes from "../pictures/mercedes.png"
+import nissan from "../pictures/nissan.png"
+import toyota from "../pictures/toyota.png"
+import vw from "../pictures/vw.png"
+
+// Home component containing sections like featured cars, registration steps, and brand logos
 const Home = () => {
-    const [carsData, setCarsData] = useState([]);
+    const [carsData, setCarsData] = useState([])
+    const [showModal, setShowModal] = useState(false);
 
+   //Fetches a random set of cars from the API
     useEffect(() => {
         const fetchRandomCars = async () => {
             try {
@@ -24,6 +37,20 @@ const Home = () => {
 
         fetchRandomCars();
     }, []);
+
+    //Sets a timer to display the modal after 3 seconds
+    useEffect(() => {
+        const timer = setTimeout(() => {
+          setShowModal(true);
+        }, 3000)
+    
+        return () => clearTimeout(timer)
+    }, [])
+    
+    //Closes modal window after button is clicked
+    const handleClose = () => {
+        setShowModal(false)
+    }
 
     return (
         <>
@@ -52,8 +79,7 @@ const Home = () => {
                             </div>
                             <div className="car-button-box">
                                 <p>{car.price} Eur <span>/parai</span></p>
-                                <button>Daugiau <i className="bi bi-arrow-right"></i></button>
-                                {/* prideti funckionaluma paskiau */}
+                               <Link to='/login'><button>Daugiau<i className="bi bi-arrow-right"></i></button></Link> 
                             </div>
                         </div>
                     ))}
@@ -89,9 +115,27 @@ const Home = () => {
             </div>
 
             <div className="fourth-container">
-                <img src={Brands} alt="brands logos" />
+                <img src={audi} alt="audi" />
+                <img src={bmw} alt="bmw" />
+                <img src={ford} alt="ford" />
+                <img src={mazda} alt="mazda" />
+                <img src={mercedes} alt="mercedes" />
+                <img src={nissan} alt="nissan" />
+                <img src={toyota} alt="toyota" />
+                <img src={vw} alt="vw" />
             </div>
-
+            <div className={`cookie-modal ${showModal ? "show" : ""}`}>
+                <div className="cookie-content">
+                    <h2>Slapukų politika</h2>
+                    <p>Mes naudojame slapukus, kad pagerintume jūsų naršymo patirtį.{' '}
+                        <a href="/privacypolicy">Plačiau apie slapukus</a>.
+                    </p>
+                <div className="cookie-buttons">
+                    <button onClick={handleClose}>Sutinku</button>
+                    <button onClick={handleClose}>Nesutinku</button>
+                </div>
+                </div>
+            </div>
         </>
     )
 }

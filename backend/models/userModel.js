@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import validator from 'validator';
 
 const Schema = mongoose.Schema;
-
+// Defining the user schema
 const userSchema = new Schema({
     email: {
         type: String,
@@ -18,7 +18,7 @@ const userSchema = new Schema({
         type: Boolean
     }
 });
-
+// Adding static methods to the user schema for signup and login functionalities
 userSchema.statics.signup = async function (email, password) {
     //validavimas
     if (!email || !password) {
@@ -38,9 +38,12 @@ userSchema.statics.signup = async function (email, password) {
     if (exists) {
         throw Error('El. paštas jau naudojamas.')
     };
-
+    
+    // Generating salt and hashing the password
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
+
+    // Creating a new user with hashed password and default admin status set to false
     const user = await this.create({ email, password: hash, isAdmin: false });
     return user;
 }

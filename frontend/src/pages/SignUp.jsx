@@ -1,13 +1,18 @@
 import { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
 
+// SignUp component for user registration
 const SignUp = () => {
+    // State for storing user input (email and password)
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+  // Custom hook for handling user registration logic
+  const { signup, error: signupError, isLoading } = useSignup();
     const [confirmPass, setConfirmPass] = useState('');
-    const { signup, error: signupError, isLoading } = useSignup();
     const [error, setError] = useState(null);
 
+    // Function to handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
