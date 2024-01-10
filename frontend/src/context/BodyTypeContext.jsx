@@ -1,7 +1,9 @@
 import { createContext, useState } from "react";
 
+// Define the body type context for car body types
 export const BodyTypeContext = createContext();
 
+// BodyTypeContextProvider component to wrap the application and manage body type state
 export const BodyTypeContextProvider = ({ children }) => {
     const [bodyType, setBodyType] = useState([]);
     const [error, setError] = useState(null);

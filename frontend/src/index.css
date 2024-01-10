@@ -55,7 +55,8 @@ a {
   justify-content: space-between;
   align-items: center;
   position: sticky;
-  top: 20px;
+  top: 0; /* Updated to top: 0; */
+  z-index: 100; /* Added z-index for stacking context */
 }
 
 .navbar a {
@@ -69,7 +70,7 @@ a {
 
 .navbar nav .nav-links a {
   margin-left: 15px;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 600;
 }
 
@@ -130,7 +131,7 @@ a {
   padding: 5px;
   text-align: right;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .navbar nav .nav-links .myLinks a:hover {
@@ -158,7 +159,7 @@ a {
 .first-container-text h1 {
   width: 650px;
   font-weight: 600;
-  font-size: 32px;
+  font-size: 2rem;
   margin: 0;
 }
 
@@ -168,7 +169,7 @@ a {
 
 .first-container-text p {
   font-weight: 400;
-  font-size: 20px;
+  font-size: 1.25rem;
   width: 466px;
   margin: 0;
   padding-top: 20px;
@@ -193,7 +194,7 @@ a {
 .second-container h2 {
   font-weight: 600;
   line-height: 40px;
-  font-size: 32px;
+  font-size: 2rem;
   margin: 0;
   padding-bottom: 50px;
 }
@@ -229,7 +230,7 @@ a {
   padding-top: 40px;
   padding-left: 5px;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.125rem;
   margin: 0;
 }
 
@@ -238,7 +239,7 @@ a {
   display: grid;
   grid-template-columns: 1fr 112px;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
   color: #929395;
 }
@@ -263,19 +264,19 @@ a {
 
 .car-button-box p {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .car-button-box span {
   font-weight: 800;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #AAAAAA;
 }
 
 .car-button-box button {
   color: #20BFB6;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.875rem;
   background: none;
   border: none;
   width: 100px;
@@ -308,7 +309,7 @@ a {
 
 .third-container .block h3 {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 1.25rem;
   margin: 10px 0px;
 
 }
@@ -515,7 +516,7 @@ form.login-signup button {
 }
 
 .car-details .rent-table form label:last-of-type {
-  font-size: 14px;
+  font-size: 0.875rem;
   display: inline;
 }
 
@@ -534,7 +535,7 @@ form.login-signup button {
   display: block;
   background-color: var(--blue-4);
   color: var(--background-color);
-  font-size: 15px;
+  font-size: 0.938rem;
   padding: 5px 10px;
   margin: 20px auto 0;
 }
@@ -580,7 +581,7 @@ form.login-signup button {
 .car-details .buttons button.edit,
 .car-details .buttons button.delete {
   color: var(--background-color);
-  font-size: 15px;
+  font-size: 0.938rem;
   padding: 5px 10px;
   margin: 20px 5px 0;
 }
@@ -749,7 +750,7 @@ strong {
   margin-bottom: 10px;
   border: 1px solid var(--blue-2);
   border-radius: 6px;
-  font-size: 1em;
+  font-size: 1rem;
   padding: 6px;
 }
 
@@ -757,7 +758,7 @@ strong {
   margin-bottom: 10px;
   border: 1px solid var(--blue-2);
   border-radius: 6px;
-  font-size: 1.2em;
+  font-size: 1rem;
   padding: 6px;
 }
 
@@ -769,7 +770,7 @@ strong {
   color: var(--background-color);
   background-color: var(--blue-3);
   border: none;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 .about-us a {
@@ -864,7 +865,7 @@ ol li {
   margin-left: 30px;
   max-width: 1200px;
   color: rgb(121, 119, 119);
-  font-size: 15px;
+  font-size: 0.938rem;
 }
 
 .conditions li {
@@ -892,7 +893,7 @@ ol li {
 }
 
 .notfound h1 {
-  font-size: 30vh;
+  font-size: 16.25rem;
   background-image: url(../public/images/9CuLlD.webp);
   background-size: cover;
   background-clip: text;
@@ -942,7 +943,7 @@ footer .footer-link-list .link-list a {
   padding: 5px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: black;
 }
 
@@ -961,7 +962,7 @@ footer .social-links a {
 
 .copyright-text {
   text-align: center;
-  font-size: 13px;
+  font-size: 0.813rem;
   margin: 5px;
 }
 
@@ -997,11 +998,11 @@ footer .social-links a {
   }
 
   .third-container .block h3 {
-    font-size: 17px;
+    font-size: 1.063rem;
   }
 
   .third-container .block p {
-    font-size: 13px;
+    font-size: 0.813rem;
   }
 }
 
@@ -1011,31 +1012,37 @@ footer .social-links a {
   }
 
   .third-container .block h3 {
-    font-size: 15px;
+    font-size: 0.938rem;
   }
 
   .third-container .block p {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 }
 
 /* not found */
 @media screen and (max-width: 1024px) {
   .notfound h1 {
-    font-size: 28vh;
+    font-size: 15rem;
   }
 }
 
 @media screen and (max-width: 950px) {
   .notfound h1 {
-    font-size: 22vh;
+    font-size: 13.25rem;
   }
 }
 
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 720px) {
   .notfound h1 {
-    font-size: 18vh;
+    font-size: 11.25rem;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .notfound h1 {
+    font-size: 8.25rem;
   }
 }
 

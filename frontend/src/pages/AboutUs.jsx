@@ -2,10 +2,12 @@ import { useState } from "react";
 import CarRentPic3 from "../pictures/Car-rent-pic3.png"
 import { Link } from "react-router-dom";
 
+// Component providing information about the company and contact form
 const AboutUs = () => {
+// State to manage email and message input fields
     const [email, setEmail] = useState()
     const [message, setMessage] = useState()
-
+// Handler for submitting queries
     const handleQuerySubmit = (e) => {
         e.preventDefault()
         setEmail("")

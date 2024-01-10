@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+// Component for displaying a 404 error page
 const Error404 = () => {
     return (
         <div className="notfound">

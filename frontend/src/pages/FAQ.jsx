@@ -1,6 +1,7 @@
 import CarRentPic4 from "../pictures/Car-rent-pic4.png"
 import { Link } from "react-router-dom";
 
+// Component for displaying Frequently Asked Questions
 const FAQ = () => {
     return (
         <div className="container faq">

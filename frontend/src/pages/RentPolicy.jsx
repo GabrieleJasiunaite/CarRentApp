@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+// RentPolicty component for displaying rent policy information
 const RentPolicy = () => {
     return (
         <div className="conditions container">

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+// PrivacyPolicy component for displaying privacy policy information
 const PrivacyPolicy = () => {
     return (
         <div className="container privacy-policy">

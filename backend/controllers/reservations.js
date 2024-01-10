@@ -2,6 +2,7 @@ import Reservation from '../models/reservationModel.js'
 import User from '../models/userModel.js';
 import mongoose from 'mongoose'
 
+// Controller function to get reservations based on user role (admin or regular user)
 export const getReservations = async (req, res) => {
     const user_id = req.user._id;
     const userCheck = await User.findById(user_id);
@@ -15,6 +16,7 @@ export const getReservations = async (req, res) => {
     }
 }
 
+// Controller function to get a single reservation by ID
 export const getReservation = async (req, res) => {
     const { id } = req.params
 
@@ -29,7 +31,7 @@ export const getReservation = async (req, res) => {
     }
     res.status(200).json(reservation)
 }
-
+// Controller function to create a new reservation
 export const createReservation = async (req, res) => {
     const { car_id, carTitle, dateRented, dateReturned } = req.body;
 
@@ -51,7 +53,7 @@ export const createReservation = async (req, res) => {
         res.status(400).json({ error: error.message })
     };
 };
-
+// Controller function to update an existing reservation
 export const updateReservation = async (req, res) => {
     const { id } = req.params
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -64,7 +66,7 @@ export const updateReservation = async (req, res) => {
     }
     res.status(200).json(reservation);
 };
-
+// Controller function to remove a reservation by ID
 export const removeReservation = async (req, res) => {
     const { id } = req.params
     if (!mongoose.Types.ObjectId.isValid(id)) {
