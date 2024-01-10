@@ -4,6 +4,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import Logo from "../pictures/logo2-2.png";
 import { useState } from "react";
 
+// Navbar component with links and user-specific actions
 const Navbar = () => {
     const { logout } = useLogout();
     const { user } = useAuthContext();

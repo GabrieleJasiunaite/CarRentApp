@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Link } from "react-router-dom"
 import { BodyTypeContext } from '../context/BodyTypeContext';
 
+// Component displaying a list of cars with filtering options
 const Cars = () => {
     const [data, setData] = useState();
     const [error, setError] = useState(null);
@@ -9,10 +10,12 @@ const Cars = () => {
     const [isLoading, setIsLoading] = useState(true)
     const { bodyType, fetchAllBodyTypes } = useContext(BodyTypeContext);
 
+// Fetching all body types when the component mounts
     useEffect(() => {
         fetchAllBodyTypes();
     }, []);
 
+// Fetching car data based on selected body type category
     useEffect(() => {
         const fetchData = async () => {
             setIsLoading(true)
@@ -26,7 +29,6 @@ const Cars = () => {
 
             const json = await response.json();
             setData(json);
-
             if (selectedCategory !== "all") {
                 setData(json.filter(car => car.body === selectedCategory));
                 setError(null);
@@ -36,7 +38,6 @@ const Cars = () => {
             };
             setIsLoading(false)
         };
-
         fetchData();
 
     }, [selectedCategory]);

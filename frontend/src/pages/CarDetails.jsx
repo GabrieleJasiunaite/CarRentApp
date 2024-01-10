@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import RentACar from '../components/RentACar';
 import { useAuthContext } from '../hooks/useAuthContext';
 
+// Component displaying detailed information about a specific car
 const CarDetails = () => {
     const { id } = useParams();
     const { user } = useAuthContext();
@@ -10,9 +11,11 @@ const CarDetails = () => {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
+    // Fetching car details from the server when the component mounts
     useEffect(() => {
         const fetchCarDetails = async () => {
             try {
+                
                 const response = await fetch(`http://localhost:8000/api/cars/${id}`);
                 const json = await response.json();
                 setCar(json);
@@ -21,10 +24,10 @@ const CarDetails = () => {
                 setError(err);
             };
         };
-
         fetchCarDetails();
         setError(null);
     }, []);
+    
 
     const handleDelete = async () => {
         const response = await fetch(`http://localhost:8000/api/cars/${id}`, {

@@ -2,22 +2,27 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from '../hooks/useAuthContext';
 
+// Reservations component for displaying a list of reservations
 const Reservations = () => {
+    // State for storing reservations
     const [reservations, setReservations] = useState([]);
+    // State for handling errors
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true)
+
+    // Accessing user information from the authentication context
     const { user } = useAuthContext();
 
+// Fetch reservations data when the component mounts
     useEffect(() => {
         const fetchReservations = async () => {
             setIsLoading(true)
             try {
+                // Fetch reservations from the server using the user's token for authorization
                 const response = await fetch("http://localhost:8000/api/reservations", {
                     headers: { 'Authorization': `Bearer ${user.token}` }
                 });
-
                 const json = await response.json();
-
                 if (response.ok) {
                     setReservations(json);
                     setError(null)

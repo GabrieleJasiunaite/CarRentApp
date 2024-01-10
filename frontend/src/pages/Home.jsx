@@ -12,6 +12,7 @@ import toyota from "../pictures/toyota.png"
 import vw from "../pictures/vw.png"
 
 
+// Home component containing sections like featured cars, registration steps, and brand logos
 const Home = () => {
     const [carsData, setCarsData] = useState([])
     const [showModal, setShowModal] = useState(false);

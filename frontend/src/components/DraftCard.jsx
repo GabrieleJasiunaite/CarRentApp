@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
+// Component for displaying a draft card
 const DraftCard = ({ draft, handleClick }) => {
+     // Toggle visibility of delete button on mouse enter/leave
     const handleMouseEnter = (e) => {
         e.currentTarget.lastChild.classList.toggle("hidden");
         e.currentTarget.lastChild.previousSibling.classList.toggle("hidden");
@@ -12,6 +14,7 @@ const DraftCard = ({ draft, handleClick }) => {
     };
 
     return (
+        // Link to the new car page with draft details
         <Link to={'/new'} state={draft} >
             <div className="draft-card" onClick={() => handleClick(draft)} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
                 <div className="text">
