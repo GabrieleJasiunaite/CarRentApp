@@ -6,6 +6,7 @@ const Cars = () => {
     const [data, setData] = useState();
     const [error, setError] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState('all');
+    const [isLoading, setIsLoading] = useState(true)
     const { bodyType, fetchAllBodyTypes } = useContext(BodyTypeContext);
 
     useEffect(() => {
@@ -14,10 +15,12 @@ const Cars = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+            setIsLoading(true)
             const response = await fetch('http://localhost:8000/api/cars')
 
             if (response.status === 500) {
                 setError('Užklausa buvo nesėkminga');
+                setIsLoading(false)
                 return;
             }
 
@@ -31,10 +34,13 @@ const Cars = () => {
                 setData(json);
                 setError(null);
             };
+            setIsLoading(false)
         };
 
         fetchData();
+
     }, [selectedCategory]);
+
 
     return (
         <div className='cars'>
@@ -50,7 +56,14 @@ const Cars = () => {
                         ))}
                     </select>
                 </div>
-                {data ? (
+                {isLoading ? (
+                    <div className="loading-modal">
+                        <div className="loading-content">
+                            <p className="loading-text">Kraunasi...</p>
+                        </div>
+                    </div>
+                ) : (
+                    data && (
                     <ul>
                         {data.map((car, index) => (
                             <li key={index}>
@@ -62,8 +75,7 @@ const Cars = () => {
                             </li>
                         ))}
                     </ul>
-                ) : (
-                    <p>Duomenys kraunami...</p>
+                    )
                 )}
             </div>
         </div>
