@@ -161,3 +161,4 @@ export const getUnavailableDates = async (req, res) => {
         res.status(500).send('Serverio klaida');
     };
 };
+
