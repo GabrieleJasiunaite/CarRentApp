@@ -1,4 +1,3 @@
-
 describe('testing home page', () => {
     beforeEach(() => {
         cy.intercept('GET', 'http://localhost:8000/api/cars', { statusCode: 200, body: [] });
@@ -114,3 +113,4 @@ describe('testing footer', () => {
     })
 
 })
+

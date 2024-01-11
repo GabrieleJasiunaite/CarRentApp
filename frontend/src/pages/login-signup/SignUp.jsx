@@ -43,7 +43,7 @@ const SignUp = () => {
                     <label htmlFor="password">Pakartoti slaptažodį: </label>
                     <input type="password" id="passwordConfirm" onChange={(e) => setConfirmPass(e.target.value)} value={confirmPass} />
                     <button disabled={isLoading}>Registruotis</button>
-                    {(error || signupError) && <div className="error">{error}</div>}
+                    {(error || signupError) && <div className="error">{error ? error : signupError}</div>}
                 </form>
             </div>
         </div>

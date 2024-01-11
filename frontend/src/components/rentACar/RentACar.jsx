@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { DatePicker } from "@mui/x-date-pickers";
+import dayjs from 'dayjs';
 import './rentACar.css';
 
 // Component for renting a car with date selection and agreement checkbox
@@ -8,22 +10,49 @@ const RentACar = ({ carDetails }) => {
     const { user } = useAuthContext();
     const [isChecked, setIsChecked] = useState(false);
     const [error, setError] = useState(null);
-    const [currentDate, setCurrentDate] = useState();
-    const [maxDate, setMaxDate] = useState();
+
+    const [disabledDays, setDisabledDays] = useState();
+    let maxDate = dayjs().add(1, 'year');
     const [fromDate, setFromDate] = useState();
     const [toDate, setToDate] = useState();
     const [successMessage, setSuccessMessage] = useState(null);
 
+    // Fethces dates that are already reserved for this specific car
     useEffect(() => {
-        // Set current date and max date for date inputs
-        const today = new Date();
-        const year = today.getFullYear();
-        const month = String(today.getMonth() + 1).padStart(2, '0');
-        const day = String(today.getDate()).padStart(2, '0');
-        setCurrentDate(year + "-" + month + "-" + day);
-        setMaxDate((year + 1) + "-" + month + "-" + day)
+        const fetchTakenDates = async () => {
+            try {
+                const response = await fetch(`/api/reservations/dates/${carDetails._id}`, {
+                    headers: { 'Authorization': `Bearer ${user.token}` }
+                });
+
+                if (response.status === 500) {
+                    setError('Serverio klaida');
+                    return;
+                };
+
+                const json = await response.json();
+
+                if (!response.ok) {
+                    setError(json.error);
+                };
+
+                setDisabledDays(json.map(date => new Date(date)));
+                setError(null);
+
+            } catch (err) {
+                setError(err);
+            };
+        };
+
+        fetchTakenDates();
     }, []);
 
+    // Disables the resserved dates in the date picker
+    const disableInputs = (date) => {
+        return disabledDays.find(el => el.getMonth() === date.month() && el.getDate() === date.date());
+    };
+
+    // Handler for form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
@@ -41,29 +70,37 @@ const RentACar = ({ carDetails }) => {
         const dateRented = new Date(fromDate);
         const dateReturned = new Date(toDate);
 
-        const response = await fetch('/api/reservations', {
-            method: 'POST',
-            body: JSON.stringify({ car_id, carTitle, dateRented, dateReturned }),
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${user.token}`
-            }
-        });
-
-        if (response.status === 500) {
-            setError('Can not connect to server');
+        if (dateReturned < dateRented) {
+            setError("Pasirinkite datas nuo - iki");
             return;
         };
 
-        const json = await response.json();
+        try {
+            const response = await fetch('/api/reservations', {
+                method: 'POST',
+                body: JSON.stringify({ car_id, carTitle, dateRented, dateReturned }),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${user.token}`
+                }
+            });
 
-        if (!response.ok) {
-            setError(json.error);
-        };
+            if (response.status === 500) {
+                setError('Serverio klaida');
+                return;
+            };
 
-        if (response.ok) {
+            const json = await response.json();
+
+            if (!response.ok) {
+                setError(json.error);
+            };
+
             setError(null);
             setSuccessMessage('Rezervacija suformuota');
+
+        } catch (err) {
+            setError(err);
         };
     };
 
@@ -72,9 +109,9 @@ const RentACar = ({ carDetails }) => {
             <form onSubmit={handleSubmit}>
                 <h3>Rezervuoti automobilį</h3>
                 <label htmlFor="from">Nuo:
-                    <input type="date" id="from" min={currentDate} max={maxDate} className="date" onChange={(e) => setFromDate(e.target.value)} /></label>
-                <label htmlFor="to">Iki:
-                    <input type="date" id="to" min={currentDate} max={maxDate} className="date" onChange={(e) => setToDate(e.target.value)} /></label>
+                    <DatePicker className="date" value={fromDate} onChange={value => setFromDate(value)} shouldDisableDate={disableInputs} disablePast maxDate={maxDate} /></label>
+                <label>Iki:
+                    <DatePicker className="date" value={toDate} onChange={value => setToDate(value)} shouldDisableDate={disableInputs} disablePast maxDate={maxDate} /></label>
                 <input type="checkbox" id="agreement" onClick={() => setIsChecked(!isChecked)} />
                 <label htmlFor="agreement">Sutinku su <Link to='/privacypolicy'>privatumo</Link> bei <Link to='/rentpolicy'>nuomos</Link> politika</label>
                 {error && <div className="error">{error}</div>}
