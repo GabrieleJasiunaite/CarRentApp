@@ -81,7 +81,7 @@
     }
 
     .third-container .block p {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 }
 
@@ -141,11 +141,11 @@
 @media all and (max-width:920px) {
     .cookie-content h2 {
         margin-top: 0px;
-        font-size: 20px;
+        font-size: 1.25rem;
     }
 
     .cookie-content p {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 }
 
@@ -197,11 +197,11 @@
     }
 
     .first-container-text h1 {
-        font-size: 25px;
+        font-size: 1.563rem;
     }
 
     .first-container-text p {
-        font-size: 17px;
+        font-size: 1.063rem;
     }
 
     .first-container img {
@@ -239,11 +239,11 @@
     }
 
     .first-container-text h1 {
-        font-size: 20px;
+        font-size: 1.25rem;
     }
 
     .first-container-text p {
-        font-size: 13px;
+        font-size: 0.813rem;
     }
 
     footer .footer-link-list {
@@ -265,7 +265,7 @@
     }
 
     .third-container .block h3 {
-        font-size: 18px;
+        font-size: 1.125rem;
     }
 
     .second-container h2 {
