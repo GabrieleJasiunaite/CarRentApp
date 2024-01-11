@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useLogout } from "../../hooks/useLogout";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import Logo from "../../pictures/logo2-2.png";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import './navbar.css';
 
 // Navbar component with links and user-specific actions
@@ -10,6 +10,7 @@ const Navbar = () => {
     const { logout } = useLogout();
     const { user } = useAuthContext();
     const [showMenu, setShowMenu] = useState(false);
+    const menuRef = useRef(null);
 
     // Handles the click event and initiates the logout process
     const handleClick = (e) => {
@@ -26,6 +27,21 @@ const Navbar = () => {
         setShowMenu(false);
     }
 
+    //Function to handle clicks outside the menu and close it
+    const handleClickOutside = (e) => {
+        if (menuRef.current && !menuRef.current.contains(e.target)) {
+          closeMenu()
+        }
+      }
+    
+      useEffect(() => {
+        document.addEventListener("click", handleClickOutside)
+    
+        return () => {
+          document.removeEventListener("click", handleClickOutside)
+        }
+      }, [])
+
     return (
 
         <div className={!user ? "navbar" : user.isAdmin ? "navbar admin" : "navbar"}>
@@ -41,19 +57,19 @@ const Navbar = () => {
                     </Link>
                 )}
                 <nav>
-                    <div className="nav-links">
+                    <div className="nav-links" ref={menuRef}>
                         {user &&
                             <>
                                 {!user.isAdmin && (
                                     <>
-                                        <Link to='/reservations'>Mano rezervacijos</Link>
+                                        <Link to='/reservations' onClick={closeMenu}>Mano rezervacijos</Link>
                                         <button className="logout-btn" onClick={handleClick}>Log out</button>
                                     </>
                                 )}
                                 {user.isAdmin && (
                                     <>
-                                        <Link to='/reservations'>Visos rezervacijos</Link>
-                                        <Link to='/new' className="add-auto">Pridėti automobilį</Link>
+                                        <Link to='/reservations' onClick={closeMenu}>Visos rezervacijos</Link>
+                                        <Link to='/new' className="add-auto" onClick={closeMenu}>Pridėti automobilį</Link>
                                         <button className="logout-btn" onClick={handleClick}>Log out</button>
                                     </>
                                 )}
@@ -61,8 +77,8 @@ const Navbar = () => {
                         }
                         {!user && (
                             <>
-                                <Link to='/login'>Prisijungti</Link>
-                                <Link to='/signup'>Registruotis</Link>
+                                <Link to='/login' onClick={closeMenu}>Prisijungti</Link>
+                                <Link to='/signup' onClick={closeMenu}>Registruotis</Link>
                             </>
 
                         )}
