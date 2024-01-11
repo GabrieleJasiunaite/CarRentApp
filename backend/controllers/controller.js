@@ -1,7 +1,6 @@
 import Car from '../models/carModel.js';
 import mongoose from 'mongoose';
 
-
 // Controller function to get all cars
 export const getCars = async (req, res) => {
     try {
@@ -124,3 +123,7 @@ export const getTypes = async (req, res) => {
         return res.status(500).send("Serverio klaida");
     };
 };
+
+
+
+
