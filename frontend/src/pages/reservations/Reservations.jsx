@@ -56,10 +56,11 @@ const Reservations = () => {
 
             if (!response.ok) {
                 setError(json.error);
+                return;
             };
 
             if (response.ok) {
-                e.target.setAttribute('disabled', true);
+                e.target.setAttribute('hidden', true);
                 e.target.parentElement.parentElement.classList.add('disabled');
                 setError(null);
             };
@@ -88,8 +89,8 @@ const Reservations = () => {
                                 <div className="col">{reservation.carTitle}</div>
                                 <div className="col"><strong>Nuo: </strong>{reservation.dateRented.slice(0, 10)}</div>
                                 <div className="col"><strong>Iki: </strong>{reservation.dateReturned.slice(0, 10)}</div>
-                                <div className={"col status" + " " + reservation.status}>{reservation.status}</div>
-                                {(reservation.status === "pending" || reservation.status !== "confirmed") ? (
+                                <div className={`col status ${reservation.status}`}>{reservation.status}</div>
+                                {(reservation.status === "pending" || reservation.status === "confirmed") ? (
                                     <div className="col"><Link to={`/reservations/edit/${reservation._id}`} state={reservation}><button className="edit">Redaguoti</button></Link></div>
                                 ) : (
                                     <div className="col"><button onClick={(e) => handleDelete(e, reservation._id)} className="delete">Ištrinti</button></div>

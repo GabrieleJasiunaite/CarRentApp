@@ -5,42 +5,42 @@ const Schema = mongoose.Schema
 
 // Defining the car schema
 const carSchema = new Schema({
-    imageUrl:{
+    imageUrl: {
         type: String,
         required: true
     },
-    model:{
+    model: {
         type: String,
         required: true
     },
-    brand:{
+    brand: {
         type: String,
         required: true
     },
-    price:{
+    price: {
         type: Number,
         required: true
     },
-    year:{
+    year: {
         type: Number,
         required: true
     },
-    fuelType:{
+    fuelType: {
         type: String,
         required: true
     },
-    transmission:{
+    transmission: {
         type: String,
         required: true
     },
-    seats:{
+    seats: {
         type: Number,
         required: true
     },
-    body:{
+    body: {
         type: String,
         required: true
     }
+});
 
-})
-export default mongoose.model('Car', carSchema)
+export default mongoose.model('Car', carSchema);

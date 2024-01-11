@@ -8,6 +8,9 @@ router.use(requireAuth);
 // Route to get all reservations
 router.get('/', reservations.getReservations);
 
+// Route to get all unavailable resservation dates by car ID
+router.get('/dates/:id', reservations.getUnavailableDates);
+
 // Route to get a specific reservation by ID
 router.get('/:id', reservations.getReservation);
 

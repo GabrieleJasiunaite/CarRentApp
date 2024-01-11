@@ -17,7 +17,7 @@
 
 .reservations .row:hover,
 .reservations .row-admin:hover {
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.303);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
 }
 
 .reservations .row-admin {
@@ -53,7 +53,7 @@
 
 .reservations .row .pending,
 .reservations .row-admin .pending {
-    background-color: #c2c253;
+    background-color: var(--pending);
 }
 
 .reservations .row .confirmed,

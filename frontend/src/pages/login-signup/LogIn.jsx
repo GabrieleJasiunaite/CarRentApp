@@ -33,7 +33,7 @@ const LogIn = () => {
                     <label htmlFor="password">Slaptažodis: </label>
                     <input type="password" id="password" onChange={(e) => setPassword(e.target.value)} value={password} />
                     <button disabled={isLoading}>Prisijungti</button>
-                    {(error || signupError) && <div className="error">{error}</div>}
+                    {(error || signupError) && <div className="error">{error ? error : signupError}</div>}
                 </form>
             </div>
         </div>
