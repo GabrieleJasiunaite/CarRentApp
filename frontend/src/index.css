@@ -831,7 +831,7 @@ h2.drafts-heading {
   cursor: pointer;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.303);
 }
-/*info-page class*/
+/*INFO-PAGE CLASS FOR FAQ,ABOUT US, PRIVACY POLICY, RENT POLICY*/
 .info-page header {
   background-color: var(--blue-2);
   padding: 30px;
@@ -933,14 +933,34 @@ h2.drafts-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 60vw;
+  max-width: 50vw;
+}
+.accord-title:hover{
+  cursor:pointer;
 }
 .accord-title .sign{
   color: var(--blue-5);
   font-weight: 800;
+  padding-top: 30px;
+  font-size: 1.5em;
 }
 .accord-content{
-  background-color: var(--blue-2);
+  border-top:  2px solid var(--blue-1);
+  margin-right: 30px;
+  margin-bottom: 10px;
+  max-height: 35vh;
+  animation-name: contentanimate;
+  animation-duration: 1.5s;
+}
+@keyframes contentanimate {
+  0% {
+    opacity: 0;
+    max-height: 1vh;
+  }
+  100% {
+    opacity: 1;
+    max-height: 35wh;
+  }
 }
 
 /*PRIVACY POLICY*/
