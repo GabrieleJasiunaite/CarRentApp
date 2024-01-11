@@ -88,12 +88,12 @@ a {
 }
 
 .cookie-content h2 {
-  font-size: 24px;
+  font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
 .cookie-content p {
-  font-size: 16px;
+  font-size: 1rem;
   margin-bottom: 20px;
 }
 
@@ -138,7 +138,7 @@ a {
 }
 
 .loading-text {
-  font-size: 36px;
+  font-size: 2.25rem;
   font-weight: bold;
   color: var(--blue-5);
   margin-bottom: 20px;

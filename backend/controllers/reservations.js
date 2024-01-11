@@ -2,6 +2,8 @@ import Reservation from '../models/reservationModel.js';
 import User from '../models/userModel.js';
 import mongoose from 'mongoose';
 
+
+
 // Controller function to get reservations based on user role (admin or regular user)
 export const getReservations = async (req, res) => {
     const user_id = req.user._id;
