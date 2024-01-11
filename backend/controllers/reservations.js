@@ -116,3 +116,4 @@ export const removeReservation = async (req, res) => {
         return res.status(500).send('Serverio klaida');
     };
 };
+

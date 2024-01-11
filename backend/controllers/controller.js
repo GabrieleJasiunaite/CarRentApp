@@ -1,9 +1,6 @@
 import Car from '../models/carModel.js';
 import mongoose from 'mongoose';
 
-
-
-
 // Controller function to get all cars
 export const getCars = async (req, res) => {
     try {
