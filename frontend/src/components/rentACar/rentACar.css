@@ -71,6 +71,10 @@
     text-align: center;
 }
 
+.rent-table .success-bg .success h3 {
+    margin: 0 0 20px;
+}
+
 .rent-table .success-bg .success button {
     background-color: var(--blue-5);
     color: var(--background-color);

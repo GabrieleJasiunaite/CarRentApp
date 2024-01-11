@@ -14,7 +14,7 @@ const EditReservation = () => {
     // State variables for managing form inputs and data
     const [error, setError] = useState(null);
     const [cars, setCars] = useState([]);
-    const [status, setStatus] = useState(reservation.state)
+    const [selectedStatus, setSelectedStatus] = useState(reservation.state)
     const [selectedCar, setSelectedCar] = useState();
     const [currentDate, setCurrentDate] = useState();
     const [maxDate, setMaxDate] = useState();
@@ -36,12 +36,16 @@ const EditReservation = () => {
         };
 
         const car_id = selectedCar._id;
-        const carTitle = e.target[0].selectedOptions[0].outerText;
+        const carTitle = e.target[2].selectedOptions[0].outerText;
         const user_id = reservation.user_id;
         const email = reservation.email;
         const dateRented = new Date(fromDate);
         const dateReturned = new Date(toDate);
-        const status = reservation.status;
+        let status = 'pending';
+        if (user.isAdmin) {
+            status = selectedStatus;
+        };
+
         try {
             const response = await fetch(`/api/reservations/${id}`, {
                 method: 'PUT',
@@ -80,6 +84,7 @@ const EditReservation = () => {
         setCurrentDate(year + "-" + month + "-" + day);
         setMaxDate((year + 1) + "-" + month + "-" + day);
     }, []);
+
     // Fetching the list of cars for the dropdown menu
     useEffect(() => {
         const fetchCars = async () => {
@@ -108,11 +113,6 @@ const EditReservation = () => {
         fetchCars();
     }, []);
 
-    // Logging the selected car when it changes
-    useEffect(() => {
-        console.log(selectedCar)
-    }, [selectedCar])
-
     return (
         <div className="container">
             <div className="edit-reservation">
@@ -131,11 +131,11 @@ const EditReservation = () => {
                             }
                         </select>
                         {user.isAdmin &&
-                            <select name="status" id="status" value={status} onChange={(e) => setStatus(e.target.value)} >
-                                <option value="laukiama">Laukiama</option>
-                                <option value="patvirtinta">Patvirtinta</option>
-                                <option value="atšaukta">Atšaukta</option>
-                                <option value="įvykdyta">Įvykdyta</option>
+                            <select name="status" id="status" value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)} >
+                                <option value="pending">Laukiama</option>
+                                <option value="confirmed">Patvirtinta</option>
+                                <option value="cancelled">Atšaukta</option>
+                                <option value="completed">Įvykdyta</option>
                             </select>}
                         <div className="buttons">
                             <button className="link-btn"><Link to={`/reservations/`}>Grįžti atgal</Link></button>

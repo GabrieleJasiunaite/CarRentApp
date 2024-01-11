@@ -24,10 +24,19 @@
     grid-template-columns: 1fr 1.5fr 1fr 1fr 100px 100px;
 }
 
-button.edit {
+.reservations .row-admin button.edit,
+.reservations .row button.edit {
     padding: 5px 10px;
     background-color: var(--blue-5);
-    color: white;
+    color: var(--background-color);
+}
+
+.reservations .row-admin button.delete,
+.reservations .row button.delete {
+    padding: 5px 10px;
+    background-color: var(--blue-5);
+    color: var(--warning);
+    color: var(--background-color);
 }
 
 .col {
@@ -42,22 +51,22 @@ button.edit {
     max-width: 100px;
 }
 
-.reservations .row .laukiama,
-.reservations .row-admin .laukiama {
+.reservations .row .pending,
+.reservations .row-admin .pending {
     background-color: #c2c253;
 }
 
-.reservations .row .patvirtinta,
-.reservations .row-admin .patvirtinta {
+.reservations .row .confirmed,
+.reservations .row-admin .confirmed {
     background-color: var(--success);
 }
 
-.reservations .row .atšaukta,
-.reservations .row-admin .atšaukta {
+.reservations .row .cancelled,
+.reservations .row-admin .cancelled {
     background-color: var(--warning);
 }
 
-.reservations .row .įvykdyta,
-.reservations .row-admin .įvykdyta {
+.reservations .row .completed,
+.reservations .row-admin .completed {
     background-color: var(--blue-4);
 }

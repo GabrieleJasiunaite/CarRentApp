@@ -34,7 +34,7 @@ export const getReservation = async (req, res) => {
 
     try {
         const reservation = await Reservation.findById(id);
-      
+
         if (!reservation) {
             return res.status(404).json({ error: 'Tokios rezervacijos nėra' });
         };
@@ -82,7 +82,7 @@ export const updateReservation = async (req, res) => {
     if (!carTitle || carTitle === "") { emptyFields.push('pasirinkite automobilį') };
     if (!dateRented) { emptyFields.push('pasirinkite nuomos datą') };
     if (!dateReturned) { emptyFields.push('pasirinkite grąžinimo datą') };
-    if (status !== 'laukiama' || status !== 'patvirtinta' || status !== 'atšaukta' || status !== 'įvykdyta') { emptyFields.push('pasirinkite statusą') };
+    if (status !== 'pending' || status !== 'confirmed' || status !== 'cancelled' || status !== 'completed') { emptyFields.push('pasirinkite statusą') };
     if (emptyFields.length > 0) {
         return res.status(400).json({ error: 'Prašome užpildyti visus laukelius', emptyFields })
     };
