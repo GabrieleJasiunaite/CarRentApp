@@ -109,16 +109,39 @@ h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 60vw;
+    max-width: 100%;
+}
+
+.accord-title:hover {
+    cursor: pointer;
 }
 
 .accord-title .sign {
     color: var(--blue-5);
     font-weight: 800;
+    padding: 30px 20px 0 0;
+    font-size: 1.5em;
 }
 
 .accord-content {
-    background-color: var(--blue-2);
+    border-top: 2px solid var(--blue-1);
+    margin-right: 30px;
+    margin-bottom: 10px;
+    max-height: 35vh;
+    animation-name: contentanimate;
+    animation-duration: 1.5s;
+}
+
+@keyframes contentanimate {
+    0% {
+        opacity: 0;
+        max-height: 1vh;
+    }
+
+    100% {
+        opacity: 1;
+        max-height: 35wh;
+    }
 }
 
 .privacy-policy header img {
