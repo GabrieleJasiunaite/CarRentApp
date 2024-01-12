@@ -16,7 +16,7 @@ const EditReservation = () => {
     // State variables for managing form inputs and data
     const [error, setError] = useState(null);
     const [cars, setCars] = useState([]);
-    const [selectedStatus, setSelectedStatus] = useState()
+    const [selectedStatus, setSelectedStatus] = useState(reservation.status)
     const [selectedCar, setSelectedCar] = useState();
     const [disabledDays, setDisabledDays] = useState();
     let maxDate = dayjs().add(1, 'year');
