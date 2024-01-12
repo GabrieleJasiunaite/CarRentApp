@@ -16,7 +16,7 @@ const EditReservation = () => {
     // State variables for managing form inputs and data
     const [error, setError] = useState(null);
     const [cars, setCars] = useState([]);
-    const [selectedStatus, setSelectedStatus] = useState(reservation.state)
+    const [selectedStatus, setSelectedStatus] = useState()
     const [selectedCar, setSelectedCar] = useState();
     const [disabledDays, setDisabledDays] = useState();
     let maxDate = dayjs().add(1, 'year');
@@ -199,15 +199,15 @@ const EditReservation = () => {
                                 width: 200,
                                 margin: "0 auto"
                             }} />
-                            <select name="cars" id="cars" defaultValue={selectedCar.car_id} onChange={(e) => setSelectedCar(cars.filter(el => el._id === e.target.value)[0])}>
-                                <option value="" disabled>Pasirinkite automobilį</option>
+                            <select name="cars" id="cars" defaultValue={reservation.car_id} onChange={(e) => setSelectedCar(cars.filter(el => el._id === e.target.value)[0])}>
+                                <option value={reservation.car_id}>{cars.find(el => el._id === reservation.car_id).brand + " " + cars.find(el => el._id === reservation.car_id).model}</option>
                                 {cars.map((car) => (
                                     <option key={car._id} value={car._id}>{car.brand + " " + car.model}</option>
                                 ))
                                 }
                             </select>
                             {user.isAdmin &&
-                                <select name="status" id="status" defaultValue={reservation.status} value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)} >
+                                <select name="status" id="status" value={reservation.status} onChange={(e) => setSelectedStatus(e.target.value)} >
                                     <option value="pending">Laukiama</option>
                                     <option value="confirmed">Patvirtinta</option>
                                     <option value="cancelled">Atšaukta</option>
