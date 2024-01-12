@@ -1,6 +1,5 @@
 import { createToken } from '../controllers/userController';
 import { loginUser } from '../controllers/userController';
-import { signupUser } from '../controllers/userController';
 import User from '../models/userModel';
 
 describe('createToken function', () => {
@@ -29,10 +28,6 @@ describe('createToken function', () => {
     expect(expiresIn).toBeCloseTo(threeDaysInSeconds, -1); // Tolerance of 1 second
   });
 });
-
-
-
-
 
 jest.mock('../models/userModel', () => ({
   login: jest.fn(),
@@ -146,8 +141,3 @@ describe('loginUser function', () => {
     expect(mockRes.json).toHaveBeenCalledWith({ error: 'Invalid credentials' });
   });
 });
-
-
-
-
-

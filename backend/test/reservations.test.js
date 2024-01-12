@@ -132,8 +132,6 @@ describe('getReservations function', () => {
   });
 });
 
-
-
 describe('getReservation function', () => {
   let dummyReservationId;
 
@@ -243,9 +241,6 @@ describe('getReservation function', () => {
     expect(mockRes.json).toHaveBeenCalledWith({ error: 'Tokios rezervacijos nėra' });
   });
 });
-
-
-
 
 describe('createReservation function', () => {
   let regularUserId;
@@ -376,10 +371,6 @@ describe('createReservation function', () => {
     expect(mockRes.json).toHaveBeenCalledWith('Serverio klaida');
   });
 });
-
-
-
-
 
 describe('updateReservation function', () => {
   let dummyReservationId;
@@ -527,9 +518,6 @@ describe('updateReservation function', () => {
   });
 });
 
-
-
-
 describe('removeReservation function', () => {
   let dummyReservationId;
 
@@ -639,5 +627,3 @@ describe('removeReservation function', () => {
     expect(mockRes.json).toHaveBeenCalledWith({ error: 'Tokios rezervacijos nėra' });
   });
 });
-
-

@@ -58,8 +58,6 @@ describe('getCars function', () => {
       json: jest.fn(),
     };
 
-    // Mock Express request object (not needed for this test)
-
     // Call the getCars function
     await getCars({}, mockRes);
 
@@ -70,8 +68,6 @@ describe('getCars function', () => {
     expect(mockRes.json).toHaveBeenCalledWith(expect.any(Array));
   });
 });
-
-
 
 describe('getCar function', () => {
   let dummyCarId;
@@ -163,8 +159,6 @@ describe('getCar function', () => {
     expect(mockRes.json).toHaveBeenCalledWith({ error: 'Tokio automobilio nėra' });
   });
 });
-
-
 
 describe('createCar function', () => {
   // Establish a connection to the MongoDB test database before running the tests
@@ -264,11 +258,6 @@ describe('createCar function', () => {
     });
   });
 });
-
-
-
-
-
 
 describe('updateCar function', () => {
   let dummyCarId;
@@ -419,9 +408,6 @@ describe('updateCar function', () => {
   });
 });
 
-
-
-
 describe('removeCar function', () => {
   let dummyCarId;
 
@@ -513,9 +499,6 @@ describe('removeCar function', () => {
   });
 });
 
-
-
-
 describe('getTypes function', () => {
   // Establish a connection to the MongoDB test database before running the tests
   beforeAll(async () => {
@@ -591,5 +574,3 @@ describe('getTypes function', () => {
     expect(mockRes.json).toHaveBeenCalledWith('Serverio klaida');
   });
 });
-
-
