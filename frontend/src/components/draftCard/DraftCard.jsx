@@ -25,9 +25,11 @@ const DraftCard = ({ allDrafts, draft }) => {
     };
 
     const handleDelete = (e, id) => {
-        e.target.classList.add('disabled');
-        e.target.parentElement.classList.add('disabled');
-        deleteFromStorage(id);
+        if (e.target.classList && e.target.parentElement.classList) {
+            e.target.classList.add('disabled');
+            e.target.parentElement.classList.add('disabled');
+            deleteFromStorage(id);
+        };
     };
 
     const handleClick = (id) => {
