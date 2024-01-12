@@ -92,7 +92,7 @@ const Home = () => {
                             </div>
                             <div className="car-button-box">
                                 <p>{car.price} Eur <span>/parai</span></p>
-                                <Link to='/login'><button>Daugiau<i className="bi bi-arrow-right"></i></button></Link>
+                                <Link to='/login'><button><strong>Daugiau</strong><i className="bi bi-arrow-right"></i></button></Link>
                             </div>
                         </div>
                     ))}

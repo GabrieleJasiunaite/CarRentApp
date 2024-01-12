@@ -87,10 +87,10 @@ const Cars = () => {
                                 <div className="car-button-box">
                                     <p>{car.price} Eur <span>/parai</span></p>
                                     {!user.isAdmin &&
-                                        <Link to={`/cars/${car._id}`}><button>Rezervuoti<i className="bi bi-arrow-right"></i></button></Link>
+                                        <Link to={`/cars/${car._id}`}><button><strong>Rezervuoti</strong><i className="bi bi-arrow-right"></i></button></Link>
                                     }
                                     {user.isAdmin &&
-                                        <Link to={`/cars/${car._id}`}><button>Detaliau<i className="bi bi-arrow-right"></i></button></Link>
+                                        <Link to={`/cars/${car._id}`}><button><strong>Detaliau</strong><i className="bi bi-arrow-right"></i></button></Link>
                                     }
 
                                 </div>
