@@ -84,6 +84,7 @@
     min-width: 300px;
     padding: 30px;
     text-align: center;
+    z-index: 999
 }
 
 .rent-table .success-bg .success h3 {

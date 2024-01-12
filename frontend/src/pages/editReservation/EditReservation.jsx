@@ -96,7 +96,7 @@ const EditReservation = () => {
             return;
         };
 
-        if (selectedCar === "" || !selectedCar) {
+        if (selectedCar._id || !selectedCar) {
             setError("Pasirinkite automobilį");
             return;
         };
