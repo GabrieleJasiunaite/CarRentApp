@@ -180,7 +180,7 @@ const EditReservation = () => {
         <div className="container">
             <div className="edit-reservation">
                 <div className="form-cancel">
-                    {disabledDays &&
+                    {disabledDays && selectedCar &&
                         <form onSubmit={handleSubmit} className={error ? "form-error" : ""}>
                             <h3>Redaguoti rezervaciją</h3>
                             <label htmlFor="from">Nuo:</label>
@@ -200,7 +200,7 @@ const EditReservation = () => {
                                 margin: "0 auto"
                             }} />
                             <select name="cars" id="cars" defaultValue={selectedCar.car_id} onChange={(e) => setSelectedCar(cars.filter(el => el._id === e.target.value)[0])}>
-                                <option value={""} disabled>Pasirinkite automobilį</option>
+                                <option value={selectedCar.car_id} disabled>{selectedCar.brand + " " + selectedCar.model}</option>
                                 {cars.map((car) => (
                                     <option key={car._id} value={car._id}>{car.brand + " " + car.model}</option>
                                 ))
