@@ -207,7 +207,7 @@ const EditReservation = () => {
                                 }
                             </select>
                             {user.isAdmin &&
-                                <select name="status" id="status" value={reservation.status} onChange={(e) => setSelectedStatus(e.target.value)} >
+                                <select name="status" id="status" value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)} >
                                     <option value="pending">Laukiama</option>
                                     <option value="confirmed">Patvirtinta</option>
                                     <option value="cancelled">Atšaukta</option>
