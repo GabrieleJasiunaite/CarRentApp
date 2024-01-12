@@ -104,9 +104,9 @@ const NewCar = () => {
                     <label htmlFor="imgUrl">Paveikslėlio nuoroda: </label>
                     <input type="text" id="imgUrl" value={imageUrl} onChange={(e) => setimageUrl(e.target.value)} />
                     <label htmlFor="bran">Markė: </label>
-                    <input type="text" id="bran" value={brand} onChange={(e) => setModel(e.target.value)} />
+                    <input type="text" id="bran" value={brand} onChange={(e) => setBrand(e.target.value)} />
                     <label htmlFor="model">Modelis: </label>
-                    <input type="text" id="model" value={model} onChange={(e) => setBrand(e.target.value)} />
+                    <input type="text" id="model" value={model} onChange={(e) => setModel(e.target.value)} />
                     <label htmlFor="price">Nuomos kaina (dienos): </label>
                     <input type="number" id="price" min={0} value={price} onChange={(e) => setPrice(e.target.value)} />
                     <label htmlFor="year">Metai: </label>
