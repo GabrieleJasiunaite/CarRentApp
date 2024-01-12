@@ -140,12 +140,10 @@ const Home = () => {
             <div className={`cookie-modal ${showModal ? "show" : ""}`}>
                 <div className="cookie-content">
                     <h2>Slapukų politika</h2>
-                    <p>Mes naudojame slapukus, kad pagerintume jūsų naršymo patirtį.{' '}
-                        <a href="/privacypolicy">Plačiau apie slapukus</a>.
-                    </p>
+                    <p>Mes naudojame slapukus, kurie užtikrina, kad Jums būtų patogu naudotis tinklalapiu. Jei toliau naršysite mūsų tinklalapyje, tai tolygu Jūsų sutikimui su slapukų naudojimu.</p>
                     <div className="cookie-buttons">
                         <button onClick={handleClose}>Sutinku</button>
-                        <button onClick={handleClose}>Nesutinku</button>
+                        <Link to='/privacypolicy'><button>Plačiau apie slapukus</button></Link>
                     </div>
                 </div>
             </div>

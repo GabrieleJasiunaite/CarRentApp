@@ -12,7 +12,7 @@ const RentPolicy = () => {
             </header>
             <div className="car-reservation">
                 <h2>Automobilio rezervacija</h2>
-                <p>Visus nuomojamus automobilius galite rezervuoti www.renteuropa.lt svetainėje pasirenkant automobilį ir užpildant rezervacijos laukus, elektroniniu paštu  <strong className="email">info@rfcrent.lt</strong> arba telefonu <strong className="email">+370 670 69699</strong></p>
+                <p>Visus nuomojamus automobilius galite rezervuoti www.renteuropa.lt svetainėje pasirenkant automobilį ir užpildant rezervacijos laukus, elektroniniu paštu  <strong>info@rfcrent.lt</strong> arba telefonu <strong>+370 670 69699</strong></p>
                 <p>Rezervacija galutinai patvirtinama tik gavus Rent Europa nuomos punkto patvirtinimą elektroniniu paštu arba susisiekus telefonu.
                     Rezervacijos patvirtinimui išankstiniai mokesčiai neimami, todėl rezervacijos atšaukimas nekainuoja.
                     Susiklosčius aplinkybėms, dėl kurių būtų neįmanoma suteikti paslaugų rezervacijos patvirtinime mes įsipareigojame nedelsiant apie tai informuoti klientą ir pasiūlyti tos pačios arba dar aukštesnės klasės automobilį už Jūsų rezervuoto automobilio kainą.</p>

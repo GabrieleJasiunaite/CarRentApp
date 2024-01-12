@@ -14,8 +14,8 @@ const FAQ = () => {
             </header>
             <h3>Dažniausiai užduodami klausimai</h3>
             <div className="accordion">
-                {faqData.map(({ title, content }) => (
-                    <Accordion title={title} content={content} />
+                {faqData.map(({ title, content }, index) => (
+                    <Accordion key={index} title={title} content={content} />
                 ))}
             </div>
             <Link to="/">Grįžti į pagrindinį</Link>

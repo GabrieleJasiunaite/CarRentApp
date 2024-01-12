@@ -73,6 +73,7 @@ const EditReservation = () => {
                 };
 
                 setCars(json);
+                setSelectedCar(json.filter(car => car._id === reservation.car_id)[0]);
 
             } catch (err) {
                 setError(err);
@@ -198,7 +199,7 @@ const EditReservation = () => {
                                 width: 200,
                                 margin: "0 auto"
                             }} />
-                            <select name="cars" id="cars" defaultValue={reservation.car_id} onChange={(e) => setSelectedCar(cars.filter(el => el._id === e.target.value)[0])}>
+                            <select name="cars" id="cars" defaultValue={selectedCar.car_id} onChange={(e) => setSelectedCar(cars.filter(el => el._id === e.target.value)[0])}>
                                 <option value={""} disabled>Pasirinkite automobilį</option>
                                 {cars.map((car) => (
                                     <option key={car._id} value={car._id}>{car.brand + " " + car.model}</option>

@@ -1,3 +1,7 @@
+.reservations {
+    min-height: 80vh;
+}
+
 .reservations .row,
 .reservations .row-admin {
     display: grid;

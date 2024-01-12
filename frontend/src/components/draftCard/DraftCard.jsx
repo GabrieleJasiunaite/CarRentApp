@@ -12,9 +12,11 @@ const DraftCard = ({ allDrafts, draft }) => {
     };
 
     const handleMouseLeave = (e) => {
-        e.target.children[0].children[1].classList.toggle("hidden");
-        // kartais kažką padarius meta error, kad children[0] is undefined, nežinau kaip triggerint errorą, bandysiu errorus catchint
-        e.currentTarget.lastChild.classList.toggle("hidden");
+        if (e && e.target.children[0]) {
+            e.target.children[0].children[1].classList.toggle("hidden");
+            // kartais kažką padarius meta error, kad children[0] is undefined, nežinau kaip triggerint errorą, bandysiu errorus catchint
+            e.currentTarget.lastChild.classList.toggle("hidden");
+        };
     };
 
     const deleteFromStorage = (id) => {
@@ -50,6 +52,5 @@ const DraftCard = ({ allDrafts, draft }) => {
         </div >
     );
 };
-
 
 export default DraftCard;

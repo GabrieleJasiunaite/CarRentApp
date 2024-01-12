@@ -20,10 +20,6 @@
         content: url(../src/pictures/logo2-2.png);
         width: 70px;
     }
-
-    .navbar .container {
-        margin: 0 auto;
-    }
 }
 
 /* HOME */
@@ -145,7 +141,7 @@
     }
 
     .cookie-content p {
-        font-size: 0.875rem;
+        font-size: 0.775rem;
     }
 }
 
@@ -254,6 +250,14 @@
 @media all and (max-width:480px) {
     .fourth-container {
         gap: 5px;
+    }
+
+    .cookie-content p {
+        font-size: 0.675rem;
+    }
+
+    .cookie-content h2 {
+        font-size: 1.15rem;
     }
 }
 

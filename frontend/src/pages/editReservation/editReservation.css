@@ -39,6 +39,8 @@
 
 .edit-reservation input {
     height: 5px;
+    border: 1px solid var(--blue-5);
+    border-radius: 5px;
 }
 
 .edit-reservation label {
@@ -61,8 +63,8 @@
     margin-bottom: 5px;
 }
 
-.edit-reservation .form-cancel button.delete {
-    margin: 20px auto 0;
+.edit-reservation .form-cancel button.link-btn.delete {
+    margin: 20px auto 20px;
 }
 
 .edit-reservation a {

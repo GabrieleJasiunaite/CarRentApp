@@ -64,7 +64,6 @@ a {
 }
 
 /* modal */
-
 .cookie-modal {
   display: none;
   position: fixed;
@@ -89,17 +88,13 @@ a {
 }
 
 .cookie-content h2 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-bottom: 10px;
 }
 
 .cookie-content p {
-  font-size: 1rem;
+  font-size: 0.95rem;
   margin-bottom: 20px;
-}
-
-.cookie-content a {
-  color: var(--blue-5)
 }
 
 .cookie-buttons {
