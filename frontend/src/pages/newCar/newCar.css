@@ -37,4 +37,5 @@
     border: 2px solid var(--success);
     border-radius: 5px;
     color: var(--background-color);
+    z-index: 9999;
 }
