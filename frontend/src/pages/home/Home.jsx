@@ -64,6 +64,11 @@ const Home = () => {
         setShowModal(false)
     }
 
+    // Function to handle scroll to top when link is clicked
+    const handleLinkClick = () => {
+        window.scrollTo(0, 0)
+    }
+
     return (
         <>
             <div className="first-container">
@@ -143,7 +148,7 @@ const Home = () => {
                     <p>Mes naudojame slapukus, kurie užtikrina, kad Jums būtų patogu naudotis tinklalapiu. Jei toliau naršysite mūsų tinklalapyje, tai tolygu Jūsų sutikimui su slapukų naudojimu.</p>
                     <div className="cookie-buttons">
                         <button onClick={handleClose}>Sutinku</button>
-                        <Link to='/privacypolicy'><button>Plačiau apie slapukus</button></Link>
+                        <Link to='/privacypolicy' onClick={handleLinkClick}><button>Plačiau apie slapukus</button></Link>
                     </div>
                 </div>
             </div>

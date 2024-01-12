@@ -3,6 +3,11 @@ import Logo from "../../pictures/logo2-2.png";
 import './footer.css';
 
 const Footer = () => {
+    // Function to handle scroll to top when link is clicked
+    const handleLinkClick = () => {
+        window.scrollTo(0, 0)
+    }
+
     // Footer component with links and social icons
     const currentYear = new Date().getFullYear();
     return (
@@ -14,13 +19,13 @@ const Footer = () => {
                     </Link>
                     <div className="footer-link-list">
                         <div className="first link-list">
-                            <Link to='/aboutus'>Apie mus</Link>
-                            <Link to='/faq'>D.U.K</Link>
+                            <Link to='/aboutus' onClick={handleLinkClick}>Apie mus</Link>
+                            <Link to='/faq' onClick={handleLinkClick}>D.U.K</Link>
                         </div>
                         <hr></hr>
                         <div className="second link-list">
-                            <Link to='/privacypolicy'>Privatumo sąlygos</Link>
-                            <Link to='/rentpolicy'>Nuomos sąlygos</Link>
+                            <Link to='/privacypolicy' onClick={handleLinkClick}>Privatumo sąlygos</Link>
+                            <Link to='/rentpolicy' onClick={handleLinkClick}>Nuomos sąlygos</Link>
                         </div>
                     </div>
                     <div className="social-links">
