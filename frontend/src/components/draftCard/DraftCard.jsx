@@ -7,9 +7,11 @@ const DraftCard = ({ allDrafts, draft }) => {
 
     // Toggle visibility of delete button on mouse enter/leave
     const handleMouseEnter = (e) => {
-        e.target.children[0].children[1].classList.toggle("hidden");
+        if (e && e.target.children[0])
+            e.target.children[0].children[1].classList.toggle("hidden");
         e.currentTarget.lastChild.classList.toggle("hidden");
     };
+
 
     const handleMouseLeave = (e) => {
         if (e && e.target.children[0]) {
