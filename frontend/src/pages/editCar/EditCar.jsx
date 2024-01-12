@@ -69,7 +69,7 @@ const EditCar = () => {
                     <label htmlFor="price">Nuomos kaina (dienos): </label>
                     <input type="number" id="price" min={0} value={price} onChange={(e) => setPrice(e.target.value)} />
                     <label htmlFor="year">Metai: </label>
-                    <input type="number" id="year" min={2000} value={year} onChange={(e) => setYear(e.target.value)} />
+                    <input type="number" id="year" min={1900} value={year} onChange={(e) => setYear(e.target.value)} />
                     <label htmlFor="fuelType">Kuro tipas: </label>
                     <input type="text" id="fuelType" value={fuelType} onChange={(e) => setFuelType(e.target.value)} />
                     <label htmlFor="transmission">Pavarų dėžė: </label>

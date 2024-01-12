@@ -103,14 +103,14 @@ const NewCar = () => {
                     <Link className="drafts" to={'/new/drafts'}>Juodraščiai</Link>
                     <label htmlFor="imgUrl">Paveikslėlio nuoroda: </label>
                     <input type="text" id="imgUrl" value={imageUrl} onChange={(e) => setimageUrl(e.target.value)} />
-                    <label htmlFor="model">Markė: </label>
-                    <input type="text" id="model" value={model} onChange={(e) => setModel(e.target.value)} />
-                    <label htmlFor="brand">Modelis: </label>
-                    <input type="text" id="brand" value={brand} onChange={(e) => setBrand(e.target.value)} />
+                    <label htmlFor="bran">Markė: </label>
+                    <input type="text" id="bran" value={brand} onChange={(e) => setModel(e.target.value)} />
+                    <label htmlFor="model">Modelis: </label>
+                    <input type="text" id="model" value={model} onChange={(e) => setBrand(e.target.value)} />
                     <label htmlFor="price">Nuomos kaina (dienos): </label>
                     <input type="number" id="price" min={0} value={price} onChange={(e) => setPrice(e.target.value)} />
                     <label htmlFor="year">Metai: </label>
-                    <input type="number" id="year" min={1960} value={year} onChange={(e) => setYear(e.target.value)} />
+                    <input type="number" id="year" min={1900} value={year} onChange={(e) => setYear(e.target.value)} />
                     <label htmlFor="fuelType">Kuro tipas: </label>
                     <input type="text" id="fuelType" value={fuelType} onChange={(e) => setFuelType(e.target.value)} />
                     <label htmlFor="transmission">Pavarų dėžė: </label>
