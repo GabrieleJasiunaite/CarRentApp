@@ -23,6 +23,10 @@
     margin: 20px 0;
 }
 
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline {
+    border: none !important;
+}
+
 .edit-reservation select {
     height: 30px;
     width: 200px;
@@ -30,21 +34,16 @@
     border: 1px solid var(--blue-5);
     border-radius: 5px;
     padding: 0 10px;
-    margin: 0 auto 5px;
+    margin: 10px auto 5px;
 }
 
-.edit-reservation input#from.date,
-.edit-reservation input#to.date {
-    height: 27px;
-    padding: 0 30px;
-    border-radius: 5px;
-    background-color: var(--blue-6);
-    border: 1px solid var(--blue-5);
-    margin: 0 0 5px;
+.edit-reservation input {
+    height: 5px;
 }
 
 .edit-reservation label {
-    margin-right: 50px;
+    margin-left: 50px;
+    text-align: left;
 }
 
 .edit-reservation form .buttons {
@@ -53,7 +52,7 @@
     margin: 20px 0;
 }
 
-.edit-reservation button {
+.edit-reservation button.link-btn {
     display: block;
     margin-left: 15px;
     background-color: var(--blue-5);

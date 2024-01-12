@@ -15,35 +15,34 @@ const Navbar = () => {
     // Handles the click event and initiates the logout process
     const handleClick = (e) => {
         logout();
-    }
+    };
 
     // Toggles display of the menu by flipping the showMenu state
     const toggleMenu = () => {
         setShowMenu(!showMenu);
-    }
+    };
 
     //Closes menu by setting showMenu state to false
     const closeMenu = () => {
         setShowMenu(false);
-    }
+    };
 
     //Function to handle clicks outside the menu and close it
     const handleClickOutside = (e) => {
         if (menuRef.current && !menuRef.current.contains(e.target)) {
-          closeMenu()
-        }
-      }
-    
-      useEffect(() => {
-        document.addEventListener("click", handleClickOutside)
-    
+            closeMenu();
+        };
+    };
+
+    useEffect(() => {
+        document.addEventListener("click", handleClickOutside);
+
         return () => {
-          document.removeEventListener("click", handleClickOutside)
-        }
-      }, [])
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, []);
 
     return (
-
         <div className={!user ? "navbar" : user.isAdmin ? "navbar admin" : "navbar"}>
             <div className="container">
                 {user && (
@@ -95,7 +94,6 @@ const Navbar = () => {
                 </nav>
             </div>
         </div>
-
     );
 };
 

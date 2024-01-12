@@ -1,4 +1,5 @@
 .car-details .rent-table form {
+    display: flex;
     width: 300px;
     flex-direction: column;
     align-items: center;
@@ -15,33 +16,47 @@
 
 .car-details .rent-table label {
     display: inline-block;
-    text-align: right;
+    text-align: left;
+    margin: 5px 0 5px 50px;
     width: 100%;
 }
 
-.car-details .rent-table input.date {
+.car-details .rent-table input:not(:last-of-type) {
     width: 255px;
-    margin-right: auto;
+    margin: 0 auto;
     margin-bottom: 10px;
+    height: 30px;
+    padding: 10px 0 0 15px;
 }
 
-.car-details .rent-table form label:last-of-type {
-    font-size: 0.875rem;
+.car-details .rent-table input:last-of-type {
     display: inline;
+}
+
+
+.car-details .rent-table form .checkbox {
+    display: flex;
+    font-size: 0.7rem;
+    margin-top: 10px;
+}
+
+.car-details .rent-table form .checkbox label {
+    margin: 0;
+}
+
+.css-1lptig5-MuiFormControl-root-MuiTextField-root {
+    border: none !important;
+}
+
+.css-1lptig5-MuiFormControl-root-MuiTextField-root {
+    background: none !important;
 }
 
 .car-details .rent-table form #agreement {
     margin-right: 5px;
 }
 
-.car-details .rent-table form input {
-    height: 20px;
-    background-color: var(--background-color);
-    border: 1px solid var(--blue-4);
-    border-radius: 5px;
-}
-
-.car-details .rent-table form button {
+.car-details .rent-table form button.confirm {
     display: block;
     background-color: var(--blue-4);
     color: var(--background-color);

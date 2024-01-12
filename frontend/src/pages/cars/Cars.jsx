@@ -12,7 +12,7 @@ const Cars = () => {
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [isLoading, setIsLoading] = useState(true)
     const { bodyType, fetchAllBodyTypes } = useContext(BodyTypeContext);
-    const { user } = useAuthContext()
+    const { user } = useAuthContext();
 
     // Fetching all body types when the component mounts
     useEffect(() => {
@@ -23,13 +23,15 @@ const Cars = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('/api/cars')
+                const response = await fetch('/api/cars');
+
                 if (response.status === 500) {
-                    setError('Užklausa buvo nesėkminga');
+                    setError('Serverio klaida');
                     return;
                 };
 
                 const json = await response.json();
+
                 if (selectedCategory !== "all") {
                     setData(json.filter(car => car.body === selectedCategory));
                     setIsLoading(false);
@@ -44,6 +46,7 @@ const Cars = () => {
             };
         };
         fetchData();
+
     }, [selectedCategory]);
 
     return (

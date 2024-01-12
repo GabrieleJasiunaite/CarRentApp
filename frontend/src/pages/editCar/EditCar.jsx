@@ -26,7 +26,7 @@ const EditCar = () => {
         e.preventDefault();
         setError(null);
 
-        if (imageUrl === "" | model === "" | brand === "" | !price | !year | fuelType === "" | transmission === "" | !seats | body === "") {
+        if (!imageUrl || !model || !brand || !price || !year || !fuelType || !transmission || !seats || !body) {
             setError("Užpildykite visus laukus");
             return;
         };
@@ -39,7 +39,7 @@ const EditCar = () => {
         });
 
         if (response.status === 500) {
-            setError('Užklausa buvo nesėkminga');
+            setError('Serverio klaida');
             return;
         };
 
@@ -47,12 +47,12 @@ const EditCar = () => {
 
         if (!response.ok) {
             setError(json.error);
+            return;
         };
 
-        if (response.ok) {
-            setError(null);
-            return navigate(`/cars/${id}`)
-        };
+        setError(null);
+        return navigate(`/cars/${id}`)
+
     };
 
     return (

@@ -55,28 +55,31 @@ const NewCar = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
-        if (imageUrl === "" || model === "" || brand === "" || !price || !year || fuelType === "" || transmission === "" || !seats || body === "") {
+        if (!imageUrl || !model || !brand || !price || !year || !fuelType || !transmission || !seats || !body) {
             setError("Užpildykite visus laukus");
             return;
         };
+
         const response = await fetch('/api/cars', {
             method: 'POST',
             body: JSON.stringify({ imageUrl, model, brand, price, year, fuelType, transmission, seats, body }),
             headers: { 'Content-Type': 'application/json' }
         });
+
         if (response.status === 500) {
-            setError('Užklausa buvo nesėkminga');
+            setError('Serverio klaida');
             return;
         };
 
         const json = await response.json();
         if (!response.ok) {
             setError(json.error);
+            return;
         };
-        if (response.ok) {
-            setError(null);
-            return navigate('/cars')
-        };
+
+        setError(null);
+        return navigate('/cars');
+
     };
 
     const saveDraft = () => {

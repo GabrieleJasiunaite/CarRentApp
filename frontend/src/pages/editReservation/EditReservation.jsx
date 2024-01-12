@@ -40,6 +40,7 @@ const EditReservation = () => {
 
                 if (!response.ok) {
                     setError(json.error);
+                    return;
                 };
 
                 setDisabledDays(json.map(date => new Date(date)));
@@ -58,15 +59,17 @@ const EditReservation = () => {
         const fetchCars = async () => {
             try {
                 const response = await fetch('/api/cars');
-                const json = await response.json();
 
                 if (response.status === 500) {
-                    setError('Užklausa buvo nesėkminga');
+                    setError('Serverio klaida');
                     return;
                 };
 
+                const json = await response.json();
+
                 if (!response.ok) {
-                    setError('Negalejom uzkrauti duomenu');
+                    setError(json.error);
+                    return;
                 };
 
                 setCars(json);
@@ -98,17 +101,9 @@ const EditReservation = () => {
             return;
         };
 
-        const car_id = selectedCar._id;
-        console.log(e.target)
-        const carTitle = e.target[6].selectedOptions[0].outerText;
-        const user_id = reservation.user_id;
-        const email = reservation.email;
+        const filteredCar = cars.find(car => car._id === selectedCar._id);
         const dateRented = new Date(fromDate);
-        const dateReturned = new Date(toDate);
-        let status = 'pending';
-        if (user.isAdmin) {
-            status = selectedStatus;
-        };
+        const dateReturned = new Date(toDate)
 
         if (dateReturned < dateRented) {
             setError("Pasirinkite datas nuo - iki");
@@ -118,7 +113,15 @@ const EditReservation = () => {
         try {
             const response = await fetch(`/api/reservations/${id}`, {
                 method: 'PUT',
-                body: JSON.stringify({ car_id, carTitle, user_id, email, dateRented, dateReturned, status }),
+                body: JSON.stringify({
+                    car_id: selectedCar._id,
+                    carTitle: filteredCar.brand + filteredCar.model,
+                    user_id: reservation.user_id,
+                    email: reservation.email,
+                    dateRented: dateRented,
+                    dateReturned: dateReturned,
+                    status: user.isAdmin ? selectedStatus : 'pending'
+                }),
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${user.token}`
@@ -126,7 +129,7 @@ const EditReservation = () => {
             });
 
             if (response.status === 500) {
-                setError('Užklausa buvo nesėkminga');
+                setError('Serverio klaida');
                 return;
             };
 
@@ -153,10 +156,16 @@ const EditReservation = () => {
                 headers: { 'Authorization': `Bearer ${user.token}` }
             });
 
+            if (response.status === 500) {
+                setError('Serverio klaida');
+                return;
+            };
+
             const json = await response.json();
 
             if (!response.ok) {
                 setError(json.error);
+                return;
             };
 
             navigate('/reservations')
@@ -173,10 +182,22 @@ const EditReservation = () => {
                     {disabledDays &&
                         <form onSubmit={handleSubmit} className={error ? "form-error" : ""}>
                             <h3>Redaguoti rezervaciją</h3>
-                            <label htmlFor="from">Nuo:
-                                <DatePicker className="date" value={fromDate} onChange={value => setFromDate(value)} shouldDisableDate={disableInputs} disablePast maxDate={maxDate} /></label>
-                            <label htmlFor="to">Iki:
-                                <DatePicker className="date" value={toDate} onChange={value => setToDate(value)} shouldDisableDate={disableInputs} disablePast maxDate={maxDate} /></label>
+                            <label htmlFor="from">Nuo:</label>
+                            <DatePicker className="from-date" value={fromDate} onChange={value => setFromDate(value)} shouldDisableDate={disableInputs} disablePast maxDate={maxDate} sx={{
+                                backgroundColor: "#00aff514",
+                                border: "1px solid #00B4D8",
+                                borderRadius: "5px",
+                                width: 200,
+                                margin: "0 auto"
+                            }} />
+                            <label htmlFor="to">Iki:</label>
+                            <DatePicker className="to-date" value={toDate} onChange={value => setToDate(value)} shouldDisableDate={disableInputs} disablePast maxDate={maxDate} sx={{
+                                backgroundColor: "#00aff514",
+                                border: "1px solid #00B4D8",
+                                borderRadius: "5px",
+                                width: 200,
+                                margin: "0 auto"
+                            }} />
                             <select name="cars" id="cars" defaultValue={reservation.car_id} onChange={(e) => setSelectedCar(cars.filter(el => el._id === e.target.value)[0])}>
                                 <option value={""} disabled>Pasirinkite automobilį</option>
                                 {cars.map((car) => (
@@ -193,13 +214,13 @@ const EditReservation = () => {
                                 </select>}
                             <div className="buttons">
                                 <button className="link-btn"><Link to={`/reservations/`}>Grįžti atgal</Link></button>
-                                <button>Redaguoti</button>
+                                <button className="link-btn">Redaguoti</button>
                             </div>
 
                             {error && <div className="error">{error}</div>}
                         </form>
                     }
-                    {!user.isAdmin && <button className="delete" onClick={handleDelete}>Atšaukti rezervaciją</button>}
+                    {!user.isAdmin && <button className="link-btn delete" onClick={handleDelete}>Atšaukti rezervaciją</button>}
                 </div>
                 {selectedCar &&
                     <div className="car-display-container">

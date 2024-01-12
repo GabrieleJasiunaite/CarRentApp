@@ -16,9 +16,20 @@ const CarDetails = () => {
     useEffect(() => {
         const fetchCarDetails = async () => {
             try {
-
                 const response = await fetch(`/api/cars/${id}`);
+
+                if (response.status === 500) {
+                    setError('Serverio klaida');
+                    return;
+                };
+
                 const json = await response.json();
+
+                if (!response.ok) {
+                    setError(json.error);
+                    return;
+                };
+
                 setCar(json);
                 setError(null);
 
@@ -27,7 +38,7 @@ const CarDetails = () => {
             };
         };
         fetchCarDetails();
-        setError(null);
+
     }, []);
 
 
@@ -37,16 +48,21 @@ const CarDetails = () => {
                 method: 'DELETE'
             });
 
+            if (response.status === 500) {
+                setError('Serverio klaida');
+                return;
+            };
+
             const json = await response.json();
 
             if (!response.ok) {
                 setError(json.error);
+                return;
             };
 
-            if (response.ok) {
-                setError(null);
-                return navigate('/cars');
-            };
+            setError(null);
+            return navigate('/cars');
+
         } catch (err) {
             setError(err);
         };

@@ -6,7 +6,7 @@
     }
 
     .navbar .container {
-        margin: 0 auto;
+        margin: 20px auto;
     }
 
     .navbar.admin .nav-links a {
@@ -307,8 +307,15 @@
 /* CAR DETAILS */
 @media all and (max-width: 675px) {
     .car-details .properties-rent-form {
-        display: flex;
         flex-direction: column;
+    }
+
+    .rent-table {
+        margin-top: 20px;
+    }
+
+    .car-details .rent-table form {
+        margin: 0;
     }
 }
 

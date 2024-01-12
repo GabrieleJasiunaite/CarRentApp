@@ -23,7 +23,7 @@ const DraftCard = ({ allDrafts, draft }) => {
     };
 
     const handleDelete = (e, id) => {
-        e.target.setAttribute('disabled', true);
+        e.target.classList.add('disabled');
         e.target.parentElement.classList.add('disabled');
         deleteFromStorage(id);
     };

@@ -29,7 +29,6 @@ export const getReservations = async (req, res) => {
     } else {
         try {
             const reservations = await Reservation.find({ user_id }).sort({ dateRented: -1 });
-            console.log(reservations);
             res.status(200).json(reservations);
         } catch (err) {
             return res.status(500).send('Serverio klaida');
@@ -65,15 +64,21 @@ export const createReservation = async (req, res) => {
     };
 
     try {
-        const user = req.user._id;
-        const userObj = await User.findById(user);
-        const reservation = await Reservation.create({ ...req.body, user_id: user, email: userObj.email, status: 'pending' });
+        const userObj = await User.findById(req.user._id);
+        const reservation = await Reservation.create(
+            {
+                ...req.body,
+                user_id: req.user._id,
+                email: userObj.email,
+                status: 'pending'
+            });
         res.status(200).json(reservation);
 
     } catch (error) {
         return res.status(500).json('Serverio klaida');
     };
 };
+
 // Controller function to update an existing reservation
 export const updateReservation = async (req, res) => {
     const { id } = req.params
@@ -98,6 +103,7 @@ export const updateReservation = async (req, res) => {
         return res.status(500).json('Serverio klaida');
     };
 };
+
 // Controller function to remove a reservation by ID
 export const removeReservation = async (req, res) => {
     const { id } = req.params;

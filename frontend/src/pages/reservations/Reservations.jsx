@@ -25,16 +25,19 @@ const Reservations = () => {
                 });
 
                 if (response.status === 500) {
-                    setError('Užklausa buvo nesėkminga');
+                    setError('Serverio klaida');
                     return;
                 };
 
                 const json = await response.json();
-                if (response.ok) {
-                    setReservations(json);
-                    setIsLoading(false)
-                    setError(null);
+                if (!response.ok) {
+                    setError(json.error);
+                    return;
                 };
+
+                setReservations(json);
+                setIsLoading(false)
+                setError(null);
 
             } catch (err) {
                 setError(err);
@@ -52,6 +55,11 @@ const Reservations = () => {
                 headers: { 'Authorization': `Bearer ${user.token}` }
             });
 
+            if (response.status === 500) {
+                setError('Serverio klaida');
+                return;
+            };
+
             const json = await response.json();
 
             if (!response.ok) {
@@ -59,11 +67,10 @@ const Reservations = () => {
                 return;
             };
 
-            if (response.ok) {
-                e.target.setAttribute('hidden', true);
-                e.target.parentElement.parentElement.classList.add('disabled');
-                setError(null);
-            };
+            e.target.setAttribute('hidden', true);
+            e.target.parentElement.parentElement.classList.add('disabled');
+            setError(null);
+
         } catch (err) {
             setError(err);
         };

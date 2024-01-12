@@ -108,14 +108,26 @@ const RentACar = ({ carDetails }) => {
         <div className="rent-table">
             <form onSubmit={handleSubmit}>
                 <h3>Rezervuoti automobilį</h3>
-                <label htmlFor="from">Nuo:
-                    <DatePicker className="date" value={fromDate} onChange={value => setFromDate(value)} shouldDisableDate={disableInputs} disablePast maxDate={maxDate} /></label>
-                <label>Iki:
-                    <DatePicker className="date" value={toDate} onChange={value => setToDate(value)} shouldDisableDate={disableInputs} disablePast maxDate={maxDate} /></label>
-                <input type="checkbox" id="agreement" onClick={() => setIsChecked(!isChecked)} />
-                <label htmlFor="agreement">Sutinku su <Link to='/privacypolicy'>privatumo</Link> bei <Link to='/rentpolicy'>nuomos</Link> politika</label>
+                <label htmlFor="from">Nuo:</label>
+                <DatePicker className="date" value={fromDate} onChange={value => setFromDate(value)} shouldDisableDate={disableInputs} disablePast maxDate={maxDate} sx={{
+                    backgroundColor: "#fcfcfc",
+                    border: "1px solid #00B4D8",
+                    borderRadius: "5px",
+                    width: 250,
+                }} />
+                <label>Iki:</label>
+                <DatePicker className="date" value={toDate} onChange={value => setToDate(value)} shouldDisableDate={disableInputs} disablePast maxDate={maxDate} sx={{
+                    backgroundColor: "#fcfcfc",
+                    border: "1px solid #00B4D8",
+                    borderRadius: "5px",
+                    width: 250,
+                }} />
+                <div className="checkbox">
+                    <input type="checkbox" id="agreement" onClick={() => setIsChecked(!isChecked)} />
+                    <label htmlFor="agreement">Sutinku su <Link to='/privacypolicy'>privatumo</Link> bei <Link to='/rentpolicy'>nuomos</Link> politika</label>
+                </div>
                 {error && <div className="error">{error}</div>}
-                <button>Rezervuoti</button>
+                <button className="confirm">Rezervuoti</button>
             </form>
             {successMessage &&
                 <div className="success-bg">

@@ -18,21 +18,32 @@ import vw from "../../pictures/vw.png"
 const Home = () => {
     const [carsData, setCarsData] = useState([])
     const [showModal, setShowModal] = useState(false);
+    const [error, setError] = useState(null);
 
     //Fetches a random set of cars from the API
     useEffect(() => {
         const fetchRandomCars = async () => {
             try {
                 const response = await fetch('/api/cars');
-                if (response.ok) {
-                    const data = await response.json()
-                    const randomCars = data.sort(() => Math.random() - 0.5).slice(0, 4);
-                    setCarsData(randomCars);
-                } else {
-                    throw new Error('Failed to fetch data');
-                }
-            } catch (error) {
-                console.error('Error fetching data:', error);
+
+                if (response.status === 500) {
+                    setError('Serverio klaida');
+                    return;
+                };
+
+                const json = await response.json();
+
+                if (!response) {
+                    setError(json.error);
+                    return;
+                };
+
+                const randomCars = json.sort(() => Math.random() - 0.5).slice(0, 4);
+                setCarsData(randomCars);
+                setError(null);
+
+            } catch (err) {
+                setError(err);
             };
         };
 
@@ -65,6 +76,7 @@ const Home = () => {
             </div>
             <div className="second-container">
                 <h2>Populiariausi automobiliai</h2>
+                {error && <div className="error">{error}</div>}
                 <div className="cars-display-container">
                     {carsData.map(car => (
                         <div className="car-display-container" key={car._id}>
