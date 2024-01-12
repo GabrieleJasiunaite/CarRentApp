@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "659c291f197fcc67906b56f5"
+  },
+  "email": "bob@bob.com",
+  "password": "$2b$10$S/E5iHbaqefYx9BTJu0KlOZ8zx5ir3HDFggWGY3sIdzZhBeUZyL1a",
+  "__v": 0,
+  "isAdmin": false
+},
+{
+  "_id": {
+    "$oid": "659c36e9ac727aea38bcf033"
+  },
+  "email": "admin@admin.com",
+  "password": "$2b$10$SVrGJNzAlnTukw4LpdK7zejLOvcgEVJ8KyiN2cQs9Z//M9PbFy9/K",
+  "isAdmin": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "659c3c326e67b3f23b1b2a7e"
+  },
+  "email": "bobby@email.com",
+  "password": "$2b$10$xPWrLLXwcwcg3tYzoUzkhelZQcVQ5W0ednGuGetUNhQE1myF1cSHu",
+  "isAdmin": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "659da0787302ca5d9abaf856"
+  },
+  "email": "tara@email.com",
+  "password": "$2b$10$GnVSKDP2cyVzp43sbweLReed24qrwlJDaGpKyM1tgW9.V2LYv/LBG",
+  "isAdmin": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "659e7765f2ed9f91943c9fa7"
+  },
+  "email": "robert@email.com",
+  "password": "$2b$10$kIRBNGt7lIeNZ6NTkXJ7IuWOD9AhGcfIsx8vuN44O5y3vdc6d8ECO",
+  "isAdmin": false,
+  "__v": 0
+}]

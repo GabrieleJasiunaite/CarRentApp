@@ -1,0 +1,136 @@
+[{
+  "_id": {
+    "$oid": "65a060e5710d9704781a06f3"
+  },
+  "car_id": "65980560b127e63c89a4bbc9",
+  "carTitle": "OpelAstra Tourer",
+  "dateRented": {
+    "$date": "2024-01-10T22:00:00.000Z"
+  },
+  "dateReturned": {
+    "$date": "2024-01-17T22:00:00.000Z"
+  },
+  "user_id": "659c3c326e67b3f23b1b2a7e",
+  "email": "bobby@email.com",
+  "status": "cancelled",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a0e88dd7d8bea6b1de2698"
+  },
+  "car_id": "65980560b127e63c89a4bbc8",
+  "carTitle": "VWPolo",
+  "dateRented": {
+    "$date": "2024-01-15T22:00:00.000Z"
+  },
+  "dateReturned": {
+    "$date": "2024-01-17T22:00:00.000Z"
+  },
+  "user_id": "659c3c326e67b3f23b1b2a7e",
+  "email": "bobby@email.com",
+  "status": "completed",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a0e8e7d7d8bea6b1de26ac"
+  },
+  "car_id": "65980560b127e63c89a4bbc8",
+  "carTitle": "VW Polo",
+  "dateRented": {
+    "$date": "2024-01-20T22:00:00.000Z"
+  },
+  "dateReturned": {
+    "$date": "2024-01-23T22:00:00.000Z"
+  },
+  "user_id": "659c3c326e67b3f23b1b2a7e",
+  "email": "bobby@email.com",
+  "status": "pending",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a11be3d7d8bea6b1de28f9"
+  },
+  "car_id": "65980560b127e63c89a4bbce",
+  "carTitle": "Audi Q5",
+  "dateRented": {
+    "$date": "2024-01-13T22:00:00.000Z"
+  },
+  "dateReturned": {
+    "$date": "2024-01-17T22:00:00.000Z"
+  },
+  "user_id": "659c3c326e67b3f23b1b2a7e",
+  "email": "bobby@email.com",
+  "status": "pending",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a11c1cd7d8bea6b1de290e"
+  },
+  "car_id": "65980560b127e63c89a4bbcf",
+  "carTitle": "Mercedes BenzSLK",
+  "dateRented": {
+    "$date": "2024-01-15T22:00:00.000Z"
+  },
+  "dateReturned": {
+    "$date": "2024-01-19T22:00:00.000Z"
+  },
+  "user_id": "659da0787302ca5d9abaf856",
+  "email": "tara@email.com",
+  "status": "confirmed",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a11c3ad7d8bea6b1de2922"
+  },
+  "car_id": "65980560b127e63c89a4bbcd",
+  "carTitle": "BMW X3",
+  "dateRented": {
+    "$date": "2024-02-03T22:00:00.000Z"
+  },
+  "dateReturned": {
+    "$date": "2024-02-09T22:00:00.000Z"
+  },
+  "user_id": "659da0787302ca5d9abaf856",
+  "email": "tara@email.com",
+  "status": "pending",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a11c54d7d8bea6b1de2935"
+  },
+  "car_id": "65980560b127e63c89a4bbc9",
+  "carTitle": "OpelAstra Tourer",
+  "dateRented": {
+    "$date": "2024-01-21T22:00:00.000Z"
+  },
+  "dateReturned": {
+    "$date": "2024-01-23T22:00:00.000Z"
+  },
+  "user_id": "659e7765f2ed9f91943c9fa7",
+  "email": "robert@email.com",
+  "status": "confirmed",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a11c63d7d8bea6b1de2949"
+  },
+  "car_id": "65980560b127e63c89a4bbc7",
+  "carTitle": "BMW530",
+  "dateRented": {
+    "$date": "2024-01-30T22:00:00.000Z"
+  },
+  "dateReturned": {
+    "$date": "2024-02-02T22:00:00.000Z"
+  },
+  "user_id": "659e7765f2ed9f91943c9fa7",
+  "email": "robert@email.com",
+  "status": "pending",
+  "__v": 0
+}]

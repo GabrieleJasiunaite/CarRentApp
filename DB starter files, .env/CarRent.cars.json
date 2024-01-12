@@ -1,0 +1,210 @@
+[{
+  "_id": {
+    "$oid": "65980560b127e63c89a4bbc7"
+  },
+  "imageUrl": "https://autobanga.lt/file.php?itemId=6BmtQFb&type=thumbnail_medium&fileName=f93834738b429066b1d209738ed170a1.png",
+  "model": "530",
+  "brand": "BMW",
+  "price": 80,
+  "year": 2019,
+  "fuelType": "Dyzelinas",
+  "transmission": "Automatinė",
+  "seats": 5,
+  "body": "Sedanas"
+},
+{
+  "_id": {
+    "$oid": "65980560b127e63c89a4bbc8"
+  },
+  "imageUrl": "https://autobanga.lt/file.php?itemId=Si7Pxk&type=preview&fileName=",
+  "model": "Polo",
+  "brand": "VW",
+  "price": 35,
+  "year": 2016,
+  "fuelType": "Dyzelinas",
+  "transmission": "Automatinė",
+  "seats": 5,
+  "body": "Hečbekas"
+},
+{
+  "_id": {
+    "$oid": "65980560b127e63c89a4bbc9"
+  },
+  "imageUrl": "https://autobanga.lt/file.php?itemId=r9mtQFb&type=thumbnail_medium&fileName=Opel-Astra-Sports-Tourer-1.0-Turbo-SS-Edition-Sovereign-Silver-3.png",
+  "model": "Astra Tourer",
+  "brand": "Opel",
+  "price": 29,
+  "year": 2017,
+  "fuelType": "Dyzelinas",
+  "transmission": "Automatinė",
+  "seats": 5,
+  "body": "Universalas"
+},
+{
+  "_id": {
+    "$oid": "65980560b127e63c89a4bbca"
+  },
+  "imageUrl": "https://autobanga.lt/file.php?itemId=c3jtQFb&type=thumbnail_medium&fileName=55c86a6ab22bb.jpg",
+  "model": "Mondeo",
+  "brand": "Ford",
+  "price": 30,
+  "year": 2016,
+  "fuelType": "Dyzelinas",
+  "transmission": "Mechaninė",
+  "seats": 5,
+  "body": "Sedanas"
+},
+{
+  "_id": {
+    "$oid": "65980560b127e63c89a4bbcb"
+  },
+  "imageUrl": "https://autobanga.lt/file.php?itemId=6YitQFb&type=thumbnail_medium&fileName=Lexus-GS-hybrid-3-4-front-gallery-png2-624x437-LEX-GSH-MY16-0025.png",
+  "model": "GS 200t",
+  "brand": "Lexus",
+  "price": 69,
+  "year": 2019,
+  "fuelType": "Benzinas",
+  "transmission": "Automatinė",
+  "seats": 5,
+  "body": "Sedanas"
+},
+{
+  "_id": {
+    "$oid": "65980560b127e63c89a4bbcc"
+  },
+  "imageUrl": "https://autobanga.lt/file.php?itemId=ogjtQFb&type=thumbnail_medium&fileName=2017-CLA45-AMG-COUPE-THEME-940x600.png",
+  "model": "CLA",
+  "brand": "Mercedes Benz",
+  "price": 54,
+  "year": 2018,
+  "fuelType": "Benzinas",
+  "transmission": "Automatinė",
+  "seats": 5,
+  "body": "Kupe"
+},
+{
+  "_id": {
+    "$oid": "65980560b127e63c89a4bbcd"
+  },
+  "imageUrl": "https://autobanga.lt/file.php?itemId=ivmtQFb&type=thumbnail_medium&fileName=BBRT9Br.png",
+  "model": "X3",
+  "brand": "BMW",
+  "price": 78,
+  "year": 2018,
+  "fuelType": "Dyzelinas",
+  "transmission": "Automatinė",
+  "seats": 5,
+  "body": "Visureigis"
+},
+{
+  "_id": {
+    "$oid": "65980560b127e63c89a4bbce"
+  },
+  "imageUrl": "https://autobanga.lt/file.php?itemId=OmotQFb&type=thumbnail_medium&fileName=01.jpg",
+  "model": "Q5",
+  "brand": "Audi",
+  "price": 78,
+  "year": 2020,
+  "fuelType": "Dyzelinas",
+  "transmission": "Automatinė",
+  "seats": 5,
+  "body": "Visureigis"
+},
+{
+  "_id": {
+    "$oid": "65980560b127e63c89a4bbcf"
+  },
+  "imageUrl": "https://autobanga.lt/file.php?itemId=Lr7Pxk&type=thumbnail_medium&fileName=Untitled.jpg",
+  "model": "SLK",
+  "brand": "Mercedes Benz",
+  "price": 84,
+  "year": 2015,
+  "fuelType": "Benzinas",
+  "transmission": "Automatinė",
+  "seats": 2,
+  "body": "Kabrioletas"
+},
+{
+  "_id": {
+    "$oid": "65980560b127e63c89a4bbd0"
+  },
+  "imageUrl": "https://autobanga.lt/file.php?itemId=lHotQFb&type=thumbnail_medium&fileName=1.png",
+  "model": "X5",
+  "brand": "BMW",
+  "price": 160,
+  "year": 2021,
+  "fuelType": "Dyzelinas",
+  "transmission": "Automatinė",
+  "seats": 5,
+  "body": "Visureigis"
+},
+{
+  "_id": {
+    "$oid": "65980560b127e63c89a4bbd1"
+  },
+  "imageUrl": "https://autobanga.lt/file.php?itemId=FYitQFb&type=thumbnail_medium&fileName=CRV-VTiL-ADAS-Rear.png",
+  "model": "CR-V",
+  "brand": "Honda",
+  "price": 42,
+  "year": 2016,
+  "fuelType": "Dyzelinas",
+  "transmission": "Automatinė",
+  "seats": 5,
+  "body": "Visureigis"
+},
+{
+  "_id": {
+    "$oid": "65980560b127e63c89a4bbd2"
+  },
+  "imageUrl": "https://autobanga.lt/file.php?itemId=Bv6Pxk&type=thumbnail_medium&fileName=new_2014_chrysler_town_country_touring_100268966646320346.jpg",
+  "model": "Grand Voyager",
+  "brand": "Chrysler",
+  "price": 56,
+  "year": 2017,
+  "fuelType": "Dyzelinas",
+  "transmission": "Automatinė",
+  "seats": 7,
+  "body": "Vienatūris"
+},
+{
+  "_id": {
+    "$oid": "65980560b127e63c89a4bbd3"
+  },
+  "imageUrl": "https://autobanga.lt/file.php?itemId=QAktQFb&type=thumbnail_medium&fileName=vivaro1.png",
+  "model": "Vivaro",
+  "brand": "Opel",
+  "price": 64,
+  "year": 2017,
+  "fuelType": "Dyzelinas",
+  "transmission": "Mechaninė",
+  "seats": 9,
+  "body": "Vienatūris"
+},
+{
+  "_id": {
+    "$oid": "65980560b127e63c89a4bbd4"
+  },
+  "imageUrl": "https://autobanga.lt/file.php?itemId=VNntQFb&type=thumbnail_medium&fileName=kangoo-maxi-ze33-evchargeplus-00-1-1-1024x680.png",
+  "model": "Kangoo",
+  "brand": "Renault",
+  "price": 28,
+  "year": 2016,
+  "fuelType": "Dyzelinas",
+  "transmission": "Mechaninė",
+  "seats": 2,
+  "body": "Krovininis"
+},
+{
+  "_id": {
+    "$oid": "65980560b127e63c89a4bbd5"
+  },
+  "imageUrl": "https://autobanga.lt/file.php?itemId=JvitQFb&type=thumbnail_medium&fileName=Daily.jpg",
+  "model": "Daily",
+  "brand": "Iveco",
+  "price": 52,
+  "year": 2018,
+  "fuelType": "Dyzelinas",
+  "transmission": "Mechaninė",
+  "seats": 3,
+  "body": "Krovininis"
+}]
